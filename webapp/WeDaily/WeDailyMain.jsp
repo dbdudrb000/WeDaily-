@@ -8,43 +8,25 @@
 <title>WeDaily Home Page</title>
 <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 
+<!-- 상단 메뉴바 css -->
+<link rel="stylesheet" type="text/css" href="/resources/css/wedaily/topMenu.css">
 
 <link href="js/calendar/fullcalendar.css" />
 <script src="js/common/jquery-ui.js"></script>
 <script src="js/calendar/moment.min.js"></script>
 <script src="js/calendar/fullcalendar.js"></script>
 <style>
-	ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-color: #333;
+	
+	 .link {
+		text-decoration:none;
+		color : #646464;
 	}
-	ul:after{
-	    content:'';
-	    display: block;
-	    clear:both;
-	}
-	li {
-	    float: right;
-	}
-	li a {
-	    display: block;
-	    color: white;
-	    text-align: center;
-	    padding: 14px 16px;
-	    text-decoration: none;
-	}
-	li a:hover:not(.active) {
-	    background-color: #111;
-	}
-	.logo{
-		float: center;
-	}
+	
+	
 	
 	/* 영화순위 CSS */
 	.content {
-  	 	height: 100%;
+  	 	/* height: 100%; */
  	 	font-family: monospace;
 	}
 	
@@ -59,13 +41,13 @@
 	}
 	
 	.ranking-title {
-		font-size: 2rem;
+		font-family: cursive;		
 	}
 	
 	.table-ranking {
-	    font-size: 1rem;
+	    /* font-size: 1rem; */
 	    border-collapse: collapse;
-	    width: 101%;
+	    /* width: 101%; */
 	    border: ridge;
 	    -webkit-text-stroke: medium;
 	}
@@ -215,11 +197,19 @@ input:-moz-placeholder {
 	<nav>
 		<ul>
 			
-	      <li><a href="#news"></a></li>
-	      <li><a href="#">회원가입</a></li>
-	      <li><a href="#about">로그인</a></li>
-	      <li><a class="active" href="#home">Home</a></li>
-	      </h3><li class = "logo" style = "color: antiquewhite; margin: 10px; margin-right: 31%; font-size: 23px;">WeDaily</li>
+			<c:if test = "${loginList.userid == null }">
+				<li><a href="#news"></a></li>
+				<li><a href="/WeDailyJoinView">로그인 | 회원가입</a></li>
+				<li><a class="active" href="/move2">Home</a></li>
+				</h3><li class = "logo" style = "color: antiquewhite; margin: 10px; margin-right: 31%; font-size: 23px;">WeDaily</li>
+	    	</c:if>
+	    	<c:if test = "${loginList.userid != null}">
+		    	<li><a href="#news"></a></li>
+				<li><a href = "#">${loginList.userid}님!</a></li>
+				<li><a class="active" href="/move2">Home</a></li>
+				</h3><li class = "logo" style = "color: antiquewhite; margin: 10px; margin-right: 31%; font-size: 23px;">WeDaily</li>	
+	    	</c:if>
+	    	
 	    </ul>
 	</nav>
 	
@@ -250,7 +240,9 @@ input:-moz-placeholder {
       <c:forEach var = "rank" items = "${rankArr}">
 	      <tr class="table-ranking-content">
 	        <td>${rank.rank}</td>
-	        <td>${rank.movieNm}</td>
+	        <td>
+	        	<a class = "link" href = "https://search.naver.com/search.naver?sm=top_sug.pre&fbm=1&acr=1&acq=%EC%82%B4&qdt=0&ie=utf8&query=${rank.movieNm}">${rank.movieNm}</a>
+	        </td>																																	
 	        <td>${rank.openDt}</td>
 	        <td>${rank.audiCnt}명</td>
 	        <td>${rank.audiAcc}명</td>
