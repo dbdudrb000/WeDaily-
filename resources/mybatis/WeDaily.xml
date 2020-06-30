@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "collabo.wato.springboot.web.WeDaily.mapper.WeDailyMapper">
+	
+	<!-- 회원가입 -->
+	<insert id = "insertUser" parameterType = "collabo.wato.springboot.web.WeDaily.vo.WeDailyVO">
+		INSERT INTO "Wedaily".members (
+			userid		, 
+			userpw		, 
+			nickname	, 
+			phone		, 
+			use			, 
+			createdt	,  
+			movelike
+		)
+		VALUES
+		(
+			#{userid}		, 
+			#{userpW}		, 
+			#{nickname}		, 
+			#{phone}		, 
+			'Y'				, 
+			now()			, 
+			0
+		);
+	</insert>
+	
+	<select id = "selectUser" parameterType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO" resultType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO">
+		SELECT 
+				userid 		,
+				userpw		,
+				nickname 	,
+				phone 		,
+				use 		,
+				createDt 	,
+				moveLike 	
+		FROM "Wedaily"."members"
+		<where>
+			<if test = "userid != null and userid != ''">
+				AND userid = #{userid} 
+			</if>
+			<if test = "userpw != null and userpw != ''">
+				AND userpw = #{userpw}
+			</if>			
+		</where>	
+		
+	</select>
+						
+
+</mapper>
