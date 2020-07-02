@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import collabo.wato.springboot.web.WeDaily.service.WeDailyService;
 import collabo.wato.springboot.web.WeDaily.vo.WeDailyVO;
 
+
 @Controller
 public class WeDailyController {
 	
