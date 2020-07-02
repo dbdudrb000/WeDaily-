@@ -2,26 +2,32 @@ package collabo.wato.springboot.web.WeDaily;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.parser.ParseException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import collabo.wato.springboot.web.WeDaily.service.WeDailyService;
 import collabo.wato.springboot.web.WeDaily.vo.WeDailyVO;
 
 @Controller
 public class WeDailyController {
 	
+	@Autowired
+	WeDailyService service;
 	
 	public static StringBuilder sb;//
 	  
@@ -32,9 +38,11 @@ public class WeDailyController {
 	        return dataSplit2[0];
 	    }
 
-	
+	    // 영화검색 Controller
 		@RequestMapping("/moveselect")
 	    public String mone2(HttpServletRequest request, HttpServletResponse response) throws ParseException {
+			response.setContentType("text/html; charset=UTF-8");
+			
 	    	String monetitle = request.getParameter("search");
 	    	
 	    	String clientId = "aEcAqL0ijo1Ekkj9Mfrr";
@@ -73,6 +81,7 @@ public class WeDailyController {
 	            String data = sb.toString();
 	            String[] array;
 	            array = data.split("\"");
+	            
 	            String[] title = new String[display];
 	            String[] link = new String[display];
 	            String[] image = new String[display];
@@ -125,18 +134,27 @@ public class WeDailyController {
 	            	
 	            	j++;
 	            }
-	          
+	            
+	            if(title[0] == null) {
+	            	System.out.println("값이 없음.");
+	            	PrintWriter out = response.getWriter();
+	        		out.println("<script>alert('검색된 영화가 없습니다.');</script>");
+	        		out.flush();
+	        		return "forward:/move2";
+	            }
+	           
 	        } catch (Exception e) {
 	            System.out.println(e);
 	        }
-	        
-	        request.setAttribute("titleArr",titleArr);
-			return "/main/WeDaily/moveResult";
+	       
+            	request.setAttribute("titleArr",titleArr);
+            	return "/main/WeDaily/moveResult";
+            
 		}
 	
 
 
-		// 페이지 이동
+		// 페이지 이동 ( 영화순위 가져오는 API )
 	    @RequestMapping("/move2")
 	    public String move2(HttpServletRequest request, HttpServletResponse response)throws Exception {
 	    	 
@@ -211,11 +229,13 @@ public class WeDailyController {
 	            }
 	            System.out.println("여기까지옴?");
 				for(int y = 0; y < rank.length; ) {
-					            	
+					 	
 	            	System.out.println("rank >> " +rank[y]);
 	            	System.out.println("movieNm >> " +movieNm[y]);
 	            	System.out.println("openDt >> " +openDt[y]);
-	            	       
+	            	
+	            	movieNm[y] = movieNm[y].replaceAll("\\#", "");
+	            	
 	            	vo.setRank(rank[y]);
 	            	vo.setMovieNm(movieNm[y]);
 	            	vo.setOpenDt(openDt[y]);
@@ -232,12 +252,66 @@ public class WeDailyController {
 	        } catch (Exception e) {
 	            System.out.println(e);
 	        }
-	        	request.setAttribute("rankArr",rankArr);
+	        
+	        request.setAttribute("rankArr",rankArr);
+	        
 	    	return "/main/WeDaily/WeDailyMain";
 	    }
-		
-		
-		
-	
-
+	    
+	    // 로그인 or 회원가입 하는 페이지 이동
+	    @RequestMapping("/WeDailyJoinView")
+	    public String memberJoin(HttpServletRequest request, HttpServletResponse response) {
+	    	
+	    	return "/main/WeDaily/login/WeDailyJoin";
+	    }
+	    
+	    // 회원가입 하는 Controller
+	    @RequestMapping("/WeDailyjoinLogic")
+	    public String join(HttpServletRequest request, HttpServletResponse response)throws Exception {
+	    	WeDailyVO vo = new WeDailyVO();
+	    	
+	    	String id = request.getParameter("id");
+	    	String password = request.getParameter("password");
+	    	String nickname = request.getParameter("nickname");
+	    	String phone = request.getParameter("phone");
+	    	
+	    	vo.setUserid(id);
+	    	vo.setUserpw(password);
+	    	vo.setNickname(nickname);
+	    	vo.setPhone(phone);
+	    	
+	    	service.insertUser(vo);
+	    	
+	    	return "redirect:/move2";
+	    }
+	    
+	    // 로그인 로직 Controller
+	    @RequestMapping("/WeDailyLoginLogic")
+	    public String loginlogic(HttpServletRequest request, HttpServletResponse response, WeDailyVO vo, HttpSession session) throws Exception {
+	    
+	    	String loginId = request.getParameter("loginId");
+	    	String loginPw = request.getParameter("loginPw");
+	    	
+	    	vo.setUserid(loginId);
+	    	vo.setUserpw(loginPw);
+	    	
+	    	List<WeDailyVO> loginList = service.selectUser(vo);
+	    	
+	    	session.setAttribute("loginList", loginList.get(0));
+	    	
+	    	return "forward:/move2";
+	    }
+	    
+	    // 로그아웃 하는 Controller
+	    @RequestMapping("/WeDailyLogout")
+	    public String logout(HttpServletRequest request, HttpServletResponse response, WeDailyVO vo, HttpSession session) {
+	    	
+	    	session.invalidate();    	
+	    	
+	    	return "redirect:/move2";
+	    }
+	    
+	    
+	    
+	    
 }
