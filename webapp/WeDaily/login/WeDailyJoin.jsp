@@ -9,6 +9,8 @@
 
 	<!-- 상단 메뉴바 css -->
 	<link rel="stylesheet" type="text/css" href="/resources/css/wedaily/topMenu.css">
+	<!-- 모달 css -->
+	<link rel="stylesheet" type="text/css" href="/resources/css/wedaily/modal.css">
 
 	<!-- Jquery -->
 	<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
@@ -173,7 +175,7 @@ input {
 
 .signIn input,
 .signUp .w100 {
-	width: 100%;
+	/* width: 100%; */
 }
 
 .signIn{
@@ -286,31 +288,50 @@ input {
 	      <li><a href="#news"></a></li>
 	      <li><a href="/WeDailyJoinView">로그인 | 회원가입</a></li>
 	      <li><a class="active" href="/move2">Home</a></li>
-	      </h3><li class = "logo" style = "color: antiquewhite; margin: 10px; margin-right: 31%; font-size: 23px;">WeDaily</li>
+	      </h3><li class = "logo" style = "color: antiquewhite; margin: 10px; margin-right: 27%; font-size: 23px;">WeDaily</li>
 	    </ul>
 	</nav>
    
 	<div class="container">
-		<form class="signUp" name = "joinform" action = "/WeDailyjoinLogic">
+		<form class="signIn" name = "loginform"action = "/WeDailyLoginLogic">
 			<h3>회원가입</h3>
 				<input class="w100" type="text" placeholder="아이디" id = "id" name = "id" reqired/>
 				<input type="text" placeholder="닉네임" id = "nick" name = "nickname" reqired />
 				<input type="text" placeholder="비밀번호" id = "pw1" name = "password" reqired />
 				<input type="text" placeholder="비밀번호 재확인" id = "pw2"reqired />
-				<input type="text" placeholder="휴대폰 번호' - '제외" id = "phoneId" name = "phone" maxlength="11" reqired />
-				<button class="form-btn sx log-in" type="button">Log In</button>
+				<input type="number" placeholder="휴대폰 번호' - '제외" id = "phoneId" name = "phone" maxlength="11" reqired />
+				<input type = "button" value = "인증번호 받기" onclick = "modal()" class="modal-trigger" id = "mm" data-modal="modal-name">
+				
+				<button class="form-btn sx back" type="button">Log In</button>
 				<button class="form-btn dx" type = "button"onclick = "join()">Sign Up</button>
 		</form>
-		<form class="signIn" name = "loginform"action = "/WeDailyLoginLogic">
+		<form class="signUp" name = "joinform" action = "/WeDailyjoinLogic">
 			<h3>로그인</h3>
 			<button class="fb" type="button" onclick = "alert('서비스준비중.')">Log In With Facebook</button>
 			<p>- or -</p>
 			<input type="text" placeholder="ID 입력" name = "loginId" reqired />
 			<input type="text" placeholder="password 입력" name = "loginPw" reqired />
-			<button class="form-btn sx back" type="button">Back</button>
+			<button class="form-btn sx log-in" type="button">Join</button>
 			<button class="form-btn dx" type="button" onclick = "login()">Log In</button>
 		</form>
+		</form>		
 	</div>
+	
+		<!-- Modal -->
+		<div class="modal" id="modal-name" style = "display: none;">
+		  <div class="modal-sandbox"></div>
+			  <div class="modal-box">
+			    <div class="modal-header">
+			      <div class="x-modal" style = "text-align : right; cursor: pointer;">&#10006;</div> 
+			      <h1>휴대폰 인증</h1>
+			    </div>
+			    <div class="modal-body">
+			      <input type = "text" id = "modalText">	      
+			      <button class="close-modal" onclick = "smsConfirm()">인증하기</button>
+			    </div>
+			  </div>
+		</div>
+	
    
    <script>
    /* codepen import */
@@ -327,6 +348,13 @@ input {
 		$(".signIn").removeClass("active-dx");
 		$(".signUp").removeClass("inactive-sx");
 	});
+	
+	$(".x-modal, .modal-sandbox").click(function(){
+		  $(".modal").css({"display":"none"});
+		  // $("body").css({"overflow-y": "auto"}); //Prevent double scrollbar.
+		});
+	
+	
    
 	function join(){	
 		var id = document.getElementById("id").value;
@@ -354,6 +382,122 @@ input {
 			loginform.submit();
 		}
 	}
+	
+
+		/* 모달 javascript */
+	function modal(){
+			var modalVal = $("#phoneId").val();
+			
+		if(modalVal == ""){
+			alert("휴대폰 번호를 입력해주세요.");
+		}else{	
+			
+			// XMLHttpRequest 객체의 생성
+			const xhr = new XMLHttpRequest();
+			// 비동기 방식으로 Request를 오픈한다
+			xhr.open('POST', '/smsStart', true);
+			// 클라이언트가 서버로 전송할 데이터의 MIME-type 지정: json
+			xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+			xhr.onload = function (e) {
+			  if (xhr.readyState === 4) {
+			    if (xhr.status === 200) {
+			    	debugger;			    	
+			   	
+			    	/* 모달창 여는 코드  */
+			    	var modalStyle = document.getElementById("modal-name");
+			    	modalStyle.style.display = 'block';
+			    	
+			    	/* 모달 창 여는 코드 */
+			    	/*$(".modal-trigger").ready(function(e){
+						  //e.preventDefault();
+						  alert("정식님 만세");
+						  dataModal = $(this).attr("data-modal");						  
+						  $("#" + dataModal).css({"display":"block"});
+						  // $("body").css({"overflow-y": "hidden"}); //Prevent double scrollbar.
+						});   */
+			    			    	
+			    	alert("전송되었습니다.");
+			      console.log(xhr.responseText);
+			    } else {
+			    	alert("전송에 실패하였습니다. \n(문의 번호 : 1588-9999).");
+			  	
+			    	debugger;
+			      console.error(xhr.statusText);
+			    }
+			  }
+			};
+			
+			xhr.onerror = function (e) {
+			  console.error(xhr.statusText);
+			};
+			
+			const data = { phone : $("#phoneId").val() };
+				xhr.send(JSON.stringify(data));
+			 }
+		
+		}
+	
+	
+	function smsConfirm(){
+
+		if($("#modalText").val() == ""){
+			alert("값을 입력해주세요.");
+		}
+			
+		// XMLHttpRequest 객체의 생성
+		const xhr = new XMLHttpRequest();
+		// 비동기 방식으로 Request를 오픈한다
+		xhr.open('POST', '/smsconfirm', true);
+		// 클라이언트가 서버로 전송할 데이터의 MIME-type 지정: json
+		xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+		xhr.onload = function (e) {
+		  if (xhr.readyState === 4) {
+		    if (xhr.status === 200) {
+		    	debugger;
+		    	
+		    	var use = JSON.parse(xhr.responseText);
+		    	console.log("use >> " + use);
+		    	
+		    	if(use.start){
+		    		alert("인증 되었습니다.");	
+		    		
+		    		/* 인증완료 시 모달창 닫는 코드 */
+		    		var modalStyle = document.getElementById("modal-name");
+			    	modalStyle.style.display = 'none';
+		    		
+		    		/* 
+		    		$(".close-modal, .modal-sandbox").on(function(){
+			  			  $(".modal").css({"display":"none"});
+			  			  // $("body").css({"overflow-y": "auto"}); //Prevent double scrollbar.
+			  			});	 */
+		    	}else{
+		    		
+		    		alert("인증 실패하였습니다.");
+		
+		      console.log(xhr.responseText);
+		    } 
+		    	debugger;
+		      console.error(xhr.statusText);
+		    
+		  }else{
+			  alert('');
+		  }
+		}
+	};
+		
+		xhr.onerror = function (e) {
+		  console.error(xhr.statusText);
+		};
+		
+		const data = { phone_number : $("#phoneId").val()      ,                 
+	 	   	   	   	   confirm      : $("#modalText").val()    	 	   	   	   
+		 	 	 	 };
+		xhr.send(JSON.stringify(data));
+		}
+		
+		
 	
    </script>
    
