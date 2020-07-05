@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
@@ -15,14 +16,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.compress.utils.IOUtils;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import collabo.wato.springboot.web.WeDaily.service.WeDailyService;
 import collabo.wato.springboot.web.WeDaily.vo.WeDailyVO;
-
 
 @Controller
 public class WeDailyController {
@@ -39,7 +41,7 @@ public class WeDailyController {
 	        return dataSplit2[0];
 	    }
 
-	    // 영화검색 Controller
+	    // 영화검색 Controller 네이버 API
 		@RequestMapping("/moveselect")
 	    public String mone2(HttpServletRequest request, HttpServletResponse response) throws ParseException {
 			response.setContentType("text/html; charset=UTF-8");
@@ -48,7 +50,7 @@ public class WeDailyController {
 	    	
 	    	String clientId = "aEcAqL0ijo1Ekkj9Mfrr";
 	        String clientSecret = "JsY0vYGSGy";
-	        int display = 10;
+	        int display = 1;
 	        
 	        WeDailyVO vo = new WeDailyVO();
 	 
@@ -78,7 +80,7 @@ public class WeDailyController {
 	 
 	            br.close();
 	            con.disconnect();
-	            //System.out.println(sb); 
+	            System.out.println(sb); 
 	            String data = sb.toString();
 	            String[] array;
 	            array = data.split("\"");
@@ -155,7 +157,7 @@ public class WeDailyController {
 	
 
 
-		// 페이지 이동 ( 영화순위 가져오는 API )
+		// 페이지 이동 ( 영화순위 가져오는 API ) 영화진흥회 API
 	    @RequestMapping("/move2")
 	    public String move2(HttpServletRequest request, HttpServletResponse response)throws Exception {
 	    	 
@@ -271,18 +273,19 @@ public class WeDailyController {
 	    public String join(HttpServletRequest request, HttpServletResponse response)throws Exception {
 	    	WeDailyVO vo = new WeDailyVO();
 	    	
-	    	String id = request.getParameter("id");
+	    	String id = request.getParameter("idName");
 	    	String password = request.getParameter("password");
 	    	String nickname = request.getParameter("nickname");
 	    	String phone = request.getParameter("phone");
 	    	
+	    	System.out.println("id >> " + id);
 	    	vo.setUserid(id);
 	    	vo.setUserpw(password);
 	    	vo.setNickname(nickname);
 	    	vo.setPhone(phone);
 	    	
 	    	service.insertUser(vo);
-	    	
+	    	System.out.println("메인 간다");
 	    	return "redirect:/move2";
 	    }
 	    
@@ -293,6 +296,7 @@ public class WeDailyController {
 	    	String loginId = request.getParameter("loginId");
 	    	String loginPw = request.getParameter("loginPw");
 	    	
+	    	System.out.println("loginId >> " + loginId);
 	    	vo.setUserid(loginId);
 	    	vo.setUserpw(loginPw);
 	    	
@@ -312,7 +316,22 @@ public class WeDailyController {
 	    	return "redirect:/move2";
 	    }
 	    
-	    
+	    // 로컬 이미지 불러오는 Controller
+	    @RequestMapping("/WeDailyimg")
+		@ResponseBody
+	    public void WeDailyimg(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	    	
+	    	String path = request.getParameter("path");
+	    	System.out.println("path >> " + path);
+	    	
+	    	StringBuilder sb = new StringBuilder();
+	    	
+	    	sb = new StringBuilder("file:C:\\Users\\dbdud\\Desktop\\이미지\\" + path);
+	    	
+	    	URL fileUrl = new URL(sb.toString());
+			IOUtils.copy(fileUrl.openStream(), response.getOutputStream());
+	    	
+	    }
 	    
 	    
 }
