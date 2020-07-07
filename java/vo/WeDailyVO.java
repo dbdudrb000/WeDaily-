@@ -26,12 +26,67 @@ public class WeDailyVO {
 	private String audiCnt = "";
 	private String audiAcc = "";
 		
-	// 영화검색 
+	// 영화검색 ( 2개의 API를 같이 쓸예정 )
 	private String title = "";
 	private String actor = "";
 	private String image = "";
-		
-	 
+	private String move_state= "";
+	private String move_genre= "";
+	private String move_country= "";
+	private String move_time= "";
+	private String move_open= "";
+	private String move_rating= "";
+	private String move_code= "";
+	private String move_link= "";
+	
+	public String getMove_state() {
+		return move_state;
+	}
+	public void setMove_state(String move_state) {
+		this.move_state = move_state;
+	}
+	public String getMove_genre() {
+		return move_genre;
+	}
+	public void setMove_genre(String move_genre) {
+		this.move_genre = move_genre;
+	}
+	public String getMove_country() {
+		return move_country;
+	}
+	public void setMove_country(String move_country) {
+		this.move_country = move_country;
+	}
+	public String getMove_time() {
+		return move_time;
+	}
+	public void setMove_time(String move_time) {
+		this.move_time = move_time;
+	}
+	public String getMove_open() {
+		return move_open;
+	}
+	public void setMove_open(String move_open) {
+		this.move_open = move_open;
+	}
+	public String getMove_rating() {
+		return move_rating;
+	}
+	public void setMove_rating(String move_rating) {
+		this.move_rating = move_rating;
+	}
+	public String getMove_code() {
+		return move_code;
+	}
+	public void setMove_code(String move_code) {
+		this.move_code = move_code;
+	}
+	public String getMove_link() {
+		return move_link;
+	}
+	public void setMove_link(String move_link) {
+		this.move_link = move_link;
+	}
 	
 	public String getUserid() {
 		return userid;
