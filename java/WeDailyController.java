@@ -96,7 +96,7 @@ public class WeDailyController {
 	            while ((line = lineReader.readLine()) != null) {
 	                responseBody.append(line);
 	            }
-	            System.out.println("readBody >> " + responseBody.toString());
+	            System.out.println("readBody >>> " + responseBody.toString());
 	            return responseBody.toString();
 	        } catch (IOException e) {
 	            throw new RuntimeException("API 응답을 읽는데 실패했습니다.", e);
@@ -109,6 +109,8 @@ public class WeDailyController {
 	  // 영화검색 Controller 네이버 API
 		    @RequestMapping("/moveselect")
 		    public String test(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		    	// 검색실패 시 팝업창 인코딩을 위해 설정.
+		    	response.setContentType("text/html; charset=UTF-8");
 		    	
 		    	String monetitle = request.getParameter("search");
 		    	
@@ -116,7 +118,7 @@ public class WeDailyController {
 		        String clientSecret = "JsY0vYGSGy"; //애플리케이션 클라이언트 시크릿값"
 		         
 		         int display = 1;
-		         //String text = URLEncoder.encode("부산행", "utf-8");
+		        
 		         String text = null;
 		         try {
 		             text = URLEncoder.encode(monetitle, "UTF-8");
@@ -136,6 +138,7 @@ public class WeDailyController {
 		         System.out.println("responseBody,toString >> " + responseBody.toString());
 		         System.out.println("JSONParser >> " + apiURL);
 		         try {
+		        	 
 		         JSONParser parser = new JSONParser(); 	         
 		         JSONObject jsonObj = (JSONObject) parser.parse(responseBody);	         
 		         JSONArray personArray = (JSONArray) jsonObj.get("items");
@@ -162,20 +165,26 @@ public class WeDailyController {
 				naverMove.add(vo);
 				vo = new WeDailyVO();				
 				}
-					System.out.println("link >> " + naverMove.get(0).getMove_link());
-					System.out.println("rating >> " + naverMove.get(0).getMove_rating());
+					
+				if(naverMove.isEmpty()) {
+					PrintWriter out = response.getWriter();
+ 	        		out.println("<script>alert('검색된 영화가 없습니다.');</script>");
+ 	        		out.flush();
+				}else {
 					request.setAttribute("naverMove",naverMove);
+					return "/main/WeDaily/moveResult";
+				}							
 					
 		        }catch(Exception e) {
 					System.out.println("error: " + e);
 				}       	        	   
 			
-	    	return "/main/WeDaily/moveResult";
+		         return "forward:/move";
 		         
 		    }
 	    
 		// 페이지 이동 ( 영화순위 가져오는 API ) 영화진흥회 API
-	    @RequestMapping("/move2")
+	    @RequestMapping("/move")
 	    public String move2(HttpServletRequest request, HttpServletResponse response)throws Exception {
 	    	 
 	        int display = 10;
@@ -190,7 +199,7 @@ public class WeDailyController {
 
 	        String time = date.format(today);
 	        int Yesterday = Integer.parseInt(time) - 1;  
-	    
+	        System.out.println("Yesterday >> " + Yesterday);
 	        try {
 	            //String text = URLEncoder.encode(monetitle, "utf-8");
 	            String apiURL = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=bb67dec08a2eae9eec1bdcc1328fcbce&targetDt=" + Yesterday;
@@ -275,7 +284,44 @@ public class WeDailyController {
 	        
 	        request.setAttribute("rankArr",rankArr);
 	        
-	    	return "/main/WeDaily/WeDailyMain";
+	        
+	        // 주간 영화 순위 가져오는 로직 @@@@
+	        try {	         
+	        	Yesterday -= 1; 
+	        	System.out.println("Yesterday >> " + Yesterday);
+		         String juganURL = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=bb67dec08a2eae9eec1bdcc1328fcbce"+"&weekGb=0"+"&targetDt="+Yesterday ;    // json 결과	         
+		        
+		         Map<String, String> requestHeaders = new HashMap<>();																																
+		         String responseBody = get(juganURL,requestHeaders);
+		         
+		         JSONParser parser = new JSONParser(); 	    
+		         
+		         JSONObject jsonObj = (JSONObject) parser.parse(responseBody);
+		         JSONObject result = (JSONObject) jsonObj.get("boxOfficeResult");		         
+		         
+		         JSONArray personArray = (JSONArray) result.get("weeklyBoxOfficeList");
+		        
+		         
+		         System.out.println("주간 영화 >> " +responseBody);
+		         System.out.println("personArray 길이 >> " + personArray.toString());
+		         					         
+		         for (int i = 0; i < personArray.size(); i++) {
+						
+					System.out.println("======== person : " + i + " ========");
+					JSONObject personObject = (JSONObject) personArray.get(i);
+					System.out.println("rank >> " + personObject.get("rank"));
+					System.out.println("openDt >> " + personObject.get("openDt"));
+									
+				}
+	        }catch(Exception e) {
+	        	System.out.println("error >> "+ e);
+	        }
+	          
+	   
+	          // 수정전 메인화면 
+	    	//return "/main/WeDaily/WeDailyMain";
+	        
+	        return "/main/test2";
 	    }
 	    
 	    // 로그인 or 회원가입 하는 페이지 이동
@@ -302,14 +348,15 @@ public class WeDailyController {
 	    	vo.setPhone(phone);
 	    	
 	    	service.insertUser(vo);
-	    	System.out.println("메인 간다");
-	    	return "redirect:/move2";
+
+	    	return "redirect:/move";
 	    }
 	    
 	    // 로그인 로직 Controller
 	    @RequestMapping("/WeDailyLoginLogic")
 	    public String loginlogic(HttpServletRequest request, HttpServletResponse response, WeDailyVO vo, HttpSession session) throws Exception {
-	    
+	    	response.setContentType("text/html; charset=UTF-8");
+	    	
 	    	String loginId = request.getParameter("loginId");
 	    	String loginPw = request.getParameter("loginPw");
 	    	
@@ -319,18 +366,28 @@ public class WeDailyController {
 	    	
 	    	List<WeDailyVO> loginList = service.selectUser(vo);
 	    	
-	    	session.setAttribute("loginList", loginList.get(0));
-	    	
-	    	return "forward:/move2";
+	    	if(loginList.isEmpty()) {
+	    		PrintWriter out = response.getWriter();
+        		out.println("<script>alert('로그인에 실패하였습니다.');</script>");
+        		out.flush();
+        		
+        		return "forward:/move";
+	    	}else {
+	    		session.setAttribute("loginList", loginList.get(0));
+		    	
+		    	return "redirect:/move";
+	    	}
+	    		
 	    }
 	    
 	    // 로그아웃 하는 Controller
 	    @RequestMapping("/WeDailyLogout")
-	    public String logout(HttpServletRequest request, HttpServletResponse response, WeDailyVO vo, HttpSession session) {
+	    public String logout(HttpServletRequest request, HttpServletResponse response, WeDailyVO vo, HttpSession session) throws Exception {
+	    		    	
+	    	session.invalidate();   
+	    	    	   		
+    		return "forward:/move";
 	    	
-	    	session.invalidate();    	
-	    	
-	    	return "redirect:/move2";
 	    }
 	    
 	    // 로컬 이미지 불러오는 Controller
@@ -460,7 +517,7 @@ public class WeDailyController {
 	 	            	PrintWriter out = response.getWriter();
 	 	        		out.println("<script>alert('검색된 영화가 없습니다.');</script>");
 	 	        		out.flush();
-	 	        		return "forward:/move2";
+	 	        		return "forward:/move";
 	 	            }
 	 	           
 	 	        } catch (Exception e) {

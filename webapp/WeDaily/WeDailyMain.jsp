@@ -8,6 +8,8 @@
 <title>WeDaily Home Page</title>
 <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 
+
+
 <!-- 상단 메뉴바 css -->
 <link rel="stylesheet" type="text/css" href="/resources/css/wedaily/topMenu.css">
 
@@ -24,8 +26,108 @@
 	
 	
 	
+	
+	/* 순위판 게시글 CSS 테스트 */
+	 	table {
+		background: #aaa;
+		border-collapse: separate;
+		box-shadow: inset 0 1px 0 #fff;
+		font-size: 12px;
+		margin: 30px auto;
+		text-align: left;
+		width: 310px;
+		margin-top:-3%;
+		margin-left: 3%;
+	}	
+	
+	th {
+		background: url(https://jackrugile.com/images/misc/noise-diagonal.png), linear-gradient(#777, #444);
+		border-left: 1px solid #555;
+		border-right: 1px solid #777;
+		border-top: 1px solid #555;
+		border-bottom: 1px solid #333;
+		box-shadow: inset 0 1px 0 #999;
+		color: #fff;
+	  font-weight: bold;
+		padding: 10px 15px;
+		position: relative;
+		text-shadow: 0 1px 0 #000;	
+	}
+	
+	th:after {
+		background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));
+		content: '';
+		display: block;
+		height: 25%;
+		left: 0;
+		margin: 1px 0 0 0;
+		position: absolute;
+		top: 25%;
+		width: 100%;
+	}
+	
+	th:first-child {
+		border-left: 1px solid #777;	
+		box-shadow: inset 1px 1px 0 #999;
+	}
+	
+	th:last-child {
+		box-shadow: inset -1px 1px 0 #999;
+	}
+	
+	td {
+		border-right: 1px solid #fff;
+		border-left: 1px solid #e8e8e8;
+		border-top: 1px solid #fff;
+		border-bottom: 1px solid #e8e8e8;
+		padding: 10px 15px;
+		position: relative;
+		transition: all 300ms;
+	}
+	
+	td:first-child {
+		box-shadow: inset 1px 0 0 #fff;
+	}	
+	
+	td:last-child {
+		border-right: 1px solid #e8e8e8;
+		box-shadow: inset -1px 0 0 #fff;
+	}	
+	
+	tr {
+		background: url(https://jackrugile.com/images/misc/noise-diagonal.png);	
+	}
+	
+	tr:nth-child(odd) td {
+		background: #f1f1f1 url(https://jackrugile.com/images/misc/noise-diagonal.png);	
+	}
+	
+	tr:last-of-type td {
+		box-shadow: inset 0 -1px 0 #fff; 
+	}
+	
+	tr:last-of-type td:first-child {
+		box-shadow: inset 1px -1px 0 #fff;
+	}	
+	
+	tr:last-of-type td:last-child {
+		box-shadow: inset -1px -1px 0 #fff;
+	}	
+	
+	tbody:hover td {
+		color: transparent;
+		text-shadow: 0 0 3px #aaa;
+	}
+	
+	tbody:hover tr:hover td {
+		color: #444;
+		text-shadow: 0 1px 0 #fff;
+	} 
+	/* 테스트 END  */
+	
+	
 	/* 영화순위 CSS */
-	.content {
+	/* .content {
   	 	/* height: 100%; */
  	 	font-family: monospace;
 	}
@@ -74,7 +176,7 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 	    }
-	}
+	} */
 /* 영화순위 CSS EXIT*/
 
 /* 검색창 CSS  */
@@ -189,74 +291,91 @@ input:-moz-placeholder {
 }
 
 
+/* @@@@@@@@@@@ */
+
+
 </style>
 
 
 </head>
-<body>	
+<body style = "background:#f6f1e7;">	
 	<nav>
-		<ul>
-			
+		<ul class = "wedailUl">	
 			<c:if test = "${loginList.userid == null }">
 				<li><a href="#news"></a></li>
 				<li><a href="/WeDailyJoinView">로그인 | 회원가입</a></li>
-				<li><a class="active" href="/move2">Home</a></li>
-				</h3><li class = "logo" style = "color: antiquewhite; margin: 10px; margin-right: 31%; font-size: 23px;">WeDaily</li>
+				<li><a class="active" href="/move">Home</a></li>
+				</h3><li class = "logo" style = "color: antiquewhite; margin: 10px; margin-right: 27%; font-size: 23px;">WeDaily</li>
 	    	</c:if>
 	    	<c:if test = "${loginList.userid != null}">
-		    	<li><a href="#news"></a></li>
-				<li><a href = "#">${loginList.userid}님!</a></li>
-				<li><a class="active" href="/move2">Home</a></li>
+		    	<li><a href="#news"></a></li>		    	
+		    	 <li class="sub-menu-parent" tab-index="0">
+		    	 	<a href = "#">${loginList.userid}님!</a>
+			    	 	<ul class="sub-menu">
+	        				<li><a href="/WeDailyLogout">로그아웃</a></li>
+	        			</ul>
+		    	 </li>
+		    	 <li style = "cursor: pointer;"><a onclick = "alert('서비스 준비중입니다.')">영화 예매</a></li>	
+				<li><a class="active" href="/move">Home</a></li>
 				</h3><li class = "logo" style = "color: antiquewhite; margin: 10px; margin-right: 31%; font-size: 23px;">WeDaily</li>	
-	    	</c:if>
-	    	
+	    	</c:if>	
 	    </ul>
 	</nav>
+	
+	
 	
 	
 	<div class="flexsearch">
 		<div class="flexsearch--wrapper">
 			<form class="flexsearch--form" action = "/moveselect">
-				<div class="flexsearch--input-wrapper">
+				<div class="flexsearch--input-wrapper">							
 					<input class="flexsearch--input" type="search" name = "search" placeholder="검색창">
-				</div>
 					<input class="flexsearch--submit" type="submit" value="&#10140;"/>
+				</div>
 			</form>
 		</div>
 	</div>
 	
-	<!-- 영화순위 -->
-	<div class="content">
-  <div class="ranking">
-    <h2 class="ranking-title">일별 영화순위</h2>
-    <table class="table-ranking">
-      <tr>
-        <th class="table-ranking-head">순위</th>
-        <th class="table-ranking-head">제목</th>
-        <th class="table-ranking-head">개봉일</th>
-        <th class="table-ranking-head">일간</th>
-        <th class="table-ranking-head">누적</th>
-      </tr>
-      <c:forEach var = "rank" items = "${rankArr}">
-	      <tr class="table-ranking-content">
-	        <td>${rank.rank}</td>
-	        <td>
-	        	<a class = "link" href = "https://search.naver.com/search.naver?sm=top_sug.pre&fbm=1&acr=1&acq=%EC%82%B4&qdt=0&ie=utf8&query=${rank.movieNm}">${rank.movieNm}</a>
-	        </td>																																	
-	        <td>${rank.openDt}</td>
-	        <td>${rank.audiCnt}명</td>
-	        <td>${rank.audiAcc}명</td>
-	      </tr>
-      </c:forEach>
-      
-      <!-- Show just top 5 on  the table -->
-    </table>
-  </div>
-</div>
+	<!-- test -->
+ <table>
+		<caption>
+		<h1 style = "font-family: serif; margin-left: 30%;" align = "left">일별 순위</h1>		
+		</caption>	
+			<thead>
+				<tr align = "center">
+					<th style = "width:5%;">순위</th>
+					<th style = "width:20%;">제목</th>
+					<th style = "width:20%;">개봉일</th>		
+					<!-- <th style = "width:15%;">일별</th>	
+					<th style = "width:10%;">누적</th> 	-->					
+				</tr>
+			</thead>
+			<tbody>
+			<c:forEach var = "rank" items = "${rankArr}">
+				<tr align = "center">
+						<td>${rank.rank}</td>
+						<td>
+				        	<a class = "link" href = "https://search.naver.com/search.naver?sm=top_sug.pre&fbm=1&acr=1&acq=%EC%82%B4&qdt=0&ie=utf8&query=${rank.movieNm}">${rank.movieNm}</a>
+				        </td>	
+						<td>${rank.openDt} </td>
+						<%-- <td>${rank.audiCnt}</td>
+						<td>${rank.audiAcc}</td>	 --%>	
+				</tr>																								
+			</c:forEach>
+			</tbody>
+		</table>   
+	<!-- test  -->
 	
+	
+	
+
+	
+	 
+		
 	
 	
 <script >
+
 
 </script>
 
