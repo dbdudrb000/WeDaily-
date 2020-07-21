@@ -105,6 +105,12 @@ public class WeDailyController {
 	
 	  // JSON API 데이터 정보를 받아오기 위해 필요한  class - END - 
 	    
+	     // 메인화면 이동하는 controller
+	     @RequestMapping("/moveMain")
+	     public String moveMain(HttpServletRequest request, HttpServletResponse response) {
+	    	 
+	    	 return "/main/WeDaily/main";
+	     }
 	    
 	  // 영화검색 Controller 네이버 API
 		    @RequestMapping("/moveselect")
@@ -116,54 +122,56 @@ public class WeDailyController {
 		    	
 		    	String clientId = "aEcAqL0ijo1Ekkj9Mfrr"; //애플리케이션 클라이언트 아이디값"
 		        String clientSecret = "JsY0vYGSGy"; //애플리케이션 클라이언트 시크릿값"
-		         
-		         int display = 1;
 		        
-		         String text = null;
-		         try {
-		             text = URLEncoder.encode(monetitle, "UTF-8");
-		         } catch (Exception e) {
-		             throw new RuntimeException("검색어 인코딩 실패",e);
-		         }
-		         
-		         String apiURL = "https://openapi.naver.com/v1/search/movie.json?query=" + text + "&display=" + display + "&";    // json 결과	         
+		        int display = 1;
+		        
+		        String text = null;
+		        try {
+		            text = URLEncoder.encode(monetitle, "UTF-8");
+		        } catch (Exception e) {
+		            throw new RuntimeException("검색어 인코딩 실패",e);
+		        }
+		        
+		        String apiURL = "https://openapi.naver.com/v1/search/movie.json?query=" + text + "&display=" + display + "&";    // json 결과	         
 
-		         Map<String, String> requestHeaders = new HashMap<>();
-		         requestHeaders.put("X-Naver-Client-Id", clientId);
-		         requestHeaders.put("X-Naver-Client-Secret", clientSecret);
-		         String responseBody = get(apiURL,requestHeaders);
+		        Map<String, String> requestHeaders = new HashMap<>();
+		        requestHeaders.put("X-Naver-Client-Id", clientId);
+		        requestHeaders.put("X-Naver-Client-Secret", clientSecret);
+		        String responseBody = get(apiURL,requestHeaders);
 
-		         System.out.println("responseBody >> " +responseBody);
-		         	    
-		         System.out.println("responseBody,toString >> " + responseBody.toString());
-		         System.out.println("JSONParser >> " + apiURL);
-		         try {
-		        	 
-		         JSONParser parser = new JSONParser(); 	         
-		         JSONObject jsonObj = (JSONObject) parser.parse(responseBody);	         
-		         JSONArray personArray = (JSONArray) jsonObj.get("items");
+		        System.out.println("responseBody >> " +responseBody);
+		        	    
+		        System.out.println("responseBody,toString >> " + responseBody.toString());
+		        System.out.println("JSONParser >> " + apiURL);
+		        try {
 		         
-		         WeDailyVO vo = new WeDailyVO();
-		         List<WeDailyVO> naverMove = new ArrayList<WeDailyVO>();
-		         
-			for (int i = 0; i < personArray.size(); i++) {
-				
-				System.out.println("======== person : " + i + " ========");
-				JSONObject personObject = (JSONObject) personArray.get(i);
-				System.out.println("actor >> " + personObject.get("actor"));
-				System.out.println("title >> " + personObject.get("title"));
-				System.out.println("image >> " + personObject.get("image"));
-				System.out.println("userRating >> " + personObject.get("userRating"));
-				System.out.println("link >> " + personObject.get("link"));
-				
-				vo.setTitle( (String) personObject.get("title"));
-				vo.setImage((String) personObject.get("image"));
-				vo.setActor((String) personObject.get("actor"));
-				vo.setMove_rating((String) personObject.get("userRating"));
-				vo.setMove_link((String) personObject.get("link"));
-										 
-				naverMove.add(vo);
-				vo = new WeDailyVO();				
+		        JSONParser parser = new JSONParser(); 	         
+		        JSONObject jsonObj = (JSONObject) parser.parse(responseBody);	         
+		        JSONArray personArray = (JSONArray) jsonObj.get("items");
+		        
+		        WeDailyVO vo = new WeDailyVO();
+		        List<WeDailyVO> naverMove = new ArrayList<WeDailyVO>();
+		        /**
+		         * Ref : https://developers.naver.com/docs/search/movie/
+		         * */ 
+				for (int i = 0; i < personArray.size(); i++) {
+					
+					System.out.println("======== person : " + i + " ========");
+					JSONObject personObject = (JSONObject) personArray.get(i);
+					System.out.println("actor >> " + personObject.get("actor"));
+					System.out.println("title >> " + personObject.get("title"));
+					System.out.println("image >> " + personObject.get("image"));
+					System.out.println("userRating >> " + personObject.get("userRating"));
+					System.out.println("link >> " + personObject.get("link"));
+					
+					vo.setTitle( (String) personObject.get("title"));
+					vo.setImage((String) personObject.get("image"));
+					vo.setActor((String) personObject.get("actor"));
+					vo.setMove_rating((String) personObject.get("userRating"));
+					vo.setMove_link((String) personObject.get("link"));
+											 
+					naverMove.add(vo);
+					vo = new WeDailyVO();				
 				}
 					
 				if(naverMove.isEmpty()) {
@@ -172,7 +180,7 @@ public class WeDailyController {
  	        		out.flush();
 				}else {
 					request.setAttribute("naverMove",naverMove);
-					return "/main/WeDaily/moveResult";
+					return "/main/WeDaily/moveResult2";
 				}							
 					
 		        }catch(Exception e) {
@@ -184,21 +192,29 @@ public class WeDailyController {
 		    }
 	    
 		// 페이지 이동 ( 영화순위 가져오는 API ) 영화진흥회 API
-	    @RequestMapping("/move")
+	    @RequestMapping("/moveRanking")
 	    public String move2(HttpServletRequest request, HttpServletResponse response)throws Exception {
-	    	 
-	        int display = 10;
-	        
-	        WeDailyVO vo = new WeDailyVO();
-
-	        List<WeDailyVO> rankArr = new ArrayList<WeDailyVO>();        
-	        Date today = new Date();     
+	    	// 일별,주간,주말 특정 키워드 영화순위를 보여주기 위한 변수
+	    	String target = request.getParameter("target");
+    	
+    	 	Date today = new Date();     
 	        SimpleDateFormat date = new SimpleDateFormat("yyyyMMdd");
 	        
 	        System.out.println("Date: "+date.format(today));
 
 	        String time = date.format(today);
 	        int Yesterday = Integer.parseInt(time) - 1;  
+	        
+	        List<WeDailyVO> rankArr = new ArrayList<WeDailyVO>();
+	    	
+	    	if(target.equals("today")) {
+	    	System.out.println("일별 로직실행@@");
+	        int display = 10;
+	        
+	        WeDailyVO vo = new WeDailyVO();
+
+	              
+	       
 	        System.out.println("Yesterday >> " + Yesterday);
 	        try {
 	            //String text = URLEncoder.encode(monetitle, "utf-8");
@@ -283,13 +299,23 @@ public class WeDailyController {
 	        }
 	        
 	        request.setAttribute("rankArr",rankArr);
+	        return "/main/WeDaily/WeDailyMain";
 	        
-	        
-	        // 주간 영화 순위 가져오는 로직 @@@@
+	    	}else {
+	    		int number = 0;
+	        // (주간or주말)영화 순위 가져오는 로직 
+	    		WeDailyVO vo = new WeDailyVO();
+	    		if(target.equals("jugan")) {
+	    			number = 0;
+	    			System.out.println("주간 로직실행@@");
+	    		}else if(target.equals("jumal")) {
+	    			number = 1;
+	    			System.out.println("주말 로직실행@@");
+	    		}
 	        try {	         
 	        	Yesterday -= 1; 
 	        	System.out.println("Yesterday >> " + Yesterday);
-		         String juganURL = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=bb67dec08a2eae9eec1bdcc1328fcbce"+"&weekGb=0"+"&targetDt="+Yesterday ;    // json 결과	         
+		         String juganURL = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=bb67dec08a2eae9eec1bdcc1328fcbce"+"&weekGb="+number+"&targetDt="+Yesterday ;    // json 결과	         
 		        
 		         Map<String, String> requestHeaders = new HashMap<>();																																
 		         String responseBody = get(juganURL,requestHeaders);
@@ -311,17 +337,25 @@ public class WeDailyController {
 					JSONObject personObject = (JSONObject) personArray.get(i);
 					System.out.println("rank >> " + personObject.get("rank"));
 					System.out.println("openDt >> " + personObject.get("openDt"));
-									
+					System.out.println("openDt >> " + personObject.get("movieNm"));
+					
+					vo.setRank((String)personObject.get("rank"));
+	            	vo.setMovieNm((String)personObject.get("movieNm"));
+	            	vo.setOpenDt((String)personObject.get("openDt"));
+	            	rankArr.add(vo);
+	            	vo = new WeDailyVO();
 				}
 	        }catch(Exception e) {
 	        	System.out.println("error >> "+ e);
 	        }
 	          
-	   
+	        request.setAttribute("rankArr", rankArr);
 	          // 수정전 메인화면 
 	    	//return "/main/WeDaily/WeDailyMain";
 	        
-	        return "/main/test2";
+	        return "/main/WeDaily/WeDailyMain";
+	    	}
+	    	
 	    }
 	    
 	    // 로그인 or 회원가입 하는 페이지 이동
@@ -371,11 +405,11 @@ public class WeDailyController {
         		out.println("<script>alert('로그인에 실패하였습니다.');</script>");
         		out.flush();
         		
-        		return "forward:/move";
+        		return "/main/WeDaily/login/WeDailyJoin";
 	    	}else {
 	    		session.setAttribute("loginList", loginList.get(0));
 		    	
-		    	return "redirect:/move";
+		    	return "redirect:/moveMain";
 	    	}
 	    		
 	    }
@@ -386,7 +420,7 @@ public class WeDailyController {
 	    		    	
 	    	session.invalidate();   
 	    	    	   		
-    		return "forward:/move";
+    		return "forward:/moveMain";
 	    	
 	    }
 	    
@@ -529,7 +563,12 @@ public class WeDailyController {
 	             
 	 		}
 	    
-	    
+ 		@RequestMapping("/searchtest")
+ 		public String searchtest(HttpServletRequest request, HttpServletResponse response) {
+ 			return "/main/WeDaily/moveResult2";
+ 		}
+	 		
+	 		
 }
 
 	 
