@@ -25,7 +25,10 @@ public class WeDailyVO {
 	private String openDt = ""; 
 	private String audiCnt = "";
 	private String audiAcc = "";
+	private String rankOldAndNew = ""; 
+	private String rankInten = "";
 		
+	
 	// 영화검색 ( 2개의 API를 같이 쓸예정 )
 	private String title = "";
 	private String actor = "";
@@ -38,6 +41,19 @@ public class WeDailyVO {
 	private String move_rating= "";
 	private String move_code= "";
 	private String move_link= "";
+	
+	public String getRankOldAndNew() {
+		return rankOldAndNew;
+	}
+	public void setRankOldAndNew(String rankOldAndNew) {
+		this.rankOldAndNew = rankOldAndNew;
+	}
+	public String getRankInten() {
+		return rankInten;
+	}
+	public void setRankInten(String rankInten) {
+		this.rankInten = rankInten;
+	}
 	
 	public String getMove_state() {
 		return move_state;
