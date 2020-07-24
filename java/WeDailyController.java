@@ -42,7 +42,7 @@ public class WeDailyController {
 	@Autowired
 	WeDailyService service;
 	
-	public static StringBuilder sb;//
+	public static String sb;//
 	  
 	    static String getString(String input, String data) // API에서 필요한 문자 자르기.
 	    {
@@ -218,12 +218,17 @@ public class WeDailyController {
 	        System.out.println("Yesterday >> " + Yesterday);
 	        try {
 	            //String text = URLEncoder.encode(monetitle, "utf-8");
-	            String apiURL = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=bb67dec08a2eae9eec1bdcc1328fcbce&targetDt=" + Yesterday;
+	          /*  String apiURL = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=bb67dec08a2eae9eec1bdcc1328fcbce&targetDt=" + Yesterday;
 	            URL url = new URL(apiURL);
 	            HttpURLConnection con = (HttpURLConnection) url.openConnection();
-	            con.setRequestMethod("GET");
-	           
-	            int responseCode = con.getResponseCode();
+	            con.setRequestMethod("GET"); */
+	            
+	            System.out.println("Yesterday >> " + Yesterday);
+		        String juganURL = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=bb67dec08a2eae9eec1bdcc1328fcbce&targetDt=" + Yesterday;    // json 결과	         
+		        
+		        Map<String, String> requestHeaders = new HashMap<>();																																
+		        String responseBody = get(juganURL,requestHeaders);
+	         /*   int responseCode = con.getResponseCode();
 	            BufferedReader br;
 	            if (responseCode == 200) {
 	                br = new BufferedReader(new InputStreamReader(con.getInputStream()));
@@ -235,71 +240,48 @@ public class WeDailyController {
 
 	            while ((line = br.readLine()) != null) {
 	                sb.append(line + "\n");
-	            }
+	            } */
 
-	            br.close();
-	            con.disconnect();
-	            //System.out.println(sb); 
-	            String data = sb.toString();
-	            String[] array;
-	            array = data.split("\"");
-	            String[] rank = new String[display];
-	            String[] movieNm = new String[display];
-	            String[] openDt = new String[display];	         
-	            String[] audiCnt = new String[display];
-	            String[] audiAcc = new String[display];
+	            //br.close();
+	            //con.disconnect();
+	            System.out.println("sb >> " + responseBody); 
 	            
-	            String[] category = new String[display];
-	            String[] address = new String[display];
-	            String[] mapx = new String[display];
-	            String[] image = new String[display];
-	            String[] actor = new String[display];
+	            // json 으로 바꾸는중.
+	            JSONParser parser = new JSONParser(); 	    
+		         
+		        JSONObject jsonObj = (JSONObject) parser.parse(responseBody);
+		        JSONObject result = (JSONObject) jsonObj.get("boxOfficeResult");		         
+		        
+		        JSONArray personArray = (JSONArray) result.get("dailyBoxOfficeList");
 	            
-	            int k = 0;
-	            for (int i = 0; i < array.length; i++) {
-	           
-	            	 	if (array[i].equals("rank"))
-	            		 rank[k] = array[i + 2];
-		                if (array[i].equals("movieNm"))
-		                	movieNm[k] = array[i + 2];		              
-		                if (array[i].equals("openDt"))
-		                	openDt[k] = array[i + 2];
-		                if (array[i].equals("audiCnt"))
-		                	audiCnt[k] = array[i + 2];
-		                if (array[i].equals("audiAcc")) {
-		                	audiAcc[k] = array[i + 2];
-		                	k++;
-		                }
-		                
-	            }
-	            System.out.println("여기까지옴?");
-				for(int y = 0; y < rank.length; ) {
-					 	
-	            	System.out.println("rank >> " +rank[y]);
-	            	System.out.println("movieNm >> " +movieNm[y]);
-	            	System.out.println("openDt >> " +openDt[y]);
-	            	
-	            	movieNm[y] = movieNm[y].replaceAll("\\#", "");
-	            	
-	            	vo.setRank(rank[y]);
-	            	vo.setMovieNm(movieNm[y]);
-	            	vo.setOpenDt(openDt[y]);
-	            	vo.setAudiCnt(audiCnt[y]);
-	            	vo.setAudiAcc(audiAcc[y]);
-	            	rankArr.add(vo);
+		        for (int i = 0; i < personArray.size(); i++) {
+					
+					System.out.println("======== 일별person : " + i + " ========");
+					JSONObject personObject = (JSONObject) personArray.get(i);
+					System.out.println("rank >> " + personObject.get("rank"));
+					System.out.println("openDt >> " + personObject.get("openDt"));
+					System.out.println("movieNm >> " + personObject.get("movieNm"));
+					System.out.println("openDt >> " + personObject.get("openDt"));
+					System.out.println("rankOldAndNew >> " + personObject.get("rankOldAndNew"));
+					System.out.println("rankInten >> " + personObject.get("rankInten"));
+					
+					vo.setRank((String) personObject.get("rank"));
+					vo.setMovieNm((String) personObject.get("movieNm"));
+					vo.setOpenDt((String) personObject.get("openDt"));
+					vo.setRankOldAndNew((String) personObject.get("rankOldAndNew"));
+					vo.setRankInten((String) personObject.get("rankInten"));
+					rankArr.add(vo);
 	            	vo = new WeDailyVO();
-	            
-	            	y++;
-	            }
-	                   
-	            //System.out.println("sb >> " + sb);	         
+		        }
+	             
 	          
 	        } catch (Exception e) {
 	            System.out.println(e);
 	        }
 	        
 	        request.setAttribute("rankArr",rankArr);
-	        return "/main/WeDaily/WeDailyMain";
+	       
+	        return "/main/WeDaily/moveRaking";
 	        
 	    	}else {
 	    		int number = 0;
@@ -315,7 +297,7 @@ public class WeDailyController {
 	        try {	         
 	        	Yesterday -= 1; 
 	        	System.out.println("Yesterday >> " + Yesterday);
-		         String juganURL = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=bb67dec08a2eae9eec1bdcc1328fcbce"+"&weekGb="+number+"&targetDt="+Yesterday ;    // json 결과	         
+		        String juganURL = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=bb67dec08a2eae9eec1bdcc1328fcbce"+"&weekGb="+number+"&targetDt="+Yesterday;    // json 결과	         
 		        
 		         Map<String, String> requestHeaders = new HashMap<>();																																
 		         String responseBody = get(juganURL,requestHeaders);
@@ -327,6 +309,19 @@ public class WeDailyController {
 		         
 		         JSONArray personArray = (JSONArray) result.get("weeklyBoxOfficeList");
 		        
+		         /* 특정 날짜는 순위 업로드가 안되어 지난주 기준으로 영화순위들을 보여준다. */
+		         if(personArray.isEmpty()) {
+		        	 System.out.println("이번주 영화순위 업로드 안됌.");
+		        	 Yesterday -= 7;
+		        	 juganURL = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=bb67dec08a2eae9eec1bdcc1328fcbce"+"&weekGb="+number+"&targetDt="+Yesterday;
+		        	 responseBody = get(juganURL,requestHeaders);
+		        	 
+		        	 jsonObj = (JSONObject) parser.parse(responseBody);
+			         result = (JSONObject) jsonObj.get("boxOfficeResult");		         
+			         
+			         personArray = (JSONArray) result.get("weeklyBoxOfficeList");
+		         }
+		         /* */
 		         
 		         System.out.println("주간 영화 >> " +responseBody);
 		         System.out.println("personArray 길이 >> " + personArray.toString());
@@ -350,10 +345,8 @@ public class WeDailyController {
 	        }
 	          
 	        request.setAttribute("rankArr", rankArr);
-	          // 수정전 메인화면 
-	    	//return "/main/WeDaily/WeDailyMain";
-	        
-	        return "/main/WeDaily/WeDailyMain";
+	          
+	    	return "/main/WeDaily/moveRaking";
 	    	}
 	    	
 	    }
@@ -443,7 +436,7 @@ public class WeDailyController {
 	 
 	    
 	 // json api 값들을 가져오는데 test
-	 		@RequestMapping("/wetest")
+	 	/*	@RequestMapping("/wetest")
 	 	    public String mone2(HttpServletRequest request, HttpServletResponse response) throws ParseException {
 	 			response.setContentType("text/html; charset=UTF-8");
 	 			 	    	
@@ -561,11 +554,11 @@ public class WeDailyController {
 	             	request.setAttribute("titleArr",titleArr);
 	             	return "/main/WeDaily/moveResult";
 	             
-	 		}
+	 		} */
 	    
- 		@RequestMapping("/searchtest")
+ 		@RequestMapping("/mtest")
  		public String searchtest(HttpServletRequest request, HttpServletResponse response) {
- 			return "/main/WeDaily/moveResult2";
+ 			return "/main/WeDaily/moveRaking";
  		}
 	 		
 	 		
