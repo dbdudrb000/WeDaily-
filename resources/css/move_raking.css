@@ -1,0 +1,2282 @@
+@charset "UTF-8";
+
+#power-rankingDIV_1 {
+  clear: both;
+  /* height: 5722px; */
+  width: 614px;
+  perspective-origin: 307px 2861px;
+  transform-origin: 307px 2861px;
+  font: normal normal normal normal 13px / 18.005px verdana, helvetica, arial,
+    sans-serif;
+} /*#power-rankingDIV_1*/
+
+#power-rankingDIV_2 {
+  background-position: 0px 0px;
+  height: 2361px;
+  width: 608px;
+  perspective-origin: 307px 1183.5px;
+  transform-origin: 307px 1183.5px;
+  background: rgb(255, 255, 255) none repeat scroll 0px 0px / auto padding-box
+    border-box;
+  border: 1px solid rgb(194, 194, 194);
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+  margin: 0px 0px 6px;
+  overflow: hidden;
+  padding: 2px;
+} /*#power-rankingDIV_2*/
+
+#power-rankingTABLE_3 {
+  height: 2298px;
+  width: 608px;
+  perspective-origin: 304px 1149px;
+  transform-origin: 304px 1149px;
+  border: 0px none rgb(0, 0, 0);
+  border-spacing: 0px 0px;
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+} /*#power-rankingTABLE_3*/
+
+#power-rankingTBODY_4 {
+  height: 2298px;
+  vertical-align: baseline;
+  width: 608px;
+  perspective-origin: 304px 1149px;
+  transform-origin: 304px 1149px;
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+} /*#power-rankingTBODY_4*/
+
+#power-rankingTR_5,
+#power-rankingTR_514 {
+  color: rgb(255, 255, 255);
+  height: 27px;
+  width: 608px;
+  perspective-origin: 304px 13.5px;
+  transform-origin: 304px 13.5px;
+  background: rgb(15, 91, 26) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  border: 0px none rgb(255, 255, 255);
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+  outline: rgb(255, 255, 255) none 0px;
+} /*#power-rankingTR_5, #power-rankingTR_514*/
+
+#power-rankingTD_6,
+#power-rankingTD_515 {
+  color: rgb(255, 255, 255);
+  height: 18px;
+  position: relative;
+  vertical-align: middle;
+  width: 592px;
+  perspective-origin: 304px 13.5px;
+  transform-origin: 304px 13.5px;
+  background: rgb(15, 91, 26) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  border-top: 0px none rgb(255, 255, 255);
+  border-right: 0px none rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(194, 194, 194);
+  border-left: 0px none rgb(255, 255, 255);
+  font: normal normal bold normal 13px / 18.005px helvetica, arial, sans-serif;
+  margin: 0px 7px;
+  outline: rgb(255, 255, 255) none 0px;
+  padding: 4px 8px;
+} /*#power-rankingTD_6, #power-rankingTD_515*/
+
+#power-rankingTR_7 {
+  height: 22px;
+  width: 608px;
+  perspective-origin: 304px 11px;
+  transform-origin: 304px 11px;
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+} /*#power-rankingTR_7*/
+
+#power-rankingTD_8 {
+  background-color: #14BA7D;
+  color: rgb(119, 119, 119);
+  height: 15px;
+  text-align: -webkit-center;
+  vertical-align: middle;
+  width: 48px;
+  perspective-origin: 30px 11px;
+  transform-origin: 30px 11px;
+  border-top: 0px none rgb(119, 119, 119);
+  border-right: 0px none rgb(119, 119, 119);
+  border-bottom: 1px solid rgb(194, 194, 194);
+  border-left: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  outline: rgb(119, 119, 119) none 0px;
+  padding: 3px 6px;
+} /*#power-rankingTD_8*/
+
+#power-rankingTD_9 {
+  background-color: #14BA7D;
+  color: rgb(119, 119, 119);
+  height: 15px;
+  vertical-align: middle;
+  width: 152px;
+  perspective-origin: 82px 11px;
+  transform-origin: 82px 11px;
+  border-top: 0px none rgb(119, 119, 119);
+  border-right: 0px none rgb(119, 119, 119);
+  border-bottom: 1px solid rgb(194, 194, 194);
+  border-left: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  outline: rgb(119, 119, 119) none 0px;
+  padding: 3px 6px;
+} /*#power-rankingTD_9*/
+
+#power-rankingTD_10 {
+  background-color: #14BA7D;
+  color: rgb(119, 119, 119);
+  height: 15px;
+  vertical-align: middle;
+  width: 66px;
+  perspective-origin: 39px 11px;
+  transform-origin: 39px 11px;
+  border-top: 0px none rgb(119, 119, 119);
+  border-right: 0px none rgb(119, 119, 119);
+  border-bottom: 1px solid rgb(194, 194, 194);
+  border-left: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  outline: rgb(119, 119, 119) none 0px;
+  padding: 3px 6px;
+} /*#power-rankingTD_10*/
+
+#power-rankingTD_11 {
+  background-color: #14BA7D;
+  color: rgb(119, 119, 119);
+  height: 15px;
+  vertical-align: middle;
+  width: 294px;
+  perspective-origin: 153px 11px;
+  transform-origin: 153px 11px;
+  border-top: 0px none rgb(119, 119, 119);
+  border-right: 0px none rgb(119, 119, 119);
+  border-bottom: 1px solid rgb(194, 194, 194);
+  border-left: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  outline: rgb(119, 119, 119) none 0px;
+  padding: 3px 6px;
+} /*#power-rankingTD_11*/
+
+#power-rankingTR_12,
+#power-rankingTR_42,
+#power-rankingTR_161,
+#power-rankingTR_191,
+#power-rankingTR_250,
+#power-rankingTR_280,
+#power-rankingTR_310,
+#power-rankingTR_340,
+#power-rankingTR_399,
+#power-rankingTR_458 {
+  height: 66px;
+  text-align: -webkit-left;
+  width: 608px;
+  perspective-origin: 304px 33px;
+  transform-origin: 304px 33px;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+} /*#power-rankingTR_12, #power-rankingTR_42, #power-rankingTR_161, #power-rankingTR_191, #power-rankingTR_250, #power-rankingTR_280, #power-rankingTR_310, #power-rankingTR_340, #power-rankingTR_399, #power-rankingTR_458*/
+
+#power-rankingTD_13,
+#power-rankingTD_43,
+#power-rankingTD_162,
+#power-rankingTD_192,
+#power-rankingTD_251,
+#power-rankingTD_281,
+#power-rankingTD_311,
+#power-rankingTD_341,
+#power-rankingTD_400,
+#power-rankingTD_459 {
+  color: rgb(119, 119, 119);
+  height: 60px;
+  text-align: center;
+  vertical-align: middle;
+  width: 48px;
+  perspective-origin: 30px 33px;
+  transform-origin: 30px 33px;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 30px / normal Arial, Helvetica, sans-serif;
+  outline: rgb(119, 119, 119) none 0px;
+  padding: 3px 6px;
+} /*#power-rankingTD_13, #power-rankingTD_43, #power-rankingTD_162, #power-rankingTD_192, #power-rankingTD_251, #power-rankingTD_281, #power-rankingTD_311, #power-rankingTD_341, #power-rankingTD_400, #power-rankingTD_459*/
+
+#power-rankingTD_14,
+#power-rankingTD_44,
+#power-rankingTD_163,
+#power-rankingTD_193,
+#power-rankingTD_252,
+#power-rankingTD_282,
+#power-rankingTD_312,
+#power-rankingTD_342,
+#power-rankingTD_401,
+#power-rankingTD_460 {
+  height: 60px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 152px;
+  perspective-origin: 82px 33px;
+  transform-origin: 82px 33px;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_14, #power-rankingTD_44, #power-rankingTD_163, #power-rankingTD_193, #power-rankingTD_252, #power-rankingTD_282, #power-rankingTD_312, #power-rankingTD_342, #power-rankingTD_401, #power-rankingTD_460*/
+
+#power-rankingA_15,
+#power-rankingA_30,
+#power-rankingA_45,
+#power-rankingA_60,
+#power-rankingA_75,
+#power-rankingA_90,
+#power-rankingA_104,
+#power-rankingA_119,
+#power-rankingA_134,
+#power-rankingA_149,
+#power-rankingA_164,
+#power-rankingA_179,
+#power-rankingA_194,
+#power-rankingA_209,
+#power-rankingA_224,
+#power-rankingA_238,
+#power-rankingA_253,
+#power-rankingA_268,
+#power-rankingA_283,
+#power-rankingA_298,
+#power-rankingA_313,
+#power-rankingA_328,
+#power-rankingA_343,
+#power-rankingA_358,
+#power-rankingA_373,
+#power-rankingA_387,
+#power-rankingA_402,
+#power-rankingA_417,
+#power-rankingA_431,
+#power-rankingA_446,
+#power-rankingA_461,
+#power-rankingA_476 {
+  color: rgb(34, 95, 178);
+  text-align: -webkit-left;
+  text-decoration: none;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingA_15, #power-rankingA_30, #power-rankingA_45, #power-rankingA_60, #power-rankingA_75, #power-rankingA_90, #power-rankingA_104, #power-rankingA_119, #power-rankingA_134, #power-rankingA_149, #power-rankingA_164, #power-rankingA_179, #power-rankingA_194, #power-rankingA_209, #power-rankingA_224, #power-rankingA_238, #power-rankingA_253, #power-rankingA_268, #power-rankingA_283, #power-rankingA_298, #power-rankingA_313, #power-rankingA_328, #power-rankingA_343, #power-rankingA_358, #power-rankingA_373, #power-rankingA_387, #power-rankingA_402, #power-rankingA_417, #power-rankingA_431, #power-rankingA_446, #power-rankingA_461, #power-rankingA_476*/
+
+#power-rankingDIV_16 {
+  background-position: 0px -200px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -200px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_16*/
+
+#power-rankingDIV_17,
+#power-rankingDIV_32,
+#power-rankingDIV_47,
+#power-rankingDIV_62,
+#power-rankingDIV_77,
+#power-rankingDIV_92,
+#power-rankingDIV_106,
+#power-rankingDIV_121,
+#power-rankingDIV_136,
+#power-rankingDIV_151,
+#power-rankingDIV_166,
+#power-rankingDIV_181,
+#power-rankingDIV_196,
+#power-rankingDIV_211,
+#power-rankingDIV_226,
+#power-rankingDIV_240,
+#power-rankingDIV_255,
+#power-rankingDIV_270,
+#power-rankingDIV_285,
+#power-rankingDIV_300,
+#power-rankingDIV_315,
+#power-rankingDIV_330,
+#power-rankingDIV_345,
+#power-rankingDIV_360,
+#power-rankingDIV_375,
+#power-rankingDIV_389,
+#power-rankingDIV_404,
+#power-rankingDIV_419,
+#power-rankingDIV_433,
+#power-rankingDIV_448,
+#power-rankingDIV_463,
+#power-rankingDIV_478 {
+  height: 31px;
+  text-align: -webkit-left;
+  width: 152px;
+  perspective-origin: 76px 25.5px;
+  transform-origin: 76px 25.5px;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 10px 0px;
+} /*#power-rankingDIV_17, #power-rankingDIV_32, #power-rankingDIV_47, #power-rankingDIV_62, #power-rankingDIV_77, #power-rankingDIV_92, #power-rankingDIV_106, #power-rankingDIV_121, #power-rankingDIV_136, #power-rankingDIV_151, #power-rankingDIV_166, #power-rankingDIV_181, #power-rankingDIV_196, #power-rankingDIV_211, #power-rankingDIV_226, #power-rankingDIV_240, #power-rankingDIV_255, #power-rankingDIV_270, #power-rankingDIV_285, #power-rankingDIV_300, #power-rankingDIV_315, #power-rankingDIV_330, #power-rankingDIV_345, #power-rankingDIV_360, #power-rankingDIV_375, #power-rankingDIV_389, #power-rankingDIV_404, #power-rankingDIV_419, #power-rankingDIV_433, #power-rankingDIV_448, #power-rankingDIV_463, #power-rankingDIV_478*/
+
+#power-rankingA_18,
+#power-rankingA_33,
+#power-rankingA_48,
+#power-rankingA_63,
+#power-rankingA_78,
+#power-rankingA_93,
+#power-rankingA_107,
+#power-rankingA_122,
+#power-rankingA_137,
+#power-rankingA_152,
+#power-rankingA_167,
+#power-rankingA_182,
+#power-rankingA_197,
+#power-rankingA_212,
+#power-rankingA_227,
+#power-rankingA_241,
+#power-rankingA_256,
+#power-rankingA_271,
+#power-rankingA_286,
+#power-rankingA_301,
+#power-rankingA_316,
+#power-rankingA_331,
+#power-rankingA_346,
+#power-rankingA_361,
+#power-rankingA_376,
+#power-rankingA_390,
+#power-rankingA_405,
+#power-rankingA_420,
+#power-rankingA_434,
+#power-rankingA_449,
+#power-rankingA_464,
+#power-rankingA_479 {
+  color: rgb(34, 95, 178);
+  text-align: -webkit-left;
+  text-decoration: none;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 14px / normal Arial, Helvetica, sans-serif;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingA_18, #power-rankingA_33, #power-rankingA_48, #power-rankingA_63, #power-rankingA_78, #power-rankingA_93, #power-rankingA_107, #power-rankingA_122, #power-rankingA_137, #power-rankingA_152, #power-rankingA_167, #power-rankingA_182, #power-rankingA_197, #power-rankingA_212, #power-rankingA_227, #power-rankingA_241, #power-rankingA_256, #power-rankingA_271, #power-rankingA_286, #power-rankingA_301, #power-rankingA_316, #power-rankingA_331, #power-rankingA_346, #power-rankingA_361, #power-rankingA_376, #power-rankingA_390, #power-rankingA_405, #power-rankingA_420, #power-rankingA_434, #power-rankingA_449, #power-rankingA_464, #power-rankingA_479*/
+
+#power-rankingBR_19,
+#power-rankingBR_24,
+#power-rankingBR_34,
+#power-rankingBR_39,
+#power-rankingBR_49,
+#power-rankingBR_54,
+#power-rankingBR_64,
+#power-rankingBR_69,
+#power-rankingBR_79,
+#power-rankingBR_84,
+#power-rankingBR_94,
+#power-rankingBR_98,
+#power-rankingBR_108,
+#power-rankingBR_113,
+#power-rankingBR_123,
+#power-rankingBR_128,
+#power-rankingBR_138,
+#power-rankingBR_143,
+#power-rankingBR_153,
+#power-rankingBR_158,
+#power-rankingBR_168,
+#power-rankingBR_173,
+#power-rankingBR_183,
+#power-rankingBR_188,
+#power-rankingBR_198,
+#power-rankingBR_203,
+#power-rankingBR_213,
+#power-rankingBR_218,
+#power-rankingBR_228,
+#power-rankingBR_232,
+#power-rankingBR_242,
+#power-rankingBR_247,
+#power-rankingBR_257,
+#power-rankingBR_262,
+#power-rankingBR_272,
+#power-rankingBR_277,
+#power-rankingBR_287,
+#power-rankingBR_292,
+#power-rankingBR_302,
+#power-rankingBR_307,
+#power-rankingBR_317,
+#power-rankingBR_322,
+#power-rankingBR_332,
+#power-rankingBR_337,
+#power-rankingBR_347,
+#power-rankingBR_352,
+#power-rankingBR_362,
+#power-rankingBR_367,
+#power-rankingBR_377,
+#power-rankingBR_381,
+#power-rankingBR_391,
+#power-rankingBR_396,
+#power-rankingBR_406,
+#power-rankingBR_411,
+#power-rankingBR_421,
+#power-rankingBR_425,
+#power-rankingBR_435,
+#power-rankingBR_440,
+#power-rankingBR_450,
+#power-rankingBR_455,
+#power-rankingBR_465,
+#power-rankingBR_470,
+#power-rankingBR_480,
+#power-rankingBR_485 {
+  text-align: -webkit-left;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+} /*#power-rankingBR_19, #power-rankingBR_24, #power-rankingBR_34, #power-rankingBR_39, #power-rankingBR_49, #power-rankingBR_54, #power-rankingBR_64, #power-rankingBR_69, #power-rankingBR_79, #power-rankingBR_84, #power-rankingBR_94, #power-rankingBR_98, #power-rankingBR_108, #power-rankingBR_113, #power-rankingBR_123, #power-rankingBR_128, #power-rankingBR_138, #power-rankingBR_143, #power-rankingBR_153, #power-rankingBR_158, #power-rankingBR_168, #power-rankingBR_173, #power-rankingBR_183, #power-rankingBR_188, #power-rankingBR_198, #power-rankingBR_203, #power-rankingBR_213, #power-rankingBR_218, #power-rankingBR_228, #power-rankingBR_232, #power-rankingBR_242, #power-rankingBR_247, #power-rankingBR_257, #power-rankingBR_262, #power-rankingBR_272, #power-rankingBR_277, #power-rankingBR_287, #power-rankingBR_292, #power-rankingBR_302, #power-rankingBR_307, #power-rankingBR_317, #power-rankingBR_322, #power-rankingBR_332, #power-rankingBR_337, #power-rankingBR_347, #power-rankingBR_352, #power-rankingBR_362, #power-rankingBR_367, #power-rankingBR_377, #power-rankingBR_381, #power-rankingBR_391, #power-rankingBR_396, #power-rankingBR_406, #power-rankingBR_411, #power-rankingBR_421, #power-rankingBR_425, #power-rankingBR_435, #power-rankingBR_440, #power-rankingBR_450, #power-rankingBR_455, #power-rankingBR_465, #power-rankingBR_470, #power-rankingBR_480, #power-rankingBR_485*/
+
+#power-rankingSPAN_20,
+#power-rankingSPAN_35,
+#power-rankingSPAN_50,
+#power-rankingSPAN_65,
+#power-rankingSPAN_80,
+#power-rankingSPAN_95,
+#power-rankingSPAN_109,
+#power-rankingSPAN_124,
+#power-rankingSPAN_139,
+#power-rankingSPAN_154,
+#power-rankingSPAN_169,
+#power-rankingSPAN_184,
+#power-rankingSPAN_199,
+#power-rankingSPAN_214,
+#power-rankingSPAN_229,
+#power-rankingSPAN_243,
+#power-rankingSPAN_258,
+#power-rankingSPAN_273,
+#power-rankingSPAN_288,
+#power-rankingSPAN_303,
+#power-rankingSPAN_318,
+#power-rankingSPAN_333,
+#power-rankingSPAN_348,
+#power-rankingSPAN_363,
+#power-rankingSPAN_378,
+#power-rankingSPAN_392,
+#power-rankingSPAN_407,
+#power-rankingSPAN_422,
+#power-rankingSPAN_436,
+#power-rankingSPAN_451,
+#power-rankingSPAN_466,
+#power-rankingSPAN_481 {
+  color: rgb(119, 119, 119);
+  text-align: -webkit-left;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 13px / normal Arial, Helvetica, sans-serif;
+  outline: rgb(119, 119, 119) none 0px;
+} /*#power-rankingSPAN_20, #power-rankingSPAN_35, #power-rankingSPAN_50, #power-rankingSPAN_65, #power-rankingSPAN_80, #power-rankingSPAN_95, #power-rankingSPAN_109, #power-rankingSPAN_124, #power-rankingSPAN_139, #power-rankingSPAN_154, #power-rankingSPAN_169, #power-rankingSPAN_184, #power-rankingSPAN_199, #power-rankingSPAN_214, #power-rankingSPAN_229, #power-rankingSPAN_243, #power-rankingSPAN_258, #power-rankingSPAN_273, #power-rankingSPAN_288, #power-rankingSPAN_303, #power-rankingSPAN_318, #power-rankingSPAN_333, #power-rankingSPAN_348, #power-rankingSPAN_363, #power-rankingSPAN_378, #power-rankingSPAN_392, #power-rankingSPAN_407, #power-rankingSPAN_422, #power-rankingSPAN_436, #power-rankingSPAN_451, #power-rankingSPAN_466, #power-rankingSPAN_481*/
+
+#power-rankingTD_21,
+#power-rankingTD_51,
+#power-rankingTD_170,
+#power-rankingTD_200,
+#power-rankingTD_259,
+#power-rankingTD_289,
+#power-rankingTD_319,
+#power-rankingTD_349,
+#power-rankingTD_408,
+#power-rankingTD_467 {
+  height: 60px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 66px;
+  perspective-origin: 39px 33px;
+  transform-origin: 39px 33px;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_21, #power-rankingTD_51, #power-rankingTD_170, #power-rankingTD_200, #power-rankingTD_259, #power-rankingTD_289, #power-rankingTD_319, #power-rankingTD_349, #power-rankingTD_408, #power-rankingTD_467*/
+
+#power-rankingDIV_22,
+#power-rankingDIV_37,
+#power-rankingDIV_52,
+#power-rankingDIV_111,
+#power-rankingDIV_141,
+#power-rankingDIV_171,
+#power-rankingDIV_201,
+#power-rankingDIV_216,
+#power-rankingDIV_260,
+#power-rankingDIV_275,
+#power-rankingDIV_290,
+#power-rankingDIV_305,
+#power-rankingDIV_320,
+#power-rankingDIV_438,
+#power-rankingDIV_468 {
+  background-position: 0px 0px;
+  float: left;
+  height: 8px;
+  text-align: -webkit-left;
+  width: 11px;
+  perspective-origin: 5.5px 4px;
+  transform-origin: 5.5px 4px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a.espncdn.com/i/sportsnation/gn-arrow.png") no-repeat scroll 0px
+    0px / auto padding-box border-box;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 8px 6px 0px 0px;
+} /*#power-rankingDIV_22, #power-rankingDIV_37, #power-rankingDIV_52, #power-rankingDIV_111, #power-rankingDIV_141, #power-rankingDIV_171, #power-rankingDIV_201, #power-rankingDIV_216, #power-rankingDIV_260, #power-rankingDIV_275, #power-rankingDIV_290, #power-rankingDIV_305, #power-rankingDIV_320, #power-rankingDIV_438, #power-rankingDIV_468*/
+
+#power-rankingSPAN_23,
+#power-rankingSPAN_38,
+#power-rankingSPAN_53,
+#power-rankingSPAN_68,
+#power-rankingSPAN_83,
+#power-rankingSPAN_112,
+#power-rankingSPAN_127,
+#power-rankingSPAN_142,
+#power-rankingSPAN_157,
+#power-rankingSPAN_172,
+#power-rankingSPAN_187,
+#power-rankingSPAN_202,
+#power-rankingSPAN_217,
+#power-rankingSPAN_246,
+#power-rankingSPAN_261,
+#power-rankingSPAN_276,
+#power-rankingSPAN_291,
+#power-rankingSPAN_306,
+#power-rankingSPAN_321,
+#power-rankingSPAN_336,
+#power-rankingSPAN_351,
+#power-rankingSPAN_366,
+#power-rankingSPAN_395,
+#power-rankingSPAN_410,
+#power-rankingSPAN_439,
+#power-rankingSPAN_454,
+#power-rankingSPAN_469,
+#power-rankingSPAN_484 {
+  color: rgb(119, 119, 119);
+  text-align: -webkit-left;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal normal normal 20px / normal Arial, Helvetica, sans-serif;
+  outline: rgb(119, 119, 119) none 0px;
+} /*#power-rankingSPAN_23, #power-rankingSPAN_38, #power-rankingSPAN_53, #power-rankingSPAN_68, #power-rankingSPAN_83, #power-rankingSPAN_112, #power-rankingSPAN_127, #power-rankingSPAN_142, #power-rankingSPAN_157, #power-rankingSPAN_172, #power-rankingSPAN_187, #power-rankingSPAN_202, #power-rankingSPAN_217, #power-rankingSPAN_246, #power-rankingSPAN_261, #power-rankingSPAN_276, #power-rankingSPAN_291, #power-rankingSPAN_306, #power-rankingSPAN_321, #power-rankingSPAN_336, #power-rankingSPAN_351, #power-rankingSPAN_366, #power-rankingSPAN_395, #power-rankingSPAN_410, #power-rankingSPAN_439, #power-rankingSPAN_454, #power-rankingSPAN_469, #power-rankingSPAN_484*/
+
+#power-rankingSPAN_25,
+#power-rankingSPAN_40,
+#power-rankingSPAN_55,
+#power-rankingSPAN_70,
+#power-rankingSPAN_85,
+#power-rankingSPAN_99,
+#power-rankingSPAN_114,
+#power-rankingSPAN_129,
+#power-rankingSPAN_144,
+#power-rankingSPAN_159,
+#power-rankingSPAN_174,
+#power-rankingSPAN_189,
+#power-rankingSPAN_204,
+#power-rankingSPAN_219,
+#power-rankingSPAN_233,
+#power-rankingSPAN_248,
+#power-rankingSPAN_263,
+#power-rankingSPAN_278,
+#power-rankingSPAN_293,
+#power-rankingSPAN_308,
+#power-rankingSPAN_323,
+#power-rankingSPAN_338,
+#power-rankingSPAN_353,
+#power-rankingSPAN_368,
+#power-rankingSPAN_382,
+#power-rankingSPAN_397,
+#power-rankingSPAN_412,
+#power-rankingSPAN_426,
+#power-rankingSPAN_441,
+#power-rankingSPAN_456,
+#power-rankingSPAN_471,
+#power-rankingSPAN_486 {
+  color: rgb(119, 119, 119);
+  text-align: -webkit-left;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal normal normal 10px / normal Arial, Helvetica, sans-serif;
+  outline: rgb(119, 119, 119) none 0px;
+} /*#power-rankingSPAN_25, #power-rankingSPAN_40, #power-rankingSPAN_55, #power-rankingSPAN_70, #power-rankingSPAN_85, #power-rankingSPAN_99, #power-rankingSPAN_114, #power-rankingSPAN_129, #power-rankingSPAN_144, #power-rankingSPAN_159, #power-rankingSPAN_174, #power-rankingSPAN_189, #power-rankingSPAN_204, #power-rankingSPAN_219, #power-rankingSPAN_233, #power-rankingSPAN_248, #power-rankingSPAN_263, #power-rankingSPAN_278, #power-rankingSPAN_293, #power-rankingSPAN_308, #power-rankingSPAN_323, #power-rankingSPAN_338, #power-rankingSPAN_353, #power-rankingSPAN_368, #power-rankingSPAN_382, #power-rankingSPAN_397, #power-rankingSPAN_412, #power-rankingSPAN_426, #power-rankingSPAN_441, #power-rankingSPAN_456, #power-rankingSPAN_471, #power-rankingSPAN_486*/
+
+#power-rankingTD_26,
+#power-rankingTD_56,
+#power-rankingTD_175,
+#power-rankingTD_205,
+#power-rankingTD_264,
+#power-rankingTD_294,
+#power-rankingTD_324,
+#power-rankingTD_354,
+#power-rankingTD_413,
+#power-rankingTD_472 {
+  height: 60px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 294px;
+  perspective-origin: 153px 33px;
+  transform-origin: 153px 33px;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_26, #power-rankingTD_56, #power-rankingTD_175, #power-rankingTD_205, #power-rankingTD_264, #power-rankingTD_294, #power-rankingTD_324, #power-rankingTD_354, #power-rankingTD_413, #power-rankingTD_472*/
+
+#power-rankingTR_27,
+#power-rankingTR_57 {
+  height: 57px;
+  text-align: -webkit-left;
+  width: 608px;
+  perspective-origin: 304px 28.5px;
+  transform-origin: 304px 28.5px;
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+} /*#power-rankingTR_27, #power-rankingTR_57*/
+
+#power-rankingTD_28,
+#power-rankingTD_58 {
+  color: rgb(119, 119, 119);
+  height: 51px;
+  text-align: center;
+  vertical-align: middle;
+  width: 48px;
+  perspective-origin: 30px 28.5px;
+  transform-origin: 30px 28.5px;
+  background: rgb(241, 241, 241) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 30px / normal Arial, Helvetica, sans-serif;
+  outline: rgb(119, 119, 119) none 0px;
+  padding: 3px 6px;
+} /*#power-rankingTD_28, #power-rankingTD_58*/
+
+#power-rankingTD_29,
+#power-rankingTD_59 {
+  height: 51px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 152px;
+  perspective-origin: 82px 28.5px;
+  transform-origin: 82px 28.5px;
+  background: rgb(241, 241, 241) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_29, #power-rankingTD_59*/
+
+#power-rankingDIV_31 {
+  background-position: 0px -450px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -450px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_31*/
+
+#power-rankingTD_36,
+#power-rankingTD_66 {
+  height: 51px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 66px;
+  perspective-origin: 39px 28.5px;
+  transform-origin: 39px 28.5px;
+  background: rgb(241, 241, 241) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_36, #power-rankingTD_66*/
+
+#power-rankingTD_41,
+#power-rankingTD_71 {
+  height: 51px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 294px;
+  perspective-origin: 153px 28.5px;
+  transform-origin: 153px 28.5px;
+  background: rgb(241, 241, 241) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_41, #power-rankingTD_71*/
+
+#power-rankingDIV_46 {
+  background-position: 0px -1350px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -1350px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_46*/
+
+#power-rankingDIV_61 {
+  background-position: 0px 0px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px 0px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_61*/
+
+#power-rankingDIV_67,
+#power-rankingDIV_82,
+#power-rankingDIV_126,
+#power-rankingDIV_156,
+#power-rankingDIV_186,
+#power-rankingDIV_245,
+#power-rankingDIV_335,
+#power-rankingDIV_350,
+#power-rankingDIV_365,
+#power-rankingDIV_394,
+#power-rankingDIV_409,
+#power-rankingDIV_453,
+#power-rankingDIV_483 {
+  background-position: 0px 0px;
+  float: left;
+  height: 8px;
+  text-align: -webkit-left;
+  width: 11px;
+  perspective-origin: 5.5px 4px;
+  transform-origin: 5.5px 4px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a.espncdn.com/i/sportsnation/rd-arrow.png") no-repeat scroll 0px
+    0px / auto padding-box border-box;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 8px 6px 0px 0px;
+} /*#power-rankingDIV_67, #power-rankingDIV_82, #power-rankingDIV_126, #power-rankingDIV_156, #power-rankingDIV_186, #power-rankingDIV_245, #power-rankingDIV_335, #power-rankingDIV_350, #power-rankingDIV_365, #power-rankingDIV_394, #power-rankingDIV_409, #power-rankingDIV_453, #power-rankingDIV_483*/
+
+#power-rankingTR_72 {
+  height: 57px;
+  text-align: -webkit-left;
+  width: 608px;
+  perspective-origin: 304px 28.5px;
+  transform-origin: 304px 28.5px;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+} /*#power-rankingTR_72*/
+
+#power-rankingTD_73 {
+  color: rgb(119, 119, 119);
+  height: 51px;
+  text-align: center;
+  vertical-align: middle;
+  width: 48px;
+  perspective-origin: 30px 28.5px;
+  transform-origin: 30px 28.5px;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 30px / normal Arial, Helvetica, sans-serif;
+  outline: rgb(119, 119, 119) none 0px;
+  padding: 3px 6px;
+} /*#power-rankingTD_73*/
+
+#power-rankingTD_74 {
+  height: 51px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 152px;
+  perspective-origin: 82px 28.5px;
+  transform-origin: 82px 28.5px;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_74*/
+
+#power-rankingDIV_76 {
+  background-position: 0px -900px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -900px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_76*/
+
+#power-rankingTD_81 {
+  height: 51px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 66px;
+  perspective-origin: 39px 28.5px;
+  transform-origin: 39px 28.5px;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_81*/
+
+#power-rankingTD_86 {
+  height: 51px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 294px;
+  perspective-origin: 153px 28.5px;
+  transform-origin: 153px 28.5px;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_86*/
+
+#power-rankingTR_87,
+#power-rankingTR_116,
+#power-rankingTR_146,
+#power-rankingTR_176,
+#power-rankingTR_235,
+#power-rankingTR_265,
+#power-rankingTR_295,
+#power-rankingTR_325,
+#power-rankingTR_355,
+#power-rankingTR_384,
+#power-rankingTR_443,
+#power-rankingTR_473 {
+  height: 66px;
+  text-align: -webkit-left;
+  width: 608px;
+  perspective-origin: 304px 33px;
+  transform-origin: 304px 33px;
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+} /*#power-rankingTR_87, #power-rankingTR_116, #power-rankingTR_146, #power-rankingTR_176, #power-rankingTR_235, #power-rankingTR_265, #power-rankingTR_295, #power-rankingTR_325, #power-rankingTR_355, #power-rankingTR_384, #power-rankingTR_443, #power-rankingTR_473*/
+
+#power-rankingTD_88,
+#power-rankingTD_117,
+#power-rankingTD_147,
+#power-rankingTD_177,
+#power-rankingTD_236,
+#power-rankingTD_266,
+#power-rankingTD_296,
+#power-rankingTD_326,
+#power-rankingTD_356,
+#power-rankingTD_385,
+#power-rankingTD_444,
+#power-rankingTD_474 {
+  color: rgb(119, 119, 119);
+  height: 60px;
+  text-align: center;
+  vertical-align: middle;
+  width: 48px;
+  perspective-origin: 30px 33px;
+  transform-origin: 30px 33px;
+  background: rgb(241, 241, 241) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 30px / normal Arial, Helvetica, sans-serif;
+  outline: rgb(119, 119, 119) none 0px;
+  padding: 3px 6px;
+} /*#power-rankingTD_88, #power-rankingTD_117, #power-rankingTD_147, #power-rankingTD_177, #power-rankingTD_236, #power-rankingTD_266, #power-rankingTD_296, #power-rankingTD_326, #power-rankingTD_356, #power-rankingTD_385, #power-rankingTD_444, #power-rankingTD_474*/
+
+#power-rankingTD_89,
+#power-rankingTD_118,
+#power-rankingTD_148,
+#power-rankingTD_178,
+#power-rankingTD_237,
+#power-rankingTD_267,
+#power-rankingTD_297,
+#power-rankingTD_327,
+#power-rankingTD_357,
+#power-rankingTD_386,
+#power-rankingTD_445,
+#power-rankingTD_475 {
+  height: 60px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 152px;
+  perspective-origin: 82px 33px;
+  transform-origin: 82px 33px;
+  background: rgb(241, 241, 241) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_89, #power-rankingTD_118, #power-rankingTD_148, #power-rankingTD_178, #power-rankingTD_237, #power-rankingTD_267, #power-rankingTD_297, #power-rankingTD_327, #power-rankingTD_357, #power-rankingTD_386, #power-rankingTD_445, #power-rankingTD_475*/
+
+#power-rankingDIV_91 {
+  background-position: 0px -300px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -300px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_91*/
+
+#power-rankingTD_96,
+#power-rankingTD_125,
+#power-rankingTD_155,
+#power-rankingTD_185,
+#power-rankingTD_244,
+#power-rankingTD_274,
+#power-rankingTD_304,
+#power-rankingTD_334,
+#power-rankingTD_364,
+#power-rankingTD_393,
+#power-rankingTD_452,
+#power-rankingTD_482 {
+  height: 60px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 66px;
+  perspective-origin: 39px 33px;
+  transform-origin: 39px 33px;
+  background: rgb(241, 241, 241) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_96, #power-rankingTD_125, #power-rankingTD_155, #power-rankingTD_185, #power-rankingTD_244, #power-rankingTD_274, #power-rankingTD_304, #power-rankingTD_334, #power-rankingTD_364, #power-rankingTD_393, #power-rankingTD_452, #power-rankingTD_482*/
+
+#power-rankingDIV_97,
+#power-rankingDIV_231,
+#power-rankingDIV_380,
+#power-rankingDIV_424 {
+  color: rgb(119, 119, 119);
+  height: 23px;
+  text-align: -webkit-left;
+  width: 66px;
+  perspective-origin: 33px 11.5px;
+  transform-origin: 33px 11.5px;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal normal normal 20px / normal Arial, Helvetica, sans-serif;
+  outline: rgb(119, 119, 119) none 0px;
+} /*#power-rankingDIV_97, #power-rankingDIV_231, #power-rankingDIV_380, #power-rankingDIV_424*/
+
+#power-rankingTD_100,
+#power-rankingTD_130,
+#power-rankingTD_160,
+#power-rankingTD_190,
+#power-rankingTD_249,
+#power-rankingTD_279,
+#power-rankingTD_309,
+#power-rankingTD_339,
+#power-rankingTD_369,
+#power-rankingTD_398,
+#power-rankingTD_457,
+#power-rankingTD_487 {
+  height: 60px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 294px;
+  perspective-origin: 153px 33px;
+  transform-origin: 153px 33px;
+  background: rgb(241, 241, 241) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_100, #power-rankingTD_130, #power-rankingTD_160, #power-rankingTD_190, #power-rankingTD_249, #power-rankingTD_279, #power-rankingTD_309, #power-rankingTD_339, #power-rankingTD_369, #power-rankingTD_398, #power-rankingTD_457, #power-rankingTD_487*/
+
+#power-rankingTR_101,
+#power-rankingTR_131 {
+  height: 81px;
+  text-align: -webkit-left;
+  width: 608px;
+  perspective-origin: 304px 40.5px;
+  transform-origin: 304px 40.5px;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+} /*#power-rankingTR_101, #power-rankingTR_131*/
+
+#power-rankingTD_102,
+#power-rankingTD_132 {
+  color: rgb(119, 119, 119);
+  height: 75px;
+  text-align: center;
+  vertical-align: middle;
+  width: 48px;
+  perspective-origin: 30px 40.5px;
+  transform-origin: 30px 40.5px;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 30px / normal Arial, Helvetica, sans-serif;
+  outline: rgb(119, 119, 119) none 0px;
+  padding: 3px 6px;
+} /*#power-rankingTD_102, #power-rankingTD_132*/
+
+#power-rankingTD_103,
+#power-rankingTD_133 {
+  height: 75px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 152px;
+  perspective-origin: 82px 40.5px;
+  transform-origin: 82px 40.5px;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_103, #power-rankingTD_133*/
+
+#power-rankingDIV_105 {
+  background-position: 0px -1200px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -1200px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_105*/
+
+#power-rankingTD_110,
+#power-rankingTD_140 {
+  height: 75px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 66px;
+  perspective-origin: 39px 40.5px;
+  transform-origin: 39px 40.5px;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_110, #power-rankingTD_140*/
+
+#power-rankingTD_115,
+#power-rankingTD_145 {
+  height: 75px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 294px;
+  perspective-origin: 153px 40.5px;
+  transform-origin: 153px 40.5px;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_115, #power-rankingTD_145*/
+
+#power-rankingDIV_120 {
+  background-position: 0px -750px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -750px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_120*/
+
+#power-rankingDIV_135 {
+  background-position: 0px -850px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -850px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_135*/
+
+#power-rankingDIV_150 {
+  background-position: 0px -550px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -550px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_150*/
+
+#power-rankingDIV_165 {
+  background-position: 0px -1550px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -1550px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_165*/
+
+#power-rankingDIV_180 {
+  background-position: 0px -1050px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -1050px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_180*/
+
+#power-rankingDIV_195 {
+  background-position: 0px -600px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -600px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_195*/
+
+#power-rankingTR_206 {
+  height: 81px;
+  text-align: -webkit-left;
+  width: 608px;
+  perspective-origin: 304px 40.5px;
+  transform-origin: 304px 40.5px;
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+} /*#power-rankingTR_206*/
+
+#power-rankingTD_207 {
+  color: rgb(119, 119, 119);
+  height: 75px;
+  text-align: center;
+  vertical-align: middle;
+  width: 48px;
+  perspective-origin: 30px 40.5px;
+  transform-origin: 30px 40.5px;
+  background: rgb(241, 241, 241) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 30px / normal Arial, Helvetica, sans-serif;
+  outline: rgb(119, 119, 119) none 0px;
+  padding: 3px 6px;
+} /*#power-rankingTD_207*/
+
+#power-rankingTD_208 {
+  height: 75px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 152px;
+  perspective-origin: 82px 40.5px;
+  transform-origin: 82px 40.5px;
+  background: rgb(241, 241, 241) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_208*/
+
+#power-rankingDIV_210 {
+  background-position: 0px -150px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -150px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_210*/
+
+#power-rankingTD_215 {
+  height: 75px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 66px;
+  perspective-origin: 39px 40.5px;
+  transform-origin: 39px 40.5px;
+  background: rgb(241, 241, 241) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_215*/
+
+#power-rankingTD_220 {
+  height: 75px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 294px;
+  perspective-origin: 153px 40.5px;
+  transform-origin: 153px 40.5px;
+  background: rgb(241, 241, 241) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_220*/
+
+#power-rankingTR_221,
+#power-rankingTR_370 {
+  height: 74px;
+  text-align: -webkit-left;
+  width: 608px;
+  perspective-origin: 304px 37px;
+  transform-origin: 304px 37px;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+} /*#power-rankingTR_221, #power-rankingTR_370*/
+
+#power-rankingTD_222,
+#power-rankingTD_371 {
+  color: rgb(119, 119, 119);
+  height: 68px;
+  text-align: center;
+  vertical-align: middle;
+  width: 48px;
+  perspective-origin: 30px 37px;
+  transform-origin: 30px 37px;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 30px / normal Arial, Helvetica, sans-serif;
+  outline: rgb(119, 119, 119) none 0px;
+  padding: 3px 6px;
+} /*#power-rankingTD_222, #power-rankingTD_371*/
+
+#power-rankingTD_223,
+#power-rankingTD_372 {
+  height: 68px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 152px;
+  perspective-origin: 82px 37px;
+  transform-origin: 82px 37px;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_223, #power-rankingTD_372*/
+
+#power-rankingDIV_225 {
+  background-position: 0px -50px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -50px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_225*/
+
+#power-rankingTD_230,
+#power-rankingTD_379 {
+  height: 68px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 66px;
+  perspective-origin: 39px 37px;
+  transform-origin: 39px 37px;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_230, #power-rankingTD_379*/
+
+#power-rankingTD_234,
+#power-rankingTD_383 {
+  height: 68px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 294px;
+  perspective-origin: 153px 37px;
+  transform-origin: 153px 37px;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_234, #power-rankingTD_383*/
+
+#power-rankingDIV_239 {
+  background-position: 0px -1100px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -1100px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_239*/
+
+#power-rankingDIV_254 {
+  background-position: 0px -650px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -650px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_254*/
+
+#power-rankingDIV_269 {
+  background-position: 0px -1150px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -1150px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_269*/
+
+#power-rankingDIV_284 {
+  background-position: 0px -950px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -950px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_284*/
+
+#power-rankingDIV_299 {
+  background-position: 0px -500px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -500px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_299*/
+
+#power-rankingDIV_314 {
+  background-position: 0px -800px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -800px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_314*/
+
+#power-rankingDIV_329 {
+  background-position: 0px -1400px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -1400px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_329*/
+
+#power-rankingDIV_344 {
+  background-position: 0px -1000px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -1000px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_344*/
+
+#power-rankingDIV_359 {
+  background-position: 0px -1450px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -1450px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_359*/
+
+#power-rankingDIV_374 {
+  background-position: 0px -250px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -250px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_374*/
+
+#power-rankingDIV_388 {
+  background-position: 0px -100px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -100px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_388*/
+
+#power-rankingDIV_403 {
+  background-position: 0px -700px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -700px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_403*/
+
+#power-rankingTR_414 {
+  height: 74px;
+  text-align: -webkit-left;
+  width: 608px;
+  perspective-origin: 304px 37px;
+  transform-origin: 304px 37px;
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+} /*#power-rankingTR_414*/
+
+#power-rankingTD_415 {
+  color: rgb(119, 119, 119);
+  height: 68px;
+  text-align: center;
+  vertical-align: middle;
+  width: 48px;
+  perspective-origin: 30px 37px;
+  transform-origin: 30px 37px;
+  background: rgb(241, 241, 241) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 30px / normal Arial, Helvetica, sans-serif;
+  outline: rgb(119, 119, 119) none 0px;
+  padding: 3px 6px;
+} /*#power-rankingTD_415*/
+
+#power-rankingTD_416 {
+  height: 68px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 152px;
+  perspective-origin: 82px 37px;
+  transform-origin: 82px 37px;
+  background: rgb(241, 241, 241) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_416*/
+
+#power-rankingDIV_418 {
+  background-position: 0px -1250px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -1250px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_418*/
+
+#power-rankingTD_423 {
+  height: 68px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 66px;
+  perspective-origin: 39px 37px;
+  transform-origin: 39px 37px;
+  background: rgb(241, 241, 241) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_423*/
+
+#power-rankingTD_427 {
+  height: 68px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 294px;
+  perspective-origin: 153px 37px;
+  transform-origin: 153px 37px;
+  background: rgb(241, 241, 241) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_427*/
+
+#power-rankingTR_428 {
+  height: 59px;
+  text-align: -webkit-left;
+  width: 608px;
+  perspective-origin: 304px 29.5px;
+  transform-origin: 304px 29.5px;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+} /*#power-rankingTR_428*/
+
+#power-rankingTD_429 {
+  color: rgb(119, 119, 119);
+  height: 53px;
+  text-align: center;
+  vertical-align: middle;
+  width: 48px;
+  perspective-origin: 30px 29.5px;
+  transform-origin: 30px 29.5px;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 30px / normal Arial, Helvetica, sans-serif;
+  outline: rgb(119, 119, 119) none 0px;
+  padding: 3px 6px;
+} /*#power-rankingTD_429*/
+
+#power-rankingTD_430 {
+  height: 53px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 152px;
+  perspective-origin: 82px 29.5px;
+  transform-origin: 82px 29.5px;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_430*/
+
+#power-rankingDIV_432 {
+  background-position: 0px -1300px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -1300px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_432*/
+
+#power-rankingTD_437 {
+  height: 53px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 66px;
+  perspective-origin: 39px 29.5px;
+  transform-origin: 39px 29.5px;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_437*/
+
+#power-rankingTD_442 {
+  height: 53px;
+  text-align: -webkit-left;
+  vertical-align: middle;
+  width: 294px;
+  perspective-origin: 153px 29.5px;
+  transform-origin: 153px 29.5px;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_442*/
+
+#power-rankingDIV_447 {
+  background-position: 0px -400px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -400px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_447*/
+
+#power-rankingDIV_462 {
+  background-position: 0px -1500px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -1500px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_462*/
+
+#power-rankingDIV_477 {
+  background-position: 0px -350px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  text-align: -webkit-left;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -350px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_477*/
+
+#power-rankingTR_488 {
+  height: 102px;
+  width: 608px;
+  perspective-origin: 304px 51px;
+  transform-origin: 304px 51px;
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+} /*#power-rankingTR_488*/
+
+#power-rankingTD_489 {
+  height: 96px;
+  vertical-align: middle;
+  width: 602px;
+  perspective-origin: 304px 51px;
+  transform-origin: 304px 51px;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px;
+} /*#power-rankingTD_489*/
+
+#power-rankingDIV_490,
+#power-rankingDIV_501 {
+  float: left;
+  height: 96px;
+  width: 288.953px;
+  perspective-origin: 144.469px 48px;
+  transform-origin: 144.469px 48px;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 8px 0px 0px;
+} /*#power-rankingDIV_490, #power-rankingDIV_501*/
+
+#power-rankingDIV_491,
+#power-rankingDIV_502 {
+  clear: both;
+  height: 90px;
+  width: 288.953px;
+  perspective-origin: 144.469px 45px;
+  transform-origin: 144.469px 45px;
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+} /*#power-rankingDIV_491, #power-rankingDIV_502*/
+
+#power-rankingDIV_492,
+#power-rankingDIV_503 {
+  background-position: 0px 0px;
+  height: 84px;
+  width: 282.953px;
+  perspective-origin: 144.469px 45px;
+  transform-origin: 144.469px 45px;
+  background: rgb(255, 255, 255) none repeat scroll 0px 0px / auto padding-box
+    border-box;
+  border: 1px solid rgb(194, 194, 194);
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+  margin: 0px 0px 6px;
+  overflow: hidden;
+  padding: 2px;
+} /*#power-rankingDIV_492, #power-rankingDIV_503*/
+
+#power-rankingDIV_493,
+#power-rankingDIV_504 {
+  background-position: 50% 100%;
+  height: 72px;
+  width: 270.953px;
+  perspective-origin: 141.469px 42px;
+  transform-origin: 141.469px 42px;
+  background: rgb(255, 255, 255)
+    url("http://a2.espncdn.com/prod/assets/gradient_back.jpg") repeat-x scroll
+    50% 100% / auto padding-box border-box;
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+  overflow: hidden;
+  padding: 6px;
+} /*#power-rankingDIV_493, #power-rankingDIV_504*/
+
+#power-rankingDIV_494 {
+  color: rgb(119, 119, 119);
+  float: left;
+  height: 72px;
+  width: 203.031px;
+  perspective-origin: 101.516px 36px;
+  transform-origin: 101.516px 36px;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 16px / normal Arial, Helvetica, sans-serif;
+  margin: 0px 3px 0px 0px;
+  outline: rgb(119, 119, 119) none 0px;
+} /*#power-rankingDIV_494*/
+
+#power-rankingUL_495 {
+  color: rgb(119, 119, 119);
+  display: inline-block;
+  height: 18px;
+  width: 203.031px;
+  perspective-origin: 101.516px 9px;
+  transform-origin: 101.516px 9px;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 16px / normal Arial, Helvetica, sans-serif;
+  list-style: none outside none;
+  margin: 0px;
+  outline: rgb(119, 119, 119) none 0px;
+  padding: 0px;
+} /*#power-rankingUL_495*/
+
+#power-rankingLI_496 {
+  color: rgb(119, 119, 119);
+  float: left;
+  height: 18px;
+  width: 111.125px;
+  perspective-origin: 55.5625px 9px;
+  transform-origin: 55.5625px 9px;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 16px / normal Arial, Helvetica, sans-serif;
+  list-style: none outside none;
+  margin: 0px 6px 0px 0px;
+  outline: rgb(119, 119, 119) none 0px;
+} /*#power-rankingLI_496*/
+
+#power-rankingLI_497 {
+  background-position: 0px 0px;
+  color: rgb(119, 119, 119);
+  float: left;
+  height: 8px;
+  width: 11px;
+  perspective-origin: 5.5px 4px;
+  transform-origin: 5.5px 4px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a.espncdn.com/i/sportsnation/gn-arrow.png") no-repeat scroll 0px
+    0px / auto padding-box border-box;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 16px / normal Arial, Helvetica, sans-serif;
+  list-style: none outside none;
+  margin: 6px 6px 0px 0px;
+  outline: rgb(119, 119, 119) none 0px;
+} /*#power-rankingLI_497*/
+
+#power-rankingLI_498,
+#power-rankingLI_509 {
+  color: rgb(119, 119, 119);
+  float: left;
+  height: 18px;
+  width: 8.90625px;
+  perspective-origin: 4.45313px 9px;
+  transform-origin: 4.45313px 9px;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 16px / normal Arial, Helvetica, sans-serif;
+  list-style: none outside none;
+  outline: rgb(119, 119, 119) none 0px;
+} /*#power-rankingLI_498, #power-rankingLI_509*/
+
+#power-rankingA_499,
+#power-rankingA_510 {
+  color: rgb(34, 95, 178);
+  text-decoration: none;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 14px / normal Arial, Helvetica, sans-serif;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingA_499, #power-rankingA_510*/
+
+#power-rankingDIV_500 {
+  background-position: 0px -1350px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -1350px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 14px / normal Arial, Helvetica, sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_500*/
+
+#power-rankingDIV_505 {
+  color: rgb(119, 119, 119);
+  float: left;
+  height: 72px;
+  width: 197.688px;
+  perspective-origin: 98.8438px 36px;
+  transform-origin: 98.8438px 36px;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 16px / normal Arial, Helvetica, sans-serif;
+  margin: 0px 3px 0px 0px;
+  outline: rgb(119, 119, 119) none 0px;
+} /*#power-rankingDIV_505*/
+
+#power-rankingUL_506 {
+  color: rgb(119, 119, 119);
+  display: inline-block;
+  height: 18px;
+  width: 197.688px;
+  perspective-origin: 98.8438px 9px;
+  transform-origin: 98.8438px 9px;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 16px / normal Arial, Helvetica, sans-serif;
+  list-style: none outside none;
+  margin: 0px;
+  outline: rgb(119, 119, 119) none 0px;
+  padding: 0px;
+} /*#power-rankingUL_506*/
+
+#power-rankingLI_507 {
+  color: rgb(119, 119, 119);
+  float: left;
+  height: 18px;
+  width: 105.781px;
+  perspective-origin: 52.8906px 9px;
+  transform-origin: 52.8906px 9px;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 16px / normal Arial, Helvetica, sans-serif;
+  list-style: none outside none;
+  margin: 0px 6px 0px 0px;
+  outline: rgb(119, 119, 119) none 0px;
+} /*#power-rankingLI_507*/
+
+#power-rankingLI_508 {
+  background-position: 0px 0px;
+  color: rgb(119, 119, 119);
+  float: left;
+  height: 8px;
+  width: 11px;
+  perspective-origin: 5.5px 4px;
+  transform-origin: 5.5px 4px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a.espncdn.com/i/sportsnation/rd-arrow.png") no-repeat scroll 0px
+    0px / auto padding-box border-box;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal bold normal 16px / normal Arial, Helvetica, sans-serif;
+  list-style: none outside none;
+  margin: 6px 6px 0px 0px;
+  outline: rgb(119, 119, 119) none 0px;
+} /*#power-rankingLI_508*/
+
+#power-rankingDIV_511 {
+  background-position: 0px -1050px;
+  color: rgb(34, 95, 178);
+  float: left;
+  height: 50px;
+  width: 50px;
+  perspective-origin: 25px 25px;
+  transform-origin: 25px 25px;
+  background: rgba(0, 0, 0, 0)
+    url("http://a1.espncdn.com/prod/assets/teamlogos/nfl/logo-nfl-teams-medium-vert.png")
+    no-repeat scroll 0px -1050px / auto padding-box border-box;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 14px / normal Arial, Helvetica, sans-serif;
+  margin: 0px 10px 0px 0px;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingDIV_511*/
+
+#power-rankingTABLE_512 {
+  height: 63px;
+  width: 608px;
+  perspective-origin: 304px 31.5px;
+  transform-origin: 304px 31.5px;
+  border: 0px none rgb(0, 0, 0);
+  border-spacing: 0px 0px;
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+} /*#power-rankingTABLE_512*/
+
+#power-rankingTBODY_513 {
+  height: 63px;
+  vertical-align: baseline;
+  width: 608px;
+  perspective-origin: 304px 31.5px;
+  transform-origin: 304px 31.5px;
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+} /*#power-rankingTBODY_513*/
+
+#power-rankingTR_516 {
+  height: 36px;
+  width: 608px;
+  perspective-origin: 304px 18px;
+  transform-origin: 304px 18px;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font: normal normal normal normal 11px / 15.235px verdana, helvetica, arial,
+    sans-serif;
+} /*#power-rankingTR_516*/
+
+#power-rankingTD_517 {
+  height: 30px;
+  vertical-align: middle;
+  width: 596px;
+  perspective-origin: 304px 18px;
+  transform-origin: 304px 18px;
+  font: normal normal normal normal 11px / 15.235px Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 3px 6px;
+} /*#power-rankingTD_517*/
+
+#power-rankingDIV_518 {
+  clear: both;
+  height: 3317px;
+  width: 582px;
+  perspective-origin: 307px 1674.5px;
+  transform-origin: 307px 1674.5px;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font: normal normal normal normal 11px / normal Verdana, Arial, Helvetica,
+    sans-serif;
+  padding: 16px;
+} /*#power-rankingDIV_518*/
+
+#power-rankingDIV_519 {
+  background-position: 0px 0px;
+  height: 3307px;
+  width: 582px;
+  perspective-origin: 291px 1655.5px;
+  transform-origin: 291px 1655.5px;
+  background: rgb(255, 255, 255) none repeat scroll 0px 0px / auto padding-box
+    border-box;
+  font: normal normal normal normal 11px / normal Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 0px 6px;
+  overflow: hidden;
+  padding: 4px 0px 0px;
+} /*#power-rankingDIV_519*/
+
+#power-rankingH3_520 {
+  background-position: 0px 50%;
+  clear: both;
+  height: 19px;
+  width: 582px;
+  perspective-origin: 291px 9.5px;
+  transform-origin: 291px 9.5px;
+  background: rgba(0, 0, 0, 0) none repeat scroll 0px 50% / auto padding-box
+    border-box;
+  font: normal normal bold normal 11px / normal Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 0px 0px 10px;
+  overflow: hidden;
+} /*#power-rankingH3_520*/
+
+#power-rankingSPAN_521 {
+  font: normal normal bold normal 16px / normal Verdana, Arial, Helvetica,
+    sans-serif;
+} /*#power-rankingSPAN_521*/
+
+#power-rankingDIV_522 {
+  clear: both;
+  width: 582px;
+  perspective-origin: 291px 0px;
+  transform-origin: 291px 0px;
+  font: normal normal bold normal 11px / normal Verdana, Arial, Helvetica,
+    sans-serif;
+} /*#power-rankingDIV_522*/
+
+#power-rankingP_523 {
+  color: rgb(119, 119, 119);
+  height: 36px;
+  width: 582px;
+  perspective-origin: 291px 18px;
+  transform-origin: 291px 18px;
+  border: 0px none rgb(119, 119, 119);
+  font: normal normal normal normal 10px / normal Verdana, Arial, Helvetica,
+    sans-serif;
+  margin: 10px 0px 0px;
+  outline: rgb(119, 119, 119) none 0px;
+} /*#power-rankingP_523*/
+
+#power-rankingA_524,
+#power-rankingA_525,
+#power-rankingA_527 {
+  color: rgb(34, 95, 178);
+  text-decoration: none;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 10px / normal Verdana, Arial, Helvetica,
+    sans-serif;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingA_524, #power-rankingA_525, #power-rankingA_527*/
+
+#power-rankingA_526 {
+  color: rgb(34, 95, 178);
+  text-decoration: none;
+  border: 0px none rgb(34, 95, 178);
+  font: normal normal normal normal 10px / normal Verdana, Arial, Helvetica,
+    sans-serif;
+  outline: rgb(34, 95, 178) none 0px;
+} /*#power-rankingA_526*/
+
+#power-rankingBR_528 {
+  font: normal normal normal normal 11px / normal Verdana, Arial, Helvetica,
+    sans-serif;
+} /*#power-rankingBR_528*/
+
+#power-rankingDIV_529 {
+  display: inline-block;
+  height: 3229px;
+  position: relative;
+  width: 582px;
+  perspective-origin: 291px 1614.5px;
+  transform-origin: 291px 1614.5px;
+  font: normal normal normal normal 11px / normal Verdana, Arial, Helvetica,
+    sans-serif;
+} /*#power-rankingDIV_529*/
+
+#power-rankingSPAN_530 {
+  display: inline-block;
+  height: 3227px;
+  position: relative;
+  text-align: justify;
+  width: 582px;
+  perspective-origin: 291px 1613.5px;
+  transform-origin: 291px 1613.5px;
+  font: normal normal normal normal 11px / normal Verdana, Arial, Helvetica,
+    sans-serif;
+} /*#power-rankingSPAN_530*/
+
+#power-rankingIFRAME_531 {
+  display: block;
+  height: 3227px;
+  position: absolute;
+  text-align: justify;
+  width: 582px;
+  perspective-origin: 291px 1613.5px;
+  transform-origin: 291px 1613.5px;
+  border: 0px none rgb(0, 0, 0);
+  font: normal normal normal normal 11px / normal Verdana, Arial, Helvetica,
+    sans-serif;
+  overflow: hidden;
+} /*#power-rankingIFRAME_531*/
+
+#power-rankingSCRIPT_532 {
+  font: normal normal normal normal 13px / 18.005px verdana, helvetica, arial,
+    sans-serif;
+} /*#power-rankingSCRIPT_532*/
