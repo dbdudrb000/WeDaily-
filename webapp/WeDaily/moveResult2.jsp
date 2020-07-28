@@ -62,16 +62,34 @@
       <div class="imgholder">
       	<img src = "${move.image}" style = "height:300px; width:100%;">
       </div>
-      <h1 class="feature">${move.title}</h1>
+      <h1 class="feature" id = "title">${move.title}</h1>
       <p>평점: ${move.move_rating}</p>
+      <p>제작년도: ${move.pubDate}년</p>
+      <input type = "hidden" id = "opendt" value = "${move.pubDate}">
+      <input type = "hidden" id = "nickname" value = "${sessionScope.loginList.userid}">
       <h1 class="feature"><i class="fas fa-users"></i> 출연배우 <i class="fas fa-users"></i></h1>
-      <p>${move.actor}</p>
+      <p id = "actor">${move.actor}</p>
       <button onclick = "location.href = '${move.move_link}'" class = "searchButton">상세보기</button>
       </c:forEach>
-    </div>
-    
+      
+      <br><h1>찜 하기<a onclick = "like(this)" name = "likes"><i class="fas fa-heart"></i></a></h1>
+      
+      <%-- <c:forEach var = "like" items = "moveLikes">
+      	<c:set var = "isLike" value = "N"/>
+      	<c:if test = "${move.title eq like.movetitle}">
+      		<c:set var = "isLike" value = "Y"/>
+      	</c:if>
+      	<c:if test = "${isLike =='Y'}">
+      		<br><h1>찜 하기<a onclick = "like(this)"> <i class="far fa-heart"></i></a></h1>
+      	</c:if>
+      	<c:if test = "${isLike =='N'}">
+      		<br><h1>찜 하기<a onclick = "like(this)"> <i class="fas fa-heart"></i></a></h1>
+      	</c:if>		      	
+      </c:forEach> --%>
+    </div>  
   </div>
 </div>
+													
 
 
 <script>
@@ -84,6 +102,51 @@
 			location.href = "/moveselect?search="+search;
 		}
 		
+	}
+	
+	function like(target){
+		
+		var heart = $(target).find('i')[0];
+		var heartpom = heart.className == 'fas fa-heart' ? 'Y' : 'N';
+		var param = { title : document.getElementById('title').innerText,
+					  moveopen : document.getElementById('opendt').value,
+					  nickname : document.getElementById('nickname').value
+					};
+		if(param.nickname != null && param.nickname != ""){
+			if(heartpom == "Y"){
+				 $.ajax({
+				    type : 'POST',
+				    url : "/movelike?like=insert",
+				    data : param,
+				    error : function(error) {
+				        alert("Error!");
+				    },
+				    success : function(data) {		        
+				        heart.className = "far fa-heart";
+					    alert("찜 추가하셨습니다.");
+				    },
+				    complete : function() {
+				    }
+				}); 
+			}else{
+				 $.ajax({
+					    type : 'POST',
+					    url : "/movelike?like=delete",
+					    data : param,
+					    error : function(error) {
+					        alert("Error!");
+					    },
+					    success : function(data) {		            	
+					        heart.className = "fas fa-heart";
+						    alert("찜 취소하였습니다.");
+					    },
+					    complete : function() {
+					    }
+					}); 
+			}
+		}else{
+			alert("로그인 후 이용가능합니다.");
+		}
 	}
 </script>
 
