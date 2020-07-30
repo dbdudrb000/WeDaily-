@@ -184,8 +184,13 @@ public class WeDailyController {
  	        		
 				}else {
 					vo.setUserid(userid);
-					
+											   // 로그인한 유저 찜 목록을 select  
 					List<WeDailyVO> movelist = service.selectmove(vo);
+					
+					for(int i=0; i <movelist.size(); i++) {
+						System.out.println("movelist >> " + movelist.get(i).getMovetitle());
+					}
+					
 					request.setAttribute("movelist", movelist);
 					request.setAttribute("naverMove",naverMove);
 					return "/main/WeDaily/moveResult2";
@@ -231,22 +236,7 @@ public class WeDailyController {
 		        
 		        Map<String, String> requestHeaders = new HashMap<>();																																
 		        String responseBody = get(juganURL,requestHeaders);
-	         /*   int responseCode = con.getResponseCode();
-	            BufferedReader br;
-	            if (responseCode == 200) {
-	                br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-	            } else {
-	                br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
-	            }
-	            sb = new StringBuilder();
-	            String line;
-
-	            while ((line = br.readLine()) != null) {
-	                sb.append(line + "\n");
-	            } */
-
-	            //br.close();
-	            //con.disconnect();
+	     
 	            System.out.println("sb >> " + responseBody); 
 	            
 	            // json 으로 바꾸는중.
@@ -492,13 +482,28 @@ public class WeDailyController {
 	    	
 	    }
 	    
-	    
- 		@RequestMapping("/mtest")
- 		public String searchtest(HttpServletRequest request, HttpServletResponse response) {
- 			return "/main/WeDaily/moveRaking";
+	    // mypage 이동하는 controller
+ 		@RequestMapping("/wedailymypage")
+ 		public String searchtest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+ 			WeDailyVO vo = new WeDailyVO();
+ 			String userid = request.getParameter("userid");
+ 			
+ 			vo.setUserid(userid);
+ 			
+ 			List<WeDailyVO> mypageUser = service.selectUser(vo);
+ 			
+ 			if(mypageUser.isEmpty()) {
+ 				System.out.println("비었음.");
+ 			}else {
+ 				System.out.println("정상적으로 처리됨.");
+ 			}
+ 			
+ 			request.setAttribute("mypageUser", mypageUser.get(0));
+ 			return "/main/WeDaily/mypage/wedailyMypage";
  		}
 	 		
-	 		
+	 	
+ 		
 }
 
 	 
