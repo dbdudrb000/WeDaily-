@@ -11,6 +11,8 @@ public class WeDailyVO {
 	private String createDt = "";
 	private String updateDt = "";
 	private int moveLike = 0;
+	private String my_self = "";
+	private String Satisfaction = "";
 	
 	// 찜한 영화리스트 ( 번호 , 제목 , 개봉일 , 찜한 ID, 찜한 날짜 )
 	private int move_num = 0; 
@@ -21,7 +23,7 @@ public class WeDailyVO {
 	
 	
 	// 영화순위
-	private String rank  = ""; 	
+	private String rank  = ""; 
 	private String movieNm = ""; 
 	private String openDt = ""; 
 	private String audiCnt = "";
@@ -48,6 +50,19 @@ public class WeDailyVO {
 	private String move_link= "";
 	
 	
+	
+	public String getMy_self() {
+		return my_self;
+	}
+	public void setMy_self(String my_self) {
+		this.my_self = my_self;
+	}
+	public String getSatisfaction() {
+		return Satisfaction;
+	}
+	public void setSatisfaction(String satisfaction) {
+		Satisfaction = satisfaction;
+	}
 	public String getLikeid() {
 		return likeid;
 	}
