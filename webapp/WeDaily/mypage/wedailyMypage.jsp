@@ -19,6 +19,7 @@
 	<!-- 모달 css -->
 	<link rel="stylesheet" type="text/css" href="/resources/css/wedaily/modal.css">
 <style>
+	/* 문자인증  display css 설정.  */
 		#modal_button2{
 	    	margin-top: -23px; 
 	    	margin-left: 53%;
@@ -87,28 +88,29 @@
 					<div class="group">
 						<div style="width: 48%; float: left;">
 							<span class="wpcf7-form-control-wrap text-680">
-								<input type="text" name="text-680" value="ID : ${mypageUser.userid} " size="45"placeholder="아이디" readonly>
+								<input type="text" name="text-680" value="ID : ${mypageUser.userid}" size="45"placeholder="아이디" readonly>
+								<input type = "hidden" id = "useridHidden" value = "${mypageUser.userid}">
 							</span><br> 
 							<span class="wpcf7-form-control-wrap text-680">
 								<input type="text" name="text-680" value="닉네임 : ${mypageUser.nickname}" size="45"placeholder="닉네임" readonly>
 							</span><br> 
 							<span class="wpcf7-form-control-wrap tel-630">
-								<input type="text" value="PW : ${mypageUser.userpw}" size="45" placeholder="비밀번호" readonly>
+								<input type="text" value="PW : ${mypageUser.userpw}" id = "mypassword" size="45" placeholder="비밀번호" readonly>
 							</span><br>  
-							<span class="wpcf7-form-control-wrap tel-630"><input type="text" 
+							<span class="wpcf7-form-control-wrap tel-630"><input type="text" id = "myphone"
 								  value="휴대폰 : ${fn:substring(mypageUser.phone,0,3)}-${fn:substring(mypageUser.phone,3,7)}-${fn:substring(mypageUser.phone,7,12)}" 
-								  placeholder="휴대폰" readonly>
+								  placeholder="휴대폰" readonly>    
 							</span><br> 															
 							<span class="wpcf7-form-control-wrap textarea-398">
-								<textarea cols="40" rows="10" placeholder="자기소개" readonly>${mypageUser.my_self}</textarea>
+								<textarea cols="40" rows="10" placeholder="자기소개" id = "my_myself" readonly>${mypageUser.my_self}</textarea>
 							</span>
 						</div>
 						<div style="width: 48%; float: right;">
 							<h4>어떤 정보를 변경하시겠습니까?</h4>
 							<p>							
-								<input type = "button" value = "휴대폰" onclick = "modalopen()">&nbsp;
-								<input type = "button" value = "비밀번호" onclick = "alert('서비스준비중')">&nbsp;
-								<input type = "button" value = "자기소개" onclick = "alert('서비스준비중')">
+								<input type = "button" value = "휴대폰" onclick = "modalopen('phone')">&nbsp;
+								<input type = "button" value = "비밀번호" onclick = "modalopen('password')">&nbsp;
+								<input type = "button" value = "자기소개" onclick = "modalopen('myself')">
 							</p>
 							<h4>서비스가 일상생활에 도움이 되셨습니까?</h4>
 							<p>
@@ -154,14 +156,14 @@
 		</div>
 	</div>
 	
-	<!-- Modal -->
+	<!--  phone number update Modal -->
 	<div class="modal" id="modal-name" style = "display: none;">
 	  <div class="modal-sandbox"></div>
 		  <div class="modal-box">
 		    <div class="modal-header">
-		      <div class="x-modal" style = "text-align : right; cursor: pointer;">&#10006;</div> 
+		      <div class="x-modal" style = "text-align : right; cursor: pointer;"><a onclick = "modalclose('phone')">&#10006;</a></div> 
 		      <input type = "hidden" value = "N" id = "phoneUse">
-		      <h1>휴대폰 인증</h1>
+		      <h1>휴대폰 변경</h1>
 		    </div>
 		    <div class="modal-body">   
 		      <input type = "text" id = "phone_number" style = "display:block;">
@@ -172,7 +174,37 @@
 		    </div>
 		  </div>
 	</div>
-
+	
+		<!-- password update Modal -->
+		<div class="modal" id="password_modal" style = "display: none;">
+		  <div class="modal-sandbox"></div>
+			  <div class="modal-box">
+			    <div class="modal-header">
+			      <div class="x-modal" style = "text-align : right; cursor: pointer;"><a onclick = "modalclose('password')">&#10006;</a></div> 
+			      <h1>비밀번호 변경</h1>
+			    </div>
+			    <div class="modal-body">
+			      <input type = "text" id = "updatePassword1" placeholder="변경할 비밀번호" style = "margin:6px;" ><br>
+			      <input type = "text" id = "updatePassword2" placeholder="다시 입력해주세요."><br>	      
+			      <button class="close-modal" onclick = "pwUpdate()">변경하기</button>
+			    </div>
+			  </div>
+		</div>
+		
+		<!-- myself update Modal -->
+		<div class="modal" id="myself_modal" style = "display: none;">
+		  <div class="modal-sandbox"></div>
+			  <div class="modal-box">
+			    <div class="modal-header">
+			      <div class="x-modal" style = "text-align : right; cursor: pointer;"><a onclick = "modalclose('myself')">&#10006;</a></div> 
+			      <h1>자기소개 변경</h1>
+			    </div>
+			    <div class="modal-body">
+			      <textarea cols="100" rows="10"id="selfIn"></textarea><br>      
+			      <button class="close-modal" onclick = "myselfUpdate()">변경하기</button>
+			    </div>
+			  </div>
+		</div>
 
 <script>
 	function finishs(){
@@ -188,13 +220,14 @@
 		
 		for(var i=0; i<Survey.length;i++){
 			if(Survey[i].checked){
-				alert(Survey[i].value);
 				
-				var param = { Survey : Survey[i].value };
-				
+				var param = { Survey : Survey[i].value ,
+							  userid : $("#useridHidden").val()
+						    };
+							  
 				$.ajax({
 				    type : 'POST',
-				    url : "#",
+				    url : "/inSatisfaction",
 				    data : param,
 				    error : function(error) {
 				        alert("Error!");
@@ -211,11 +244,33 @@
 	}
 	
 	/* phone modal open */
-	function modalopen(){	
-		var modalStyle = document.getElementById("modal-name");
-    	modalStyle.style.display = 'block';
+	function modalopen(modal){	
+		if(modal == "phone"){
+			var modalStyle = document.getElementById("modal-name");
+	    	modalStyle.style.display = 'block';	
+		}else if(modal == "password"){
+			var modalStyle = document.getElementById("password_modal");
+	    	modalStyle.style.display = 'block';
+		}else{
+			var modalStyle = document.getElementById("myself_modal");
+	    	modalStyle.style.display = 'block';
+		}
 	}
-	
+	/* phone modal close */
+	function modalclose(modal){
+		
+		if(modal == "phone"){
+			var modalStyle = document.getElementById("modal-name");
+	    	modalStyle.style.display = 'none';	
+		}else if(modal == "password"){
+			var modalStyle = document.getElementById("password_modal");
+	    	modalStyle.style.display = 'none';
+		}else{
+			var modalStyle = document.getElementById("myself_modal");
+	    	modalStyle.style.display = 'none';
+		}
+		
+	}
 	
 	function modal(){
 		var modalVal = $("#phoneId").val();
@@ -288,17 +343,21 @@
 		    	
 		    	if(use.start){
 		    		alert("인증 되었습니다.");	
+		    		/* view단에 변경한 휴대폰 번호로 보여주기위한 로직 */
+		    		var myphone = document.getElementById("myphone");
+		    		var updatePhone = $("#phone_number").val();	
+		    			
+		    		var phone1 = updatePhone.substring(0,3);
+		    		var phone2 = updatePhone.substring(3,7);
+		    		var phone3 = updatePhone.substring(7,12);
+		   
+		    		myphone.value = "휴대폰 : "+phone1+"-"+phone2 +"-"+phone3;
 		    		
 		    		/* 인증완료 시 모달창 닫는 코드 */
-		    		var modalStyle = document.getElementById("modal-name");
-			    	modalStyle.style.display = 'none';
-		    		
-			    	document.getElementById('phoneUse').value = "Y";
+			    	modalclose('phone');
 			    	
-		    	}else{
-		    		
-		    		alert("인증 실패하였습니다.");
-		
+		    	}else{    		
+		    		alert("인증 실패하였습니다.");	
 		      console.log(xhr.responseText);
 		    } 
 		    	debugger;
@@ -314,11 +373,34 @@
 		  console.error(xhr.statusText);
 		};
 		
-		const data = { phone_number : $("#phoneId").val()      ,                 
+		const data = { phone_number : $("#phone_number").val()      ,                 
 	 	   	   	   	   confirm      : $("#modalText").val()    	 	   	   	   
 		 	 	 	 };
 		xhr.send(JSON.stringify(data));
 		}
+	/* 변경된 비밀번호를 view에 적용하는 로직 */
+	function pwUpdate(){
+		var pw1 = document.getElementById("updatePassword1").value;
+		var pw2 = document.getElementById("updatePassword2").value;
+		
+		if(pw1 != pw2){
+			alert("비밀번호가 다릅니다.");
+		}else{
+			var passwordUp = document.getElementById("mypassword");	
+			
+	    	passwordUp.value = "PW : "+pw1;
+	    	modalclose('password');
+		}
+	}
+	/* 자기소개 view에 적용시키는 Logic */
+	function myselfUpdate(){
+		var mySelf = document.getElementById("selfIn");
+		var my_myself = document.getElementById("my_myself");
+		
+			my_myself.value = mySelf.value;
+			modalclose('myself');
+	}
+	
 	
 </script>
 
