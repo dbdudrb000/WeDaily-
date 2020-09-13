@@ -45,7 +45,7 @@
 ● Spring boot, Mybastis, java, javascript, jquery, PostgreSQL
 
 # 메인화면
-![repimg.PNG](./resources/img/readmeimg/repimg.PNG)
+![mainpage.PNG](./resources/img/readmeimg/mainpage.PNG)
 
 
 # WeDaily-
