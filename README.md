@@ -47,6 +47,28 @@
 # 메인화면
 ![mainpage.PNG](./resources/img/readmeimg/mainpage.PNG)
 
+# 로그인,회원가입
+![login.PNG](./resources/img/readmeimg/login.PNG)
+
+# 영화순위
+![movieRanking.PNG](./resources/img/readmeimg/movieRanking.PNG)
+- 영화순위는 메인화면에서 (일간,주간,주말)3개중 1개를 선택해서 볼 수 있습니다.
+
+# 영화 상영관 시간표 
+![movieTiems.PNG](./resources/img/readmeimg/movieTiems.PNG)
+- 해당지역 -> 특정 상영관 -> 상영중인 상영관,시간표를 보실 수 있습니다.
+
+# CGV SNS 보러가기
+![CgvSns.PNG](./resources/img/readmeimg/CgvSns.PNG)
+- Instagrame , FaceBook CGV에서 운영하는 2개의 SNS로 이동할 수 있습니다.
+
+# App 연동
+![App.PNG](./resources/img/readmeimg/App.PNG)
+- 휴대폰으로 QR코드를 인식하게 되면은 CGV전용 앱으로 이용이 가능합니다.
+
+# 게시판 메인
+![community_main.PNG](./resources/img/readmeimg/community_main.PNG)
+- 게시글을 등록하실 때 에디터로 이미지같은것을 손쉽게 첨부가능합니다.
 
 # WeDaily-
 일상 생활에서 흔히 접할 수 있는 영화의 정보들을 볼 수 있고 상영중인 영화시간 CGV에 대한 다양한 이벤트,정보를 볼 수 있는  프로젝트이다.
