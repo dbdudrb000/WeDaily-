@@ -1,0 +1,117 @@
+@charset "UTF-8";
+#hero{
+		font-size: x-large;
+    	font-family: cursive;
+	}
+	table.type09 {
+		width: 120%;
+	    border-collapse: collapse;
+	    text-align: left;
+	    line-height: 1.5;
+		margin-top: 40px;
+	}
+	table.type09 thead th {
+	    padding: 10px;
+	    font-weight: bold;
+	    vertical-align: top;
+	    color: #369;
+	    border-bottom: 3px solid #036;
+	}
+	table.type09 tbody th {
+	    width: 150px;
+	    padding: 10px;
+	    font-weight: bold;
+	    vertical-align: top;
+	    border-bottom: 1px solid #ccc;
+	    background: #f3f6f7;
+	}
+	table.type09 .table_th/* td */ {
+	   
+	    padding: 10px;
+	    vertical-align: top;
+	    border-bottom: 1px solid #ccc;
+	}
+	.table_detail {
+		border-bottom: 1px solid #ccc;
+	}
+	table_td td {
+		width:150px;
+	}
+	.table_th{
+		width:85px;
+	}
+	.board_form{
+		margin-left:30%;
+	}
+	li {
+		list-style:none;
+	}
+	.board_aside{
+		float: left;
+	    margin-left: 11%;
+	    font-style: italic;
+	    border: solid;
+	    padding: 0px;
+	    width: 175px;
+	    border-radius: 30px;
+	}
+	a {
+		cursor: pointer;
+	}
+	#container {
+		position: relative;
+	    left: -50px;
+	    /* margin-top:3%; */ 
+	    margin-right: 15%;
+	}
+	
+	/* submenu test */
+	.dropdownmenu ul, .dropdownmenu li {
+		margin: 0;
+		padding: 0;
+	}
+	
+	.dropdownmenu li {
+		float: left;
+		position: relative;
+		width:auto;
+	}
+	.dropdownmenu a {
+		background: lightgray;
+		border-radius: 6px;
+		color: #FFFFFF;
+		display: block;
+		font: bold 12px/20px sans-serif;
+		padding: 1px 8px;
+		text-align: center;
+		text-decoration: none;
+		-webkit-transition: all .25s ease;
+		-moz-transition: all .25s ease;
+		-ms-transition: all .25s ease;
+		-o-transition: all .25s ease;
+		transition: all .25s ease;
+	}
+	.dropdownmenu li:hover a {
+		background: tan;
+	}
+	#submenu {
+		left: 0;
+		opacity: 0;
+		position: absolute;
+		top: 35px;
+		visibility: hidden;
+		z-index: 1;
+	}
+	li:hover ul#submenu {
+		margin-top: -15px;
+		opacity: 1;
+		top: 40px;	/* adjust this as per top nav padding top & bottom comes */
+		visibility: visible;
+	}
+	#submenu li {
+		float: none;
+		width: 100%;
+	}
+	#submenu a:hover {
+		background: #DF4B05;
+	}
