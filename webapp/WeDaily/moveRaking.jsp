@@ -25,34 +25,44 @@
 		color : #0F86FF;
 	}
 	
+	body {
+		   background-image: url(https://previews.123rf.com/images/fabiopagani/fabiopagani1501/fabiopagani150100015/35293810-%EB%B9%88%ED%8B%B0%EC%A7%80-%EC%98%81%ED%99%94-%ED%8E%B8%EC%A7%91-%EB%B0%94%ED%83%95-%ED%99%94%EB%A9%B4%EC%97%90-%EC%B4%88%EC%A0%90%EC%9D%B4-%EB%B0%B1%EA%B7%B8%EB%9D%BC%EC%9A%B4%EB%93%9C%EC%97%90%EC%84%9C-%ED%9D%91%EB%B0%B1%EC%9C%BC%EB%A1%9C-%ED%96%88-%EB%B3%B4%EB%93%9C.jpg);
+	}
 	</style>
 </head>
 <body>
-<div class="hold">
-  <div class="header">
-    <div class="container">
-      <a href = "/moveMain">
-      	<div id="logo"></div>
-      </a>
-      <ul class="nav">     	
-      	<li><input type = "text" name = "search" id = "search"></li>
-      	<li><button type = "button" onclick = "search()">검색</button></li>
-      	<c:if test = "${loginList.userid == null }">
-	        <li><a href="/WeDailyJoinView">로그인</a></li>
-	        <li><a href="/WeDailyJoinView">회원가입</a></li>
-	        <li><a href="#">Wow</a></li>
-	        <li><a href="#">Wow</a></li>
-        </c:if>
-        <c:if test = "${loginList.userid != null }">
-        	<li><a href="#">${loginList.userid}님!</a></li>
-	        <li><a href="/WeDailyLogout">로그아웃</a></li>
-	        <li><a href="#">Wow</a></li>
-	        <li><a href="#">Wow</a></li>
-        </c:if>
-      </ul>
-    </div>
-  </div>
-</div>
+	<div class="hold">
+	  <div class="header">
+	    <div class="container" id="container">
+	      <a href = "/moveMain">
+	      	<!-- <div id="logo"></div> -->
+	      </a> 
+	      <ul class="nav">   
+	      	<li id="main_logo"><a href="/moveMain">HOME</a></li>	
+	      	<li><input type = "text" name = "search" id = "search"></li>
+	      	<li><button type = "button" onclick = "search()">검색</button></li>
+	      	<c:if test = "${loginList.userid == null }">
+		        <li><a href="/WeDailyJoinView">로그인</a></li>
+		        <li><a href="/WeDailyJoinView">회원가입</a></li>
+		        <li><a href="/community_main?nickname=${loginList.nickname}">커뮤니티</a></li>
+		        <li><a href="#">Wow</a></li>
+	        </c:if>
+	        <c:if test = "${loginList.userid != null }">
+	        	<li><a href="#">${loginList.nickname}님!</a></li> 
+	        	<input type = "hidden" id = "userid" value = "${loginList.nickname}">      									
+		        <li><a href="/WeDailyLogout">로그아웃</a></li>
+		        <li id="dropdown"><a href="#">Mypage</a>
+		        	<span id="sub_ul">		        		
+	        			<a href="/wedailymypage?userid=${sessionScope.loginList.userid}">정보수정</a>
+	        			<a href="/movie_like?nickname=${sessionScope.loginList.nickname}">찜 리스트</a>
+	        		</span>
+		        </li>
+		        <li><a href="/community_main?nickname=${loginList.nickname}">커뮤니티</a></li>
+	        </c:if>
+	      </ul>
+	    </div>
+	  </div>
+	</div>
 
 
 
@@ -63,7 +73,7 @@
 			<tbody id="power-rankingTBODY_4">
 				<tr id="power-rankingTR_5">
 					<td colspan="5" id="power-rankingTD_6" style = "text-align:center;">
-						  영화순위
+						  영화순위  ( ${daily} )
 					</td>
 				</tr>
 				<tr id="power-rankingTR_7">
@@ -99,34 +109,15 @@
 						</div><span id="power-rankingSPAN_23"> ${rank.rankInten}</span><br id="power-rankingBR_24" /><span id="power-rankingSPAN_25">${rank.openDt}</span>
 					</c:if>
 					<c:if test = "${rank.rankOldAndNew == 'OLD'}">
-						<div id="power-rankingDIV_82"> <!-- 랭킹변동이 OLD 일경우  -->
-						</div><span id="power-rankingSPAN_23"> ${rank.rankInten}</span><br id="power-rankingBR_24" /><span id="power-rankingSPAN_25">${rank.openDt}</span>
+						ㅡ<span id="power-rankingSPAN_23"> ${rank.rankInten}</span><br id="power-rankingBR_24" /><span id="power-rankingSPAN_25">${rank.openDt}</span>
 					</c:if>
 					</td>
 					<td id="power-rankingTD_26">
-						The Panthers are the seventh team in NFL history to win 15 games or more in the regular season. Three of the previous six made the Super Bowl and two won it.
+						제목: [${rank.movieNm}]<br>개봉일자: ${rank.openDt}<br><br>오늘 관객수:${rank.audiCnt}명<br><br>누적관객수: ${rank.audiAcc}명<br><br>
+						상영횟수:${rank.showCnt}회 (해당날짜기준)<br><br>
+						<input type = "button" value = "상세보기" onclick = "location.href = 'https://search.naver.com/search.naver?sm=top_sug.pre&fbm=1&acr=1&acq=%EC%82%B4&qdt=0&ie=utf8&query=${rank.movieNm}'">
 					</td>
 				</tr>
-				<!-- <tr id="power-rankingTR_27">
-					<td id="power-rankingTD_28">
-						2
-					</td>
-					<td id="power-rankingTD_29">
-						<a href="http://espn.go.com/nfl/team/_/name/den/denver-broncos" id="power-rankingA_30"></a>
-						<div id="power-rankingDIV_31">
-						</div>
-						<div id="power-rankingDIV_32">
-							<a href="http://espn.go.com/nfl/team/_/name/den/denver-broncos" id="power-rankingA_33">Broncos</a><br id="power-rankingBR_34" /><span id="power-rankingSPAN_35">12-4</span>
-						</div>
-					</td>
-					<td id="power-rankingTD_36">
-						<div id="power-rankingDIV_37">
-						</div><span id="power-rankingSPAN_38">2</span><br id="power-rankingBR_39" /><span id="power-rankingSPAN_40">Last Week: 4</span>
-					</td>
-					<td id="power-rankingTD_41">
-						Peyton Manning is back, but the Broncos just need someone to protect the ball. They ranked first in total defense for the first time in franchise history.
-					</td>
-				</tr> -->
 				</c:forEach>
 			</tbody>
 		</table>
@@ -136,7 +127,17 @@
 </div>
 
 
-
+<script>
+	function search(){
+		var search = $("#search").val();
+		var userid = $("#userid").val();
+		if(search == ""){
+			alert("정보를 입력해주세요.");
+		}else{
+			location.href = "/moveselect?search="+search+"&userid="+userid;
+		}		
+	}
+</script>
 
 </body>
 </html>

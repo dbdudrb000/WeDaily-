@@ -1,539 +1,270 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-<link rel="stylesheet" href="${contextPath}/resources/css/earth.css">
-<!-- 22, 23번 설문 질문의 css -->
-<link rel="stylesheet"
-	href="${contextPath}/resources/css/searchStyle.css">
-<link rel="stylesheet" href="${contextPath}/resources/css/basic.css">
-<title>심리 테스트</title>
-
-<style type="text/css">
-.siwper-slide span {
-	height: 100%;
-	width: 100%;
-}
+<title>Movie Main Page</title>
+	<!-- Jquery -->
+	<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+	
+	<!-- 모달 css -->
+ 	<link rel="stylesheet" type="text/css" href="/resources/css/wedaily/wedaily_modal.css">  
+												
+	<!-- 메인페이지 CSS  -->
+	<link href="/resources/css/wedaily/mainStyle.css" rel="stylesheet" type="text/css">	
+	
+	<!-- font asoum-->
+	<link rel="stylesheet" href="/resources/css/fontawesome/all.css">
+<style>
+	.modal-header {
+		background: burlywood;
+	}
+	.modal-body {
+		background:#fdfcf0;
+	}
 </style>
-
 </head>
 <body>
 	
-	<%
-				HttpServletRequest req = (HttpServletRequest) request;
-				String type = req.getParameter("type");
-				if("A".equals(type)){
-					type = "A";
-				}else{
-					type = "B";
-				}
-	%>
-	<input type="text" id="chkId" /><button type="button" onclick="chkIds(chkId.value);">학번 등록확인</button>
-	<br/>
-	<br/>
-	<button type="button" id="nextButton" onclick="clickNext()">NEXT</button>
-	<form action="/psy/submit" id="psyFrm">
-	<input type="hidden" name="answers" id="answers">
-	<input type="hidden" name="type" id="type" value="<%=type%>">
-	<div class="swiper-container">
-		<div class="swiper-wrapper">
-			<div class="swiper-slide">
-				<span>
-					<div class="container">
-						<a target="_blank" href="https://youtu.be/mgGNTDT-i68"> <!----0--->
-							<div class="globe__placeholder">
-								<div class="globe__container">
-									<div class="globe">
-										<div class="globe__sphere"></div>
-										<div class="globe__outer_shadow"></div>
-										<div class="globe__reflections__bottom"></div>
-										<div class="globe__worldmap">
-											<div class="globe__worldmap__back"></div>
-											<div class="globe__worldmap__front"></div>
-										</div>
-										<div class="globe__inner_shadow"></div>
-										<div class="globe__reflections__top"></div>
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-				</span>
-			</div>	
-			<%
-				if("A".equals(type)){
-					type = "aType";
-				}else{
-					type = "bType";
-				}
-				for (int i = 1; i < 72; i++) {
-			%>
-				<%
-					if (i != 1 && i != 2 && i!=22 && i!=23 && i!=28 && i!=34 && i!=40 && i!=46 && i!=52 && i!=58 && i!=64 && i!=71) {
-				%>
-				<div class="swiper-slide">
-					<img src="${contextPath}/resources/images/<%=i %>.PNG" style="width:1326; height:741">
-					<%=i%>
-				</div>
-				<%
-					}else if( i == 1){
-				%>
-				
-					<div class="swiper-slide">
-						<section id="languagePage">
-						<h1>Select Language!</h1>
-							<button type="button" id="language" onclick="clickNext();">korea</button>
-							<button type="button" id="language" onclick="alert('korea를 선택해주세요.');">english</button>
-							<button type="button" id="language" onclick="alert('korea를 선택해주세요.');">china</button>
-							<button type="button" id="language" onclick="alert('korea를 선택해주세요.');">japan</button>
-							<button type="button" id="language" onclick="alert('korea를 선택해주세요.');">austrailia</button>
-							<button type="button" id="language" onclick="alert('korea를 선택해주세요.');">tibet</button>
-							<button type="button" id="language" onclick="alert('korea를 선택해주세요.');">vietnam</button>
-							<button type="button" id="language" onclick="alert('korea를 선택해주세요.');">taiwan</button>
-						</section>
-						<%=i%>
-					</div>
-				
-				<%
-					}else if( i == 2 ){
-				%>
-				
-					<div class="swiper-slide">
-						<section class="question">
-						<h1>Select Language!</h1>
-							<label for="country">당신의 국적을 입력하세요</label><br>
-							<input class="input" placeholder="입력하세요." type="text" id="country" name="question"/>
-						</section>
-						<%-- <%=i%> --%>
-					</div>
-				
-				<% 
-					} else if (i == 22 && "aType".equals(type) ) {
-				%>
-					<div class="swiper-slide">
-		
-						<section class="question">
-								<h1>집단 인식 조사</h1>
-		
-								<p>당신이 현재 속해 있는 여러 집단 중 당신이 중요하게 여기는 집단 하나를 떠올려주십시오. (가족, 친지
-									제외)</p>
-								<div class="searchdiv">
-									<p>집단은 고유한 특성을 가진 개개인이 모인 집합체입니다. 당신이 떠올린 집단의 대다수 사람들과 당신은 어떤
-										점에서 다른지 아래 빈 칸에 세 가지 이상 적어주십시오.</p>
-								</div>
-								
-								<label for="fname">1. 당신이 떠올린 집단은 무엇입니까?</label><br> 
-								<input class="input" placeholder="1." type="text" id="fname" name="question"><br> 
-								<label for="differenceA1">2. 당신이 떠올린 집단의 대다수 사람들과 당신은 어떤 점에서 다릅니까?</label><br> 
-								<input class="input" placeholder="1." type="text" id="differenceA1"	name="question"><br> 
-								<input class="input" placeholder="2." type="text" id="differenceA2" name="question"><br>
-								<input class="input" placeholder="3." type="text" id="differenceA3" name="question"><br> 
-								
-						</section>
-						<%=i%>
-					</div>
-				<%
-					} else if(i==23 && !("aType".equals(type)) ){
-				%>
-					<div class="swiper-slide">
-		
-						<section class="question">
-								<h1>집단 인식 조사</h1>
-								<p>당신이 현재 속해 있는 여러 집단 중 당신이 중요하게 여기는 집단 하나를 떠올려주십시오. (가족, 친지
-									제외)</p>
-								<div class="searchdiv">
-									<p>집단은 비슷한 특성을 공유하는 개인들이 모인 집합체입니다. 당신이 떠올린 집단의 대다수 사람들과 당신은
-										어떤 점에서 유사한지 아래 빈 칸에 세 가지 이상 적어주십시오.</p>
-								</div>
-								
-								<label for="group1">1. 당신이 떠올린 집단은 무엇입니까?</label><br> 
-								<input	class="input" type="text" placeholder="1." id="fname" name="question"><br> 
-								<label for="differenceB1">2. 당신이 떠올린 집단의 대다수 사람들과 당신은 어떤 점에서 다릅니까?</label><br> 
-								<input class="input" type="text" placeholder="1." id="differenceB1"	name="question"><br> 
-								<input class="input" type="text" placeholder="2." id="differenceB2" name="question"><br>
-								<input class="input" type="text" placeholder="3." id="differenceB3"	name="question"><br> 
-		
-						</section>
-						<%=i%>
-					</div>
-				<%
-					}else if(i==28){
-				%>
-					    <div class="swiper-slide">
-					    <img src="${contextPath}/resources/images/28.png" style="width:1326; height:741"><br>
 
-					    <section class = "question" data-total="100">
-					        <input class="input" type="number" placeholder="한국 투자액" id="korea" name="question">억<br>       
-				            <input class="input" type="number" placeholder="아시아 투자액" id="asia" name="question">억<br>      
-					
-					    </section>
-					    <%=i %>
-					    </div>
-				<%
-					}else if(i==34){
-				%>
-						<div class="swiper-slide">
-						<img src="${contextPath}/resources/images/34.png" style="width:1326; height:741"><br>
-	
-					    <section class = "question" data-total="148">
-				            <input class="input" type="number" placeholder="한국 투자액" id="korea" name="question">억<br>       
-				            <input class="input" type="number" placeholder="아시아 투자액" id="asia" name="question">억<br>      
-					    
-					    </section>
-					    <%=i %>
-					    </div>
-				<%
-					}else if(i==40){
-				%>
-						<div class="swiper-slide">
-						<img src="${contextPath}/resources/images/40.png" style="width:1326; height:741"><br>
-	
-					    <section class = "question" data-total="112">
-				            <input class="input" type="number" placeholder="한국 투자액" id="korea" name="question">억<br>       
-				            <input class="input" type="number" placeholder="아시아 투자액" id="asia" name="question">억<br>      
-					    
-					    </section>
-					    <%=i %>
-					    </div>
-				<%
-					}else if(i==46){
-				%>
-						<div class="swiper-slide">
-						<img src="${contextPath}/resources/images/46.png" style="width:1326; height:741"><br>
-	
-					    <section class = "question" data-total="82">
-				            <input class="input" type="number" placeholder="한국 투자액" id="korea" name="question">억<br>       
-				            <input class="input" type="number" placeholder="아시아 투자액" id="asia" name="question">억<br>      
-					    
-					    </section>
-					    <%=i %>
-					    </div>
-				<%
-					}else if(i==52){
-				%>
-						<div class="swiper-slide">
-						<img src="${contextPath}/resources/images/52.png" style="width:1326; height:741"><br>
-	
-					    <section class = "question" data-total="62">
-				            <input class="input" type="number" placeholder="한국 투자액" id="korea" name="question">억<br>       
-				            <input class="input" type="number" placeholder="아시아 투자액" id="asia" name="question">억<br>      
-					    
-					    </section>
-					    <%=i %>
-					    </div>
-				<%
-					}else if(i==58){
-				%>
-						<div class="swiper-slide">
-						<img src="${contextPath}/resources/images/58.png" style="width:1326; height:741"><br>
-	
-					    <section class = "question" data-total="54">
-				            <input class="input" type="number" placeholder="한국 투자액" id="korea" name="question">억<br>       
-				            <input class="input" type="number" placeholder="아시아 투자액" id="asia" name="question">억<br>      
-					    
-					    </section>
-					    <%=i %>
-					    </div>
-				<%
-					}else if(i==64){
-				%>
-						<div class="swiper-slide">
-						<img src="${contextPath}/resources/images/64.png" style="width:1326; height:741"><br>
-	
-					    <section class = "question" data-total="26">
-				            <input class="input" type="number" placeholder="한국 투자액" id="korea" name="question">억<br>       
-				            <input class="input" type="number" placeholder="아시아 투자액" id="asia" name="question">억<br>      
-					    
-					    </section>
-					    <%=i %>
-					    </div>
-				<%
-					} else if(i==71){
-				%>
-						<div class="swiper-slide">
-						<h1>실험이 종료되었습니다. 크레딧 부여를 위한 정보를 입력해주십시오.</h1>
-						<section class = "question">
-					    	<input class="input" type="text" id="name" name="question" placeholder="name"><br>
-					    	<input class="input" type="number" id="id" name="question" placeholder="id">
-					    </section>
-					    <%=i %>
-					    </div>
-				<%
-					}
-				%>
-			<%
-			}
-			%>
-			<input type="hidden" name="ar">
-			
-			<div class="swiper-slide">
-<!-- 				<img src="https://image.flaticon.com/icons/png/128/1933/1933588.png" alt=""> -->
-					<br> 수고하셨습니다.
-			</div>
+<div class="hold">
+  <div class="header">
+    <div class="container" id="container">
+      <a href = "/moveMain">
+      	<!-- <div id="logo"></div> -->
+      </a> 
+      <ul class="nav">   
+      	<li id="main_logo"><a href="/moveMain">HOME</a></li>	
+      	<li><input type = "text" name = "search" id = "search"></li>
+      	<li><button type = "button" onclick = "search()">검색</button></li>
+      	<c:if test = "${loginList.userid == null }">
+	        <li><a href="/WeDailyJoinView">로그인</a></li>
+	        <li><a href="/WeDailyJoinView">회원가입</a></li>
+	        <li><a href="/community_main?nickname=${loginList.nickname}">커뮤니티</a></li>
+	        <li><a href="#">Wow</a></li>
+        </c:if>
+        <c:if test = "${loginList.userid != null }">
+        	<li><a href="#">${loginList.userid}님!</a></li> 
+        	<input type = "hidden" id = "userid" value = "${loginList.nickname}">      									
+	        <li><a href="/WeDailyLogout">로그아웃</a></li>
+	        <li id="dropdown"><a href="#">Mypage</a>
+	        	<span id="sub_ul">		        		
+        			<a href="/wedailymypage?userid=${sessionScope.loginList.userid}">정보수정</a>
+        			<a href="/movie_like?nickname=${sessionScope.loginList.nickname}">찜 리스트</a>
+        		</span>
+	        </li>
+	        <li><a href="/community_main?nickname=${loginList.nickname}">커뮤니티</a></li>
+        </c:if>
+      </ul>
+    </div>
+  </div>
+</div>
 
+<div class="section">
+  <div class="slider">
+    <div class="container slidercontent">
+      <h1 class="hero">WeDaily</h1>
+      <h2 class="hero">환영합니다</h2>
+      <div class="call"><a onclick = "alert('즐거운 하루 되세요^_^')"><span>^_^</span></a></div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="border-bottom: double;">
+  <div class="container">
+    <div class="col four">
+      <a href = "#" onclick = "modal()"><h1 class="icon">[]</h1></a>
+      <h1 class="service">영화순위</h1>
+      <p style="font-weight:800;">영화순위가 궁금하시면은 클릭하십시오.</p>
+    </div>
+    <div class="col four">
+      <a href="#" onclick="location.href='/reservation'"><h1 class="icon">[]</h1></a>
+      <h1 class="service">CGV 예매하기</h1>
+      <p style="font-weight: 800;">상영 시간표가 궁금하신가요?</p>
+    </div>
+    <div class="responsivegroup"></div>
+    <div class="col four">
+      <a href="#" onclick="cgvSns_modal()"><h1 class="icon">[]</h1></a>
+      <h1 class="service">CGV SNS</h1>
+      <p style="font-weight: 800;">CGV sns에서 다양한 정보를 얻어보세요.</p>
+    </div>
+    <div class="col four">
+      <a href="#" onclick="appOpen()"><h1 class="icon">[]</h1></a>
+      <h1 class="service">App 으로 이용하기</h1>
+      <p style="font-weight: 800;">앱으로 편하게 이용하세요.</p>
+    </div>
+    <div class="group"></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <h1 class="reset">간략소개</h1>
+  </div>
+</div>
+<div class="section">
+  <div class="footer">
+    <div class="container white">
+      <div class="col four left">
+        <h1>What?</h1>
+        <p>So that's it. This started out as 20 minutes of making fun of modern web dev. Then it turned into a few hours of it.</p>
+        <p>I hope you've enjoyed looking at every modern website ever.</p>
+        <p>I don't actually hate this style as long as the content is meaningful. In fact, I think this type of design is pretty cool and effective.</p>
+      </div>
+      <div class="col four left">
+        <h1>How?</h1>
+        <p>CSS3 and HTML. JS for header shrinking; optional. Site works perfectly with JS disabled (another gripe of mine with modern web dev).</p>
+        <p>Only external libraries are GFonts.</p>
+        <p>Moderately responsive, should work on anything modern.</p>
+      </div>
+      <div class="col four left">
+        <h1>Why?</h1>
+        <p>Many popular HTML themes have thousands of lines of HTML, thousands of lines of CSS and several JS plugins on every page amounting to tens of thousands of lines of JavaScript.</p>
+        <p>I fail to see a valid reason for this, particularly the horrendous line counts that are usually due to unused features or badly designed code.</p>
+      </div>
+      <div class="col four left">
+        <h1>Who?</h1>
+        <p>I'm Andrew.</p>
+        <p>You can get in touch with me through <a href="http://atunnecliffe.com">http://atunnecliffe.com</a> or <a href="mailto:andrew@atunnecliffe.com">emailing me</a>.</p>
+      </div>
+      <div class="group"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 영화순위 모달창 ( 주간,주말 )-->
+<div class="modal" id="modal-name" style = "display: none;">
+	<div class="modal-sandbox"></div>
+	<div class="modal-box">
+		<div class="modal-header">
+			<a onclick = "modal()"><div class="x-modal" style = "text-align : right; cursor: pointer;">&#10006;</div></a>
+			<input type = "hidden" value = "N" id = "phoneUse">
+			<h1>영화순위</h1>
 		</div>
+	<div class="modal-body">
+		<select name = "selectbox" id = "selectbox" style="border-radius: 10px; border: groove;">
+			<option value = "none">===선택===</option>
+			<option value = "today">오늘의 영화순위</option>
+			<option value = "jugan">주간 영화순위</option>
+			<option value = "jumal">주말 영화순위</option>
+		</select>	      
+		<button class="close-modal" onclick = "moveRanking()" style="background-color:white;">바로보기</button>
 	</div>
-	</form>
-	<!-- Swiper JS -->
-	<script src="https://unpkg.com/swiper/js/swiper.js"></script>
-	<!-- Include plugin after Swiper -->
-	
-	<script>
-		
-		var count = 0;
-		var answer = [];
-		var id = "이름|학번";
-		
-		function clickNext() {
-			//마지막 페이지 여부 ? true -> id "이름|학번";
-			//문제 여부 ? ture -> 해당 문제의 답 answer.push();
-			//해당 페이지에 입력 값이 있는 지 체크
-			//console.log(this);
-			document.getElementById("nextButton").style.display="none";
-			
-			//국가 선택 화면에서는 next 버튼을 안보이게..
-			if( swiper.activeIndex == 0 ){
-				document.getElementById("nextButton").style.display="none";
-			}
-			else if( swiper.activeIndex == 71 ){
-				document.getElementById("nextButton").style.display="none";
-			}
-			else {
-				setTimeout(function() {
-					//버튼보이기
-					document.getElementById("nextButton").style.display="block";		
-				}, 0500);
-			}
-			
-			var input = document.getElementsByClassName("input");
-			var loc = document.getElementsByClassName("swiper-slide")[swiper.activeIndex];
-			var question = "question";
-			var pass = true;
-			var last = false;
-			var page = swiper.activeIndex + 2;
-			
-			var inputValue = "";
-			
-		    	
-	    	var secQ = "";
-			for(var j = 0; j< loc.children.length; j++){
-			    if(loc.children[j].className == "question"){
-			    	secQ = loc.children[j];
-			    }
-			}
-	    	
-	    	//loc.getElementsByClassName('question')[0].children
-	    	if(secQ){
-		    	for(var j = 0; j< secQ.children.length; j++){
-		    		if(secQ.children[j].name === question){
-			    		if(secQ.children[j].value===""){
-			    			pass = false;
-			    		}
-			    		
-			    		//입력한 값 대입
-			    		inputValue = secQ.children[j].value;
-			    		if( swiper.activeIndex == 2 && ( inputValue != "대한민국" && inputValue != "한국" ) ){
-			    			pass = false;
-			    		}
-			    		
-		    		}
-		    	}
-	    
-	    	
-		    	//값이 모두 입력되었을때.
-		    	if(pass){
-		    		
-		    		// 예산일때
-		    		if(secQ.dataset.total){
-		    			var price = 0;
-		    			var total = secQ.dataset.total;
-		    			for(var k =0; k<secQ.children.length; k++) {
-		    			    if(secQ.children[k].type == "number"){
-		    			        price = price + parseInt(secQ.children[k].value);
-		    			    }
-		    			}
-		    			console.log("total : " + total);
-		    			console.log("price : " + price);
-		    			if(total == price){
-		    				for(var l =0; l<secQ.children.length; l++) {
-		    					if(secQ.children[l].type == "number"){
-	    							answer.push(secQ.children[l].value);
-		    					}
-		    				}
-	    				}else{
-	    					pass = "numberErr";
-	    				}
-	
-		    		// 문자일때
-		    		} else {
-		    			for(var k =0; k<secQ.children.length; k++) {
-		    			    if(secQ.children[k].className == "input"){
-				    			answer.push(secQ.children[k].value);
-		    			    }
-		    			}
-		    		}
-		    		
-		    	}
-			    	
-	    	}
-				
-			if( swiper.activeIndex == 2 && ( inputValue != "대한민국" && inputValue != "한국" ) ){
-				//대한민국 or 한국 만 입력받게..
-				alert("대한민국 또는 한국만 입력해주세요.");
-			} else if( pass == "numberErr"){
-				alert("예산의 합이 맞지 않습니다.");
-			}else if(pass && page === swiper.slides.length){
-				//끝페이지
-				if(chkIds(document.getElementById("id").value)){
-					swiper.slideNext();
-					console.log(answer);
-					//Save
-					saveAnswer( answer );
-				}
-			}else if( pass && page < swiper.slides.length ){
-				//문항들..
-					alert("next 버튼");
-				swiper.slideNext();
-					alert("next 버튼22");
-			}else{
-				alert("항목을 입력해주세요.");
-			}
-		}
-		
-		
-		/* ========
-		Debugger plugin, simple demo plugin to console.log some of callbacks
-		======== */
-		var myPlugin = {
-			name : 'debugger',
-			params : {
-				debugger : false,
-			},
-			on : {
-				init : function() {
-					if (!this.params.debugger)
-						return;
-					//console.log('init');
-				},
-				click : function(e) {
-					if (!this.params.debugger)
-						return;
-					//console.log('click');
-				},
-				tap : function(e) {
-					if (!this.params.debugger)
-						return;
-					//console.log('tap');
-				},
-				doubleTap : function(e) {
-					if (!this.params.debugger)
-						return;
-					//console.log('doubleTap');
-				},
-				sliderMove : function(e) {
-					if (!this.params.debugger)
-						return;
-					//console.log('sliderMove');
-				},
-				slideChange : function() {
-					if (!this.params.debugger)
-						return;
-					//console.log('slideChange', this.previousIndex, '->',
-					//		this.activeIndex);
-				},
-				slideChangeTransitionStart : function() {
-					if (!this.params.debugger)
-						return;
-					//console.log('slideChangeTransitionStart');
-				},
-				slideChangeTransitionEnd : function() {
-					if (!this.params.debugger)
-						return;
-					//console.log('slideChangeTransitionEnd');
-				},
-				transitionStart : function() {
-					if (!this.params.debugger)
-						return;
-					//console.log('transitionStart');
-				},
-				transitionEnd : function() {
-					if (!this.params.debugger)
-						return;
-					//console.log('transitionEnd');
-				},
-				fromEdge : function() {
-					if (!this.params.debugger)
-						return;
-					//console.log('fromEdge');
-				},
-				reachBeginning : function() {
-					if (!this.params.debugger)
-						return;
-					//console.log('reachBeginning');
-				},
-				reachEnd : function() {
-					if (!this.params.debugger)
-						return;
-					//console.log('reachEnd');
-				},
-			},
-		};
-	</script>
+	</div>
+</div>
 
-	<script>
-		// Install Plugin To Swiper
-		Swiper.use(myPlugin);
+<!-- CGV SNS 모달 -->
+<div class="modal" id="cgv_modal" style="display: none;">
+  <div class="modal-sandbox"></div>
+	  <div class="modal-box">
+	    <div class="modal-header" id="cgvmodal_header">
+	      <div class="x-modal" style = "text-align : right; cursor: pointer;"><a onclick = "cgvSns_modal()">&#10006;</a></div> 
+	      <h1>CGV SNS 보러가기</h1>
+	    </div>
+	    <div class="modal-body" id="cgvModal_body">   
+	      <select id="sns_selectbox" style="border-radius: 10px; border: groove;">
+	      	<option value="not">선택 없음</option>
+	      	<option value="facebook">CGV 페이스북</option>
+	      	<option value="instaframe">CGV 인스타그램</option>
+	      </select>
+	      <button onclick="sns_button()" style="background-color:white;">바로가기</button>
+	    </div>
+	  </div>
+</div>
 
-		// Init Swiper
-		var swiper = new Swiper('.swiper-container', {
-			//       pagination: {
-			//         el: '.swiper-pagination',
-			//         clickable: true,
-			//       },
-			allowTouchMove : false,
-			
-			navigation : {
-				nextEl : '.swiper-button-next',
-				prevEl : '.swiper-button-prev',
-			},
-			
-			// Enable debugger
-			debugger : true,
+<!-- QR코드로 app으로 이동하기  -->
+<div class="modal" id="app_modal" style="display: none;">
+	<div class="modal-sandbox"></div>
+	<div class="modal-box">
+		<div class="modal-header">
+			<a onclick = "appOpen()"><div class="x-modal" style = "text-align : right; cursor: pointer;">&#10006;</div></a>
+			<input type = "hidden" value = "N" id = "phoneUse">
+			<h1>CGV앱으로 편하게 이용하세요.</h1>
+		</div>
+	<div class="modal-body">
+		 <img src="http://img.cgv.co.kr/R2014//images/common/img_qrcode.gif">
+	</div>
+	</div>
+</div>
 
-		});
-		
-		function saveAnswer(answer){
-			psyFrm.answers.value = answer;
-			psyFrm.submit();
-		}
-	var ids = [];
-	<c:forEach var="vo" items="${voList}">
-		ids.push(${vo.id});
-	</c:forEach>
+<script>
+window.onscroll = function() {
+	  var el = document.getElementsByClassName('header')[0];
+	  var className = 'small';
+	  if (el.classList) {
+	    if (window.scrollY > 10)
+	      el.classList.add(className);
+	    else
+	      el.classList.remove(className);
+	  }
+	};
 	
-	function chkIds( val ){
-		var existId = true;
-		
-		for(var id=0; id<ids.length; id++){
-		    if(ids[id] == parseInt(val)){
-		    	existId = false;
-		    }
-		}
-		
-		if(!existId){
-			alert("이미 등록된 학번입니다.");
+	function search(){
+		var search = $("#search").val();
+		var userid = $("#userid").val();
+		if(search == ""){
+			alert("정보를 입력해주세요.");
 		}else{
-			alert("사용가능한 학번입니다.");
-		}
-		
-		return existId;
+			location.href = "/moveselect?search="+search+"&userid="+userid;
+		}		
 	}
-	</script>
+	
+	function modal(){
+		var modalStyle = document.getElementById("modal-name");
+		
+    	if(modalStyle.style.display == 'block'){
+    		modalStyle.style.display = 'none';	
+    	}else{
+    		modalStyle.style.display = 'block';
+    	}   	   	
+	}
+	// 영화 순위 ( 주간 주말 어떠한 리스트를 볼 것인지 선택하는 selectbox )
+	function moveRanking(){
+		
+		var target = $("select[name=selectbox]").val();
+		
+		if(target == "none"){
+			alert("항목을 선택해주십시오.")
+		}else{
+			location.href = "/moveRanking?target="+target;;
+		}	
+	}
+	
+	function cgvSns_modal(){
+		var sns = document.getElementById("cgv_modal"); 
+		if(sns.style.display == "block"){
+			sns.style.display = "none";	
+		}else {
+			sns.style.display = "block";
+		}	
+	}
+	
+	function sns_button(){
+		var sns_search = document.getElementById("sns_selectbox").value;
+		
+		if(sns_search == "not"){
+			alert("정보가 입력되지 않았습니다.");
+		}else if(sns_search == "facebook"){
+			location.href="https://www.facebook.com/CJCGV";
+		}else {
+			location.href="https://www.instagram.com/cgv_korea/";
+		}
+	}
+	
+	function appOpen(){
+		var app_search = document.getElementById("app_modal");
+		
+		if(app_search.style.display == "block"){
+			app_search.style.display = "none";
+		}else {
+			app_search.style.display = "block"
+		}
+	}
+</script>
+
+
 </body>
 </html>
