@@ -30,4 +30,32 @@ public interface WeDailyMapper {
 	
 	// 찜한 영화 조회
 	List<WeDailyVO> selectmove(WeDailyVO vo) throws Exception;
+	
+	// 설문조사 insert
+	void insertSatisfaction(WeDailyVO vo)throws Exception;
+	
+	// 회원정보 수정
+	void memberUpdate(WeDailyVO vo) throws Exception;
+	
+	// 게시판 등록
+	void boardInsert(WeDailyVO vo) throws Exception;
+	
+	// 게시판 등록시 count 증가
+	void memberBoardCount(WeDailyVO vo) throws Exception;
+	
+	//게시판 조회
+	List<WeDailyVO> selectBoard(WeDailyVO vo) throws Exception;
+
+	// board Update Page  조회
+	List<WeDailyVO> boardUpdate_select(WeDailyVO vo) throws Exception;
+	
+	// 커뮤니티 update 내용 변경
+	void board_update(WeDailyVO vo)throws Exception;
+	
+	// 게시글 삭제
+	void delete_board(WeDailyVO vo) throws Exception;
+	// 게시판 검색 기능
+	List<WeDailyVO> search(WeDailyVO vo) throws Exception;
+	// 찜한 영화 조회
+	List<WeDailyVO> select_movieLike(WeDailyVO vo) throws Exception;
 }
