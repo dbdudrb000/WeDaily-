@@ -275,6 +275,12 @@ input {
 		opacity: 1;
 	}
 }
+	/* 핸드폰 입력창 우측 화살표 제거 */
+	input[type="number"]::-webkit-outer-spin-button,
+	input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+	}
 	
 	</style>
 
@@ -286,27 +292,27 @@ input {
 	<nav>
 		<ul>		
 	      <li><a href="#news"></a></li>
-	      <li><a href="/WeDailyJoinView">로그인 | 회원가입</a></li>
-	      <li><a class="active" href="/move2">Home</a></li>
-	      </h3><li class = "logo" style = "color: antiquewhite; margin: 10px; margin-right: 27%; font-size: 23px;">WeDaily</li>
+	      <li><a class="active" href="/moveMain">Home</a></li>
+	      </h3><li class = "logo" style = "color: antiquewhite; margin: 10px; margin-right: 40%; font-size: 23px;">WeDaily</li>
 	    </ul>
 	</nav>
    
-	<div class="container">
-		<form class="signIn" name = "loginform"action = "/WeDailyLoginLogic">
+	<div class="container">									
+		<form class="signIn" name = "joinform"action = "/WeDailyjoinLogic" method = "POST">
 			<h3>회원가입</h3>
-				<input class="w100" type="text" placeholder="아이디" id = "id" name = "id" reqired/>
+				<input class="w100" type="text" placeholder="아이디" id = "id" name = "idName" reqired  />
+				
 				<input type="text" placeholder="닉네임" id = "nick" name = "nickname" reqired />
 				<input type="text" placeholder="비밀번호" id = "pw1" name = "password" reqired />
 				<input type="text" placeholder="비밀번호 재확인" id = "pw2"reqired />
 				<input type="number" placeholder="휴대폰 번호' - '제외" id = "phoneId" name = "phone" maxlength="11" reqired />
-				<input type = "button" value = "인증번호 받기" onclick = "modal()" class="modal-trigger" id = "mm" data-modal="modal-name">
+				<input type = "button" value = "인증번호 받기" onclick = "modal()" class="modal-trigger" data-modal="modal-name">
 				
 				<button class="form-btn sx back" type="button">Log In</button>
 				<button class="form-btn dx" type = "button"onclick = "join()">Sign Up</button>
 		</form>
-		<form class="signUp" name = "joinform" action = "/WeDailyjoinLogic">
-			<h3>로그인</h3>
+		<form class="signUp" name = "loginform" action = "/WeDailyLoginLogic">
+			<h3>로그인</h3>		
 			<button class="fb" type="button" onclick = "alert('서비스준비중.')">Log In With Facebook</button>
 			<p>- or -</p>
 			<input type="text" placeholder="ID 입력" name = "loginId" reqired />
@@ -323,6 +329,7 @@ input {
 			  <div class="modal-box">
 			    <div class="modal-header">
 			      <div class="x-modal" style = "text-align : right; cursor: pointer;">&#10006;</div> 
+			      <input type = "hidden" value = "N" id = "phoneUse">
 			      <h1>휴대폰 인증</h1>
 			    </div>
 			    <div class="modal-body">
@@ -362,11 +369,14 @@ input {
 		var pw2 = document.getElementById("pw2").value;
 		var ninkname = document.getElementById("nick").value;
 		var phone1 = document.getElementById("phoneId").value;
+		var use = document.getElementById('phoneUse').value;
 		
 		if(pw1 != pw2){
 			alert("비밀번호가 다릅니다.")
 		}else if(id == "" || pw1 == "" && nickname == "" || phone1 == ""){
 			alert("정보를 입력헤주십시오.");
+		}else if(use == "N"){
+			alert('핸드폰 인증을 해주십시오..');
 		}else{
 			joinform.submit();
 		}	
@@ -407,17 +417,9 @@ input {
 			    	/* 모달창 여는 코드  */
 			    	var modalStyle = document.getElementById("modal-name");
 			    	modalStyle.style.display = 'block';
-			    	
-			    	/* 모달 창 여는 코드 */
-			    	/*$(".modal-trigger").ready(function(e){
-						  //e.preventDefault();
-						  alert("정식님 만세");
-						  dataModal = $(this).attr("data-modal");						  
-						  $("#" + dataModal).css({"display":"block"});
-						  // $("body").css({"overflow-y": "hidden"}); //Prevent double scrollbar.
-						});   */
 			    			    	
 			    	alert("전송되었습니다.");
+			    	
 			      console.log(xhr.responseText);
 			    } else {
 			    	alert("전송에 실패하였습니다. \n(문의 번호 : 1588-9999).");
@@ -467,11 +469,8 @@ input {
 		    		var modalStyle = document.getElementById("modal-name");
 			    	modalStyle.style.display = 'none';
 		    		
-		    		/* 
-		    		$(".close-modal, .modal-sandbox").on(function(){
-			  			  $(".modal").css({"display":"none"});
-			  			  // $("body").css({"overflow-y": "auto"}); //Prevent double scrollbar.
-			  			});	 */
+			    	document.getElementById('phoneUse').value = "Y";
+			    	
 		    	}else{
 		    		
 		    		alert("인증 실패하였습니다.");
