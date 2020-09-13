@@ -17,7 +17,9 @@
 	<!-- mypage form CSS -->
 	<link rel="stylesheet" type = "text/css" href="/resources/css/wedaily/mypage.css">
 	<!-- 모달 css -->
-	<link rel="stylesheet" type="text/css" href="/resources/css/wedaily/modal.css">
+	<link rel="stylesheet" type="text/css" href="/resources/css/wedaily/wedaily_modal.css">
+	
+		<!-- <link href="/resources/css/wedaily/community_main.css" rel="stylesheet" type="text/css"> -->	
 <style>
 	/* 문자인증  display css 설정.  */
 		#modal_button2{
@@ -34,30 +36,38 @@
 	    	margin-left: 53%;
     		margin-top: -23px;
 	    }
+	    
+	    
 </style>
 
 </head>
-<body>
 	<div class="hold">
-	  <div class="header" id = "header2">
-	    <div class="container">
+	  <div class="header">
+	    <div class="container" id="container">
 	      <a href = "/moveMain">
-	      	<div id="logo"></div>
-	      </a>
-	      <ul class="nav">     	
+	      	<!-- <div id="logo"></div> -->
+	      </a> 
+	      <ul class="nav">   
+	      	<li id="main_logo"><a href="/moveMain">HOME</a></li>	
 	      	<li><input type = "text" name = "search" id = "search"></li>
 	      	<li><button type = "button" onclick = "search()">검색</button></li>
-	      	<c:if test = "${sessionScope.loginList.userid == null }">
+	      	<c:if test = "${loginList.userid == null }">
 		        <li><a href="/WeDailyJoinView">로그인</a></li>
 		        <li><a href="/WeDailyJoinView">회원가입</a></li>
-		        <li><a href="#">Wow</a></li>
+		        <li><a href="/community_main?nickname=${loginList.nickname}">커뮤니티</a></li>
 		        <li><a href="#">Wow</a></li>
 	        </c:if>
-	        <c:if test = "${sessionScope.loginList.userid != null }">
-	        	<li><a href="#">${sessionScope.loginList.userid}님!</a></li>
+	        <c:if test = "${loginList.userid != null }">
+	        	<li><a href="#">${loginList.nickname}님!</a></li> 
+	        	<input type = "hidden" id = "userid" value = "${loginList.nickname}">      									
 		        <li><a href="/WeDailyLogout">로그아웃</a></li>
-		        <li><a href="/wedailymypage">Mypage</a></li>
-		        <li><a href="#">Wow</a></li>
+		        <li id="dropdown"><a href="#">Mypage</a>
+		        	<span id="sub_ul">		        		
+	        			<a href="/wedailymypage?userid=${sessionScope.loginList.userid}">정보수정</a>
+	        			<a href="/movie_like?nickname=${sessionScope.loginList.nickname}">찜 리스트</a>
+	        		</span>
+		        </li>
+		        <li><a href="/community_main?nickname=${loginList.nickname}">커뮤니티</a></li>
 	        </c:if>
 	      </ul>
 	    </div>
@@ -69,13 +79,12 @@
 	      <i class="fas fa-book-open text-primary"></i> My<span class="text-primary">Page</span></h1>
 	</div>
 	
-		<!-- mypage table html -->
-
+	<!-- mypage table html -->
 	<div class="landing-page">
 		<div class="form-appointment">
 			<div class="wpcf7" id="wpcf7-f560-p590-o1">
 				<form
-					action="/landing-page-template-do-not-delete/#wpcf7-f560-p590-o1"
+					action="/memberUpdate" id="updateForm"
 					method="post" class="wpcf7-form" novalidate="novalidate"
 					_lpchecked="1">
 					<div style="display: none;">
@@ -88,21 +97,21 @@
 					<div class="group">
 						<div style="width: 48%; float: left;">
 							<span class="wpcf7-form-control-wrap text-680">
-								<input type="text" name="text-680" value="ID : ${mypageUser.userid}" size="45"placeholder="아이디" readonly>
+								<input type="text" name="userid" value="ID : ${mypageUser.userid}" size="45"placeholder="아이디" readonly>
 								<input type = "hidden" id = "useridHidden" value = "${mypageUser.userid}">
 							</span><br> 
 							<span class="wpcf7-form-control-wrap text-680">
-								<input type="text" name="text-680" value="닉네임 : ${mypageUser.nickname}" size="45"placeholder="닉네임" readonly>
+								<input type="text" name="nickname" value="닉네임 : ${mypageUser.nickname}" size="45"placeholder="닉네임" readonly>
 							</span><br> 
 							<span class="wpcf7-form-control-wrap tel-630">
-								<input type="text" value="PW : ${mypageUser.userpw}" id = "mypassword" size="45" placeholder="비밀번호" readonly>
+								<input type="text" name="password" value="PW : ${mypageUser.userpw}" id="mypassword" size="45" placeholder="비밀번호" readonly>
 							</span><br>  
-							<span class="wpcf7-form-control-wrap tel-630"><input type="text" id = "myphone"
+							<span class="wpcf7-form-control-wrap tel-630"><input type="text" id = "myphone" name="phone"
 								  value="휴대폰 : ${fn:substring(mypageUser.phone,0,3)}-${fn:substring(mypageUser.phone,3,7)}-${fn:substring(mypageUser.phone,7,12)}" 
 								  placeholder="휴대폰" readonly>    
 							</span><br> 															
 							<span class="wpcf7-form-control-wrap textarea-398">
-								<textarea cols="40" rows="10" placeholder="자기소개" id = "my_myself" readonly>${mypageUser.my_self}</textarea>
+								<textarea cols="40" rows="10" placeholder="자기소개" name="my_self" id="my_myself" readonly>${mypageUser.my_self}</textarea>
 							</span>
 						</div>
 						<div style="width: 48%; float: right;">
@@ -207,11 +216,23 @@
 		</div>
 
 <script>
+
+	function search(){
+		var search = $("#search").val();
+		var userid = $("#userid").val();
+		if(search == ""){
+			alert("정보를 입력해주세요.");
+		}else{
+			location.href = "/moveselect?search="+search+"&userid="+userid;
+		}		
+	}
+
 	function finishs(){
 		var result = confirm("수정완료하셨습니까?");
 		
 		if(result){
-			location.href = "/moveMain";
+			//location.href = "/memberUpdate";
+			updateForm.submit();
 		}
 	}	
 	// 설문조사 radio 갑을 가져오는 로직
