@@ -55,7 +55,7 @@
 - 영화순위는 메인화면에서 (일간,주간,주말)3개중 1개를 선택해서 볼 수 있습니다.
 
 # 영화 상영관 시간표 
-![movieTiems.PNG](./resources/img/readmeimg/movieTiems.PNG)
+![movieTimes.PNG](./resources/img/readmeimg/movieTimes.PNG)
 - 해당지역 -> 특정 상영관 -> 상영중인 상영관,시간표를 보실 수 있습니다.
 
 # CGV SNS 보러가기
@@ -67,7 +67,7 @@
 - 휴대폰으로 QR코드를 인식하게 되면은 CGV전용 앱으로 이용이 가능합니다.
 
 # 게시판 메인
-![community_main.PNG](./resources/img/readmeimg/community_main.PNG)
+![comunity_main.PNG](./resources/img/readmeimg/comunity_main.PNG)
 - 게시글을 등록하실 때 에디터로 이미지같은것을 손쉽게 첨부가능합니다.
 
 # WeDaily-
