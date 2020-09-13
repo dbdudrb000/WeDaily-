@@ -15,9 +15,9 @@
 			movelike
 		)
 		VALUES
-		(
+		(	  
 			#{userid}		, 
-			#{userpW}		, 
+			#{userpw}		, 
 			#{nickname}		, 
 			#{phone}		, 
 			'Y'				, 
@@ -34,9 +34,11 @@
 				phone 		,
 				use 		,
 				createDt 	,
-				moveLike 	
+				moveLike 	,
+				my_self
 		FROM "Wedaily"."members"
 		<where>
+			AND 1=1
 			<if test = "userid != null and userid != ''">
 				AND userid = #{userid} 
 			</if>
@@ -46,6 +48,216 @@
 		</where>	
 		
 	</select>
-						
-
+	
+	<!-- 영화찜 insert -->
+	<insert id = "movelike" parameterType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO">
+		INSERT INTO "Wedaily".move_like
+		(
+			move_num	  ,
+			movetitle 	  ,
+			moveopen 	  ,
+			likeid  
+		)VALUES
+		(
+			(select CASE WHEN MAX(move_num)=(select count(move_num)+1 from "Wedaily".move_like) 
+						 THEN count(move_num)+2 
+						 ELSE count(move_num)+1
+						 END from "Wedaily".move_like) 	,
+			#{movetitle}		,
+			#{moveOpen}			,
+			#{likeid}
+		);
+		
+	</insert>
+	
+	<!-- 영화찜 delete -->
+	<update id = "deleteLike" parameterType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO">
+		DELETE FROM "Wedaily".move_like
+			<where>
+				movetitle = #{movetitle} and likeid = #{likeid}
+			</where>
+	</update>
+	
+	<update id = "likeplmi" parameterType="HashMap">
+		update "Wedaily".members 
+			SET
+		movelike = 
+			CASE WHEN #{result} = 'plus' THEN movelike +1
+				ELSE
+			movelike -1
+			END
+			<where>
+				<if test = "likeid != '' and likeid != null">
+				 	userid = #{likeid}	
+				</if>
+			</where>												
+	</update>
+	
+	<select id = "selectmove" parameterType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO" resultType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO">
+		SELECT 
+			move_num		,
+			movetitle		,
+			moveopen		,
+			likeid			,
+			like_createdt
+		FROM "Wedaily".move_like
+		<where>
+			<if test = "userid !='' and userid != null">
+				likeid = #{userid}
+			</if>
+		</where>	
+	</select>
+	
+	<!-- 설문조사 insert -->
+	<update id = "insertSatisfaction" parameterType = "collabo.wato.springboot.web.WeDaily.vo.WeDailyVO">
+		update "Wedaily"."members" 
+		<set>
+			satisfaction = #{satisfaction}
+		</set>
+		<where>
+			userid = #{userid}
+		</where> 		
+	</update>
+	
+	<!-- 회원정보 수정 -->
+	<update id="memberUpdate" parameterType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO">
+		update "Wedaily"."members" 
+		<set>
+			<if test = "userpw != '' and userpw != null">
+				userpw = #{userpw},
+			</if>
+			<if test = "phone != '' and phone != null">
+				phone = #{phone},
+			</if>
+			<if test = "my_self != '' and my_self != null">
+				my_self = #{my_self},
+			</if>
+			updatedt = now()
+		</set>
+		<where>
+			userid = #{userid}
+		</where>
+	</update>
+	
+		<!-- 게시판 등록  -->
+	<insert id="boardInsert" parameterType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO">
+		INSERT INTO "Wedaily"."community"
+		(
+			board_number	,
+			board_title		,
+			board_detail	,
+			board_kind		,
+			board_user		,
+			board_createdt	
+		)VALUES
+		(
+			(select CASE WHEN MAX(board_number) = (select count(board_number)+1 from "Wedaily"."community")
+						 THEN count(board_number) +2
+						 ELSE count(board_number) +1
+						 END from "Wedaily"."community") ,
+			#{board_title}			,
+			#{board_detail}			,
+			#{board_kind}			,
+			#{board_user}			,
+			now()
+		);
+	</insert>
+	<!-- 게시판 등록시 특정 회원 board_count  증가 -->
+	<update id="memberBoardCount" parameterType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO">
+		update "Wedaily"."members"
+		<set>
+			board_count = board_count+1
+		</set>
+		<where>
+			nickname = #{board_user}
+		</where>
+	</update>
+	
+	<!-- 게시판 main page 조회 -->
+	<select id="selectBoard" parameterType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO" resultType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO">
+		select board_number		,
+			   board_title		,
+			   board_detail		,
+			   board_kind		,
+			   board_user		,
+			   board_createdt	
+		from "Wedaily"."community"
+	</select>
+	
+	<!-- Board Update Page 조회 -->
+	<select id="boardUpdate_select" parameterType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO" resultType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO">
+		select board_number		,
+			   board_title		,
+			   board_detail		,
+			   board_kind		,
+			   board_user		,
+			   board_createdt	
+		from "Wedaily"."community"
+		<where>
+			board_number = #{board_number} and board_user = #{board_user}
+		</where>
+	</select>
+	
+	<update id="board_update" parameterType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO">
+		update "Wedaily"."community"
+		<set>
+			<if test="board_title != null and board_title != ''">
+				board_title = #{board_title},
+			</if>
+			<if test="board_detail != null and board_detail != ''">
+				board_detail = #{board_detail},
+			</if>
+			<if test="board_kind != null and board_kind != ''">
+				board_kind = #{board_kind},
+			</if>
+				board_updatedt = now() 
+		</set>
+		<where>
+			board_number = #{board_number} and board_user = #{board_user}
+		</where>
+	</update>
+	
+	<update id="delete_board" parameterType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO">
+		delete from 
+			"Wedaily"."community"
+		<where>
+			board_number = #{board_number} and board_user = #{board_user}
+		</where>
+	</update>
+	
+	<!-- 게시판 검색 기능 -->
+	<select id="search" parameterType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO" resultType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO">
+		select board_number		,
+			   board_title		,
+			   board_detail		,
+			   board_kind		,
+			   board_user		,
+			   board_createdt	
+		from "Wedaily"."community"
+		<where>
+			AND 1=1
+			<if test = "search_title_detail != null and search_title_detail != ''">
+				AND	board_title LIKE '%'||#{search_keyword}||'%' OR board_detail LIKE  '%'||#{search_keyword}||'%'
+			</if>
+			<if test = "search_kind != null and search_kind != ''">
+				AND board_kind LIKE '%'||#{search_keyword}||'%'
+			</if>
+			<if test = "search_writer != null and search_writer != ''">
+				AND board_user LIKE '%'||#{search_keyword}||'%'
+			</if>
+		</where>
+	</select>
+	
+	<!-- 찜한 영화 조회 -->
+	<select id="select_movieLike"  parameterType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO" resultType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO">
+		select move_num		,
+			   movetitle	,
+			   moveopen		,
+			   like_createdt
+		from "Wedaily"."move_like"
+		<where>
+			likeid = #{likeid}
+		</where>
+		 ORDER by move_num ASC	   
+	</select>
 </mapper>
