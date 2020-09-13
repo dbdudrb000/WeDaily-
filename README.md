@@ -49,14 +49,17 @@
 
 # 로그인,회원가입
 ![login.PNG](./resources/img/readmeimg/login.PNG)
+▶ 회원가입할때는 간단한 핸드폰인증을 거쳐야 가입이 가능합니다. 
 
 # 영화순위
 ![movieRanking.PNG](./resources/img/readmeimg/movieRanking.PNG)
 - 영화순위는 메인화면에서 (일간,주간,주말)3개중 1개를 선택해서 볼 수 있습니다.
+- 영화진흥위원회에서 제공하는 RestAPI를 사용하여 일간,주간,주말 에 영화순위들의 정보를 얻어왔습니다.
 
 # 영화 상영관 시간표 
 ![movieTimes.PNG](./resources/img/readmeimg/movieTimes.PNG)
 - 해당지역 -> 특정 상영관 -> 상영중인 상영관,시간표를 보실 수 있습니다.
+- 해당 정보들은 크롤링을 하여 정보들을 얻어와 활용하였습니다.
 
 # CGV SNS 보러가기
 ![CgvSns.PNG](./resources/img/readmeimg/CgvSns.PNG)
@@ -69,6 +72,7 @@
 # 게시판 메인
 ![comunity_main.PNG](./resources/img/readmeimg/comunity_main.PNG)
 - 게시글을 등록하실 때 에디터로 이미지같은것을 손쉽게 첨부가능합니다.
+- 에디터는 summernote 에디터 사용.
 
 # WeDaily-
 일상 생활에서 흔히 접할 수 있는 영화의 정보들을 볼 수 있고 상영중인 영화시간 CGV에 대한 다양한 이벤트,정보를 볼 수 있는  프로젝트이다.
