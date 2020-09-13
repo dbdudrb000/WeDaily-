@@ -13,14 +13,28 @@ public class WeDailyVO {
 	private int moveLike = 0;
 	private String my_self = "";
 	private String Satisfaction = "";
+	private String board_count = "";
 	
 	// 찜한 영화리스트 ( 번호 , 제목 , 개봉일 , 찜한 ID, 찜한 날짜 )
 	private int move_num = 0; 
 	private String movetitle = ""; 
 	private String moveOpen = ""; 
-	private String createdt = "";
+	private String like_createdt = "";
 	private String likeid = "";
 	
+	// 게시판 관리 
+	private int board_number = 0;
+	private String board_title = "";
+	private String board_user = "";
+	private String board_detail = "";
+	private String board_kind = "";
+	private String board_createdt = "";
+	
+	// 검색 기능 
+	private String search_title_detail = "";
+	private String search_kind = "";
+	private String search_writer = "";
+	private String search_keyword = "";
 	
 	// 영화순위
 	private String rank  = ""; 
@@ -42,8 +56,7 @@ public class WeDailyVO {
 	private String image = "";
 	private String pubDate = "";
 	private String move_genre= "";
-	private String move_country= "";
-	
+	private String move_country= "";	
 	private String move_open= "";
 	private String move_rating= "";
 	private String move_code= "";
@@ -51,6 +64,75 @@ public class WeDailyVO {
 	
 	
 	
+	
+	
+	
+	public String getSearch_title_detail() {
+		return search_title_detail;
+	}
+	public void setSearch_title_detail(String search_title_detail) {
+		this.search_title_detail = search_title_detail;
+	}
+	public String getSearch_kind() {
+		return search_kind;
+	}
+	public void setSearch_kind(String search_kind) {
+		this.search_kind = search_kind;
+	}
+	public String getSearch_writer() {
+		return search_writer;
+	}
+	public void setSearch_writer(String search_writer) {
+		this.search_writer = search_writer;
+	}
+	public String getSearch_keyword() {
+		return search_keyword;
+	}
+	public void setSearch_keyword(String search_keyword) {
+		this.search_keyword = search_keyword;
+	}
+	public int getBoard_number() {
+		return board_number;
+	}
+	public void setBoard_number(int board_number) {
+		this.board_number = board_number;
+	}
+	public String getBoard_createdt() {
+		return board_createdt;
+	}
+	public void setBoard_createdt(String board_createdt) {
+		this.board_createdt = board_createdt;
+	}
+	public String getBoard_title() {
+		return board_title;
+	}
+	public void setBoard_title(String board_title) {
+		this.board_title = board_title;
+	}
+	public String getBoard_user() {
+		return board_user;
+	}
+	public void setBoard_user(String board_user) {
+		this.board_user = board_user;
+	}
+	public String getBoard_detail() {
+		return board_detail;
+	}
+	public void setBoard_detail(String board_detail) {
+		this.board_detail = board_detail;
+	}
+	public String getBoard_kind() {
+		return board_kind;
+	}
+	public void setBoard_kind(String board_kind) {
+		this.board_kind = board_kind;
+	}
+	public String getBoard_count() {
+		return board_count;
+	}
+	public void setBoard_count(String board_count) {
+		this.board_count = board_count;
+	}
 	public String getMy_self() {
 		return my_self;
 	}
@@ -107,11 +189,11 @@ public class WeDailyVO {
 		this.pubDate = pubDate;
 	}
 	
-	public String getCreatedt() {
-		return createdt;
+	public String getLike_createdt() {
+		return like_createdt;
 	}
-	public void setCreatedt(String createdt) {
-		this.createdt = createdt;
+	public void setLike_createdt(String like_createdt) {
+		this.like_createdt = like_createdt;
 	}
 	public String getPubDate() {
 		return pubDate;
