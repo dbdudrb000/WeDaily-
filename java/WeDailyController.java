@@ -17,6 +17,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -32,8 +33,14 @@ import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.fasterxml.jackson.databind.JsonNode;
 
 import org.jsoup.Jsoup;
 import org.jsoup.select.Elements;
@@ -44,7 +51,8 @@ import org.jsoup.select.Elements;
 //import org.openqa.selenium.chrome.ChromeDriver;
 import org.jsoup.nodes.Document;
 
-
+import collabo.wato.springboot.web.WeDaily.kakao_login.KakaoController;
+import collabo.wato.springboot.web.WeDaily.kakao_login.kakaoLogout;
 //import collabo.wato.springboot.web.WebConfig;
 import collabo.wato.springboot.web.WeDaily.service.WeDailyService;
 import collabo.wato.springboot.web.WeDaily.vo.WeDailyVO;
@@ -392,32 +400,56 @@ public class WeDailyController {
     	
     }
     
-    // 로그인 or 회원가입 하는 페이지 이동
-    @RequestMapping("/WeDailyJoinView")
-    public String memberJoin(HttpServletRequest request, HttpServletResponse response) {
+    
+    /* 일반 회원가입 페이지 이동 */
+    @RequestMapping("/original_join")
+    public String original_join(HttpServletRequest request, HttpServletResponse response) {
     	
-    	return "/main/WeDaily/login/WeDailyJoin";
+    	return"main/WeDaily/login/kakao_join";
+    }//   /main/WeDaily/login/wedaily_login
+    
+    /*  로그인 페이지 이동 */
+    @RequestMapping("/original_login")
+    public String original_login(HttpServletRequest request, HttpServletResponse response,HttpSession session) {
+    	String kakaoUrl = KakaoController.getAuthorizationUrl(session);
+    	
+    	request.setAttribute("kakao_url", kakaoUrl);
+    	return"main/WeDaily/login/wedaily_login";
     }
     
+
     // 회원가입 하는 Controller
     @RequestMapping("/WeDailyjoinLogic")
     public String join(HttpServletRequest request, HttpServletResponse response)throws Exception {
     	WeDailyVO vo = new WeDailyVO();
-    	
-    	String id = request.getParameter("idName");
-    	String password = request.getParameter("password");
+    	String use = request.getParameter("use");
+    	String id = request.getParameter("userId");
+    	String password = request.getParameter("password1");
     	String nickname = request.getParameter("nickname");
-    	String phone = request.getParameter("phone");
-    	
-    	System.out.println("id >> " + id);
-    	vo.setUserid(id);
-    	vo.setUserpw(password);
-    	vo.setNickname(nickname);
-    	vo.setPhone(phone);
-    	
+    	String userName = request.getParameter("userName");
+    	String phone = request.getParameter("phoneId");
+    	  	
+    	if("kakao".equals(use)) {
+    		vo.setUserid(id);
+        	vo.setUserpw(password);
+        	vo.setNickname(nickname);
+        	vo.setUsername(userName);
+        	vo.setPhone(phone);
+        	vo.setSocial("카카오");
+        	System.out.println("카카오 가니?");
+    	}else {
+    		vo.setUserid(id);
+        	vo.setUserpw(password);
+        	vo.setNickname(nickname);
+        	vo.setUsername(userName);
+        	vo.setPhone(phone);
+        	vo.setSocial("기존");
+        	System.out.println("기존 가니??");
+    	}
+    	   		
     	service.insertUser(vo);
 
-    	return "redirect:/move";
+    	return "redirect:/moveMain";
     }
     
     // 로그인 로직 Controller
@@ -427,7 +459,8 @@ public class WeDailyController {
     	
     	String loginId = request.getParameter("loginId");
     	String loginPw = request.getParameter("loginPw");
-    	
+    	String remember = request.getParameter("id_check");
+    	 
     	System.out.println("loginId >> " + loginId);
     	vo.setUserid(loginId);
     	vo.setUserpw(loginPw);
@@ -441,6 +474,23 @@ public class WeDailyController {
     		
     		return "/main/WeDaily/login/WeDailyJoin";
     	}else {
+    		if("id_storage".equals(remember)) {
+    			/* id 저장하기 기능 쿠키 생성  */
+        		Cookie cookie = new Cookie("id_storage_id",loginId);
+        		cookie.setMaxAge(60 * 60 * 24);
+        		cookie.setPath("/");
+        		response.addCookie(cookie);
+        		System.out.println("쿠키 타니");
+    		}else {
+    			/* 체크가 안되어잇을때 쿠키  초기화 */
+    			Cookie cookie = new Cookie("id_storage_id",null);
+    			cookie.setMaxAge(0);
+    			cookie.setPath("/");
+    			response.addCookie(cookie);
+    			System.out.println("쿠키 취소");
+    		}
+    		
+    		
     		session.setAttribute("loginList", loginList.get(0));
 	    	
 	    	return "redirect:/moveMain";
@@ -451,11 +501,17 @@ public class WeDailyController {
     // 로그아웃 하는 Controller
     @RequestMapping("/WeDailyLogout")
     public String logout(HttpServletRequest request, HttpServletResponse response, WeDailyVO vo, HttpSession session) throws Exception {
-    		    	
-    	session.invalidate();   
-    	    	   		
-		return "forward:/moveMain";
+    	String social = request.getParameter("social");
     	
+    	if("카카오".equals(social)) {
+    		kakaoLogout.kakaoLogout((String)session.getAttribute("token"));
+        	session.invalidate();   
+        	System.out.println("카카오 로그아웃@");
+    	}else {
+    		System.out.println("일반 로그아웃@");
+    		session.invalidate();   
+    	}
+		return "forward:/moveMain";
     }
     
     // 로컬 이미지 불러오는 Controller
@@ -827,15 +883,132 @@ public class WeDailyController {
 		return "/main/WeDaily/mypage/like_movie";
 	}
 	
+	  //카카오 소셜 로그인  
+	@RequestMapping(value = "/kakaologin.do", produces = "application/json", method = { RequestMethod.GET, RequestMethod.POST }) 
+	public ModelAndView kakaoLogin(@RequestParam("code") String code, HttpServletRequest request, 
+									HttpServletResponse response, HttpSession session) throws Exception {
+		WeDailyVO vo = new WeDailyVO();
+		
+		ModelAndView mav = new ModelAndView(); // 결과값을 node에 담아줌 
+		JsonNode node = KakaoController.getAccessToken(code); // accessToken에 사용자의 로그인한 모든 정보가 들어있음 
+		System.out.println("node >> " + node);
+		JsonNode accessToken = node.get("access_token"); // 사용자의 정보
+		JsonNode userInfo = KakaoController.getKakaoUserInfo(accessToken); 
+		System.out.println("userInfo >> " + userInfo);
+		String id = null; 
+		String name = null; 
+		String image = null;
+		// 유저정보 카카오에서 가져오기 Get properties 
+		
+		JsonNode properties = userInfo.path("properties");
+		JsonNode kakao_account = userInfo.path("kakao_account"); 
+			
+		id = userInfo.path("id").asText();
+		name = properties.path("nickname").asText(); 
+		image = properties.path("profile_image").asText(); 
+		
+		vo.setUserid(id);
+		vo.setUsername(name);
+		vo.setSocial("카카오"); 
+		System.out.println("name >> " + name + "\nimage" + image +"\nID : " + id);
+		
+		List<WeDailyVO> userList = service.kakao_memberCheck(vo);
+		JsonNode token = accessToken;
+		/*  if -> 카카오 로그인 -> 회원가입 이동 (신규 회원)
+		    else 카카오 로그인 -> 메인 화면 (기존 회원)*/
+		
+		if(userList.isEmpty()) {
+			System.out.println("토캔 >> "+token.asText());
+			session.setAttribute("token", token.asText());
+			request.setAttribute("kakaoid", id);
+			request.setAttribute("kakaoName",name);
+			System.out.println("회원???");
+			mav.setViewName("main/WeDaily/login/kakao_join");
+		}else {
+			System.out.println("메인?? >> " +userList.get(0).getUserid());
+			session.setAttribute("token",token.asText());
+			session.setAttribute("loginList", userList.get(0));
+			mav.setViewName("redirect:/moveMain");
+		}
+		
+		return mav; 
+	
+	} // end kakaoLogin()  
+
+	// 회원 ID 중복체크 
+	@ResponseBody
+	@RequestMapping("/join/id_overlapping")
+	public int id_overlapping(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		WeDailyVO vo = new WeDailyVO();
+		String id = request.getParameter("id");
+		vo.setUserid(id);
+		
+		int result = service.idOverlapping(vo);
+		return result;	
+	}
+	
+	/*  id찾기 or 비밀번호 찾기 페이지 이동 */
+	@RequestMapping("/find_place")
+	public String find_location(HttpServletRequest request, HttpServletResponse response) {
+		String find_place = request.getParameter("find_place");
+		
+		if("find_id".equals(find_place)) {
+			return"/main/WeDaily/login/find_id";
+		}else {
+			return "/main/WeDaily/login/find_pw";
+		}	
+	}
+	
+	// ID찾기
+	@ResponseBody
+	@RequestMapping("/find_id")
+	public String find_id(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		WeDailyVO vo = new WeDailyVO();
+		
+		vo.setUsername(request.getParameter("findName"));
+		vo.setPhone(request.getParameter("findPhone"));
+		
+		String resultID = service.find_id(vo);
+		System.out.println("resultID >> " + resultID);
+		
+		return resultID;
+	}
+	
+	// 비밀번호 찾기
+	@ResponseBody
+	@RequestMapping("/find_pw")
+	public int find_pw(HttpServletRequest request, HttpServletResponse response,HttpSession session) throws Exception {
+		// id  name phone
+		WeDailyVO vo = new WeDailyVO();
+		vo.setUserid(request.getParameter("userId"));
+		vo.setUsername(request.getParameter("userName"));
+		vo.setPhone(request.getParameter("phone"));
+		
+		int result = service.idOverlapping(vo);	
+		return result;
+	}
+	
+	// 비밀번호 찾기 후 비밀번호 변경
+	@RequestMapping("/find_updatePw")
+	public String find_updatePw(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		WeDailyVO vo = new WeDailyVO();
+		vo.setUserid(request.getParameter("modal_findId"));
+		vo.setUserpw(request.getParameter("modal_findPw"));
+		
+		System.out.println("아이디 >> "+request.getParameter("modal_findId"));
+		System.out.println("비번 >> "+ request.getParameter("modal_findPw"));
+		service.memberUpdate(vo);
+		
+		return "redirect:/original_login";
+	}
+	
 	
 	// test용 page
 	@RequestMapping("/testgo")
-	public String testgo(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		Document doc = Jsoup.connect("http://www.cgv.co.kr/culture-event/event/defaultNew.aspx?mCode=006#1").get();
-		 
-        Elements infoList = doc.select("#contaniner #contents .cols-content .col-detail event");
-        System.out.println("나와라!!! " +infoList.toString());
-		return "/main/test";
+	public String testgo(HttpServletRequest request, HttpServletResponse response,HttpSession session) throws Exception {
+	
+		
+		return "/main/WeDaily/login/find_pw";
 	}
  		
 }
