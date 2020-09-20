@@ -36,20 +36,19 @@
       <a href = "/moveMain">
       	<!-- <div id="logo"></div> -->
       </a> 
-      <ul class="nav">   
+      <ul class="nav"> 	
       	<li id="main_logo"><a href="/moveMain">HOME</a></li>	
       	<li><input type = "text" name = "search" id = "search"></li>
       	<li><button type = "button" onclick = "search()">검색</button></li>
-      	<c:if test = "${loginList.userid == null }">
-	        <li><a href="/WeDailyJoinView">로그인</a></li>
-	        <li><a href="/WeDailyJoinView">회원가입</a></li>
+      	<c:if test = "${ empty loginList }">
+	        <li><a href="/original_login">로그인</a></li>
+	        <li><a href="/original_join">회원가입</a></li>
 	        <li><a href="/community_main?nickname=${loginList.nickname}">커뮤니티</a></li>
-	        <li><a href="#">Wow</a></li>
         </c:if>
-        <c:if test = "${loginList.userid != null }">
-        	<li><a href="#">${loginList.userid}님!</a></li> 
+        <c:if test = "${!empty loginList }">
+        	<li><a href="#">${loginList.nickname}님!</a></li> 
         	<input type = "hidden" id = "userid" value = "${loginList.nickname}">      									
-	        <li><a href="/WeDailyLogout">로그아웃</a></li>
+	        <li><a href="/WeDailyLogout?social=${loginList.social}">로그아웃</a></li>
 	        <li id="dropdown"><a href="#">Mypage</a>
 	        	<span id="sub_ul">		        		
         			<a href="/wedailymypage?userid=${sessionScope.loginList.userid}">정보수정</a>
@@ -103,33 +102,19 @@
 <div class="section">
   <div class="container">
     <h1 class="reset">간략소개</h1>
+    <h2>영화를 사랑하는 사람들의 모임 | 우리의 일상을 편리하게 WeDAily | 포토폴리오목적으로 제작되었습니다.</h2>
   </div>
 </div>
 <div class="section">
   <div class="footer">
     <div class="container white">
-      <div class="col four left">
-        <h1>What?</h1>
-        <p>So that's it. This started out as 20 minutes of making fun of modern web dev. Then it turned into a few hours of it.</p>
-        <p>I hope you've enjoyed looking at every modern website ever.</p>
-        <p>I don't actually hate this style as long as the content is meaningful. In fact, I think this type of design is pretty cool and effective.</p>
-      </div>
-      <div class="col four left">
-        <h1>How?</h1>
-        <p>CSS3 and HTML. JS for header shrinking; optional. Site works perfectly with JS disabled (another gripe of mine with modern web dev).</p>
-        <p>Only external libraries are GFonts.</p>
-        <p>Moderately responsive, should work on anything modern.</p>
-      </div>
-      <div class="col four left">
-        <h1>Why?</h1>
-        <p>Many popular HTML themes have thousands of lines of HTML, thousands of lines of CSS and several JS plugins on every page amounting to tens of thousands of lines of JavaScript.</p>
-        <p>I fail to see a valid reason for this, particularly the horrendous line counts that are usually due to unused features or badly designed code.</p>
-      </div>
-      <div class="col four left">
-        <h1>Who?</h1>
-        <p>I'm Andrew.</p>
-        <p>You can get in touch with me through <a href="http://atunnecliffe.com">http://atunnecliffe.com</a> or <a href="mailto:andrew@atunnecliffe.com">emailing me</a>.</p>
-      </div>
+      <div class="col four left" style="margin-left: 43%;">
+        <h1>WeDaily 사이트 소개</h1>
+        <p>서울특별시 마포구 용강동000-00 제작자:유영규</p>
+        <p>전화:010-1234-5678  이메일: dbdudrb00@naver.com</p>
+        <p>이메일 상담 시간: 연중무휴 09:00~18:00</p>
+        <p style="font-weight: 800;">이용약관 | 개인정보처리방침</p> 
+      </div>   
       <div class="group"></div>
     </div>
   </div>

@@ -81,38 +81,37 @@
 </head>
 <body>
 
-<div class="hold">
-  <div class="header">
-    <div class="container" id="container">
-      <a href = "/moveMain">
-      	<!-- <div id="logo"></div> -->
-      </a> 
-      <ul class="nav">   
-      	<li id="main_logo"><a href="/moveMain">HOME</a></li>	
-      	<li><input type = "text" name = "search" id = "search"></li>
-      	<li><button type = "button" onclick = "search()">검색</button></li>
-      	<c:if test = "${loginList.userid == null }">
-	        <li><a href="/WeDailyJoinView">로그인</a></li>
-	        <li><a href="/WeDailyJoinView">회원가입</a></li>
-	        <li><a href="/community_main?nickname=${loginList.nickname}">커뮤니티</a></li>
-	        <li><a href="#">Wow</a></li>
-        </c:if>
-        <c:if test = "${loginList.userid != null }">
-        	<li><a href="#">${loginList.nickname}님!</a></li> 
-        	<input type = "hidden" id = "userid" value = "${loginList.nickname}">      									
-	        <li><a href="/WeDailyLogout">로그아웃</a></li>
-	        <li id="dropdown"><a href="#">Mypage</a>
-	        	<span id="sub_ul">		        		
-        			<a href="/wedailymypage?userid=${sessionScope.loginList.userid}">정보수정</a>
-        			<a href="/movie_like?nickname=${sessionScope.loginList.nickname}">찜 리스트</a>
-        		</span>
-	        </li>
-	        <li><a href="/community_main?nickname=${loginList.nickname}">커뮤니티</a></li>
-        </c:if>
-      </ul>
-    </div>
-  </div>
-</div>
+	<div class="hold">
+	  <div class="header">
+	    <div class="container" id="container">
+	      <a href = "/moveMain">
+	      	<!-- <div id="logo"></div> -->
+	      </a> 
+	      <ul class="nav"> 	
+	      	<li id="main_logo"><a href="/moveMain">HOME</a></li>	
+	      	<li><input type = "text" name = "search" id = "search"></li>
+	      	<li><button type = "button" onclick = "search()">검색</button></li>
+	      	<c:if test = "${ empty loginList }">
+		        <li><a href="/original_login">로그인</a></li>
+		        <li><a href="/original_join">회원가입</a></li>
+		        <li><a href="/community_main?nickname=${loginList.nickname}">커뮤니티</a></li>
+	        </c:if>
+	        <c:if test = "${!empty loginList }">
+	        	<li><a href="#">${loginList.nickname}님!</a></li> 
+	        	<input type = "hidden" id = "userid" value = "${loginList.nickname}">      									
+		        <li><a href="/WeDailyLogout?social=${loginList.social}">로그아웃</a></li>
+		        <li id="dropdown"><a href="#">Mypage</a>
+		        	<span id="sub_ul">		        		
+	        			<a href="/wedailymypage?userid=${sessionScope.loginList.userid}">정보수정</a>
+	        			<a href="/movie_like?nickname=${sessionScope.loginList.nickname}">찜 리스트</a>
+	        		</span>
+		        </li>
+		        <li><a href="/community_main?nickname=${loginList.nickname}">커뮤니티</a></li>
+	        </c:if>
+	      </ul>
+	    </div>
+	  </div>
+	</div>
 
 	<div class="section">
 	  <div class="slider">
