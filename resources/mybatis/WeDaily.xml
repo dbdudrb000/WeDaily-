@@ -12,7 +12,9 @@
 			phone		, 
 			use			, 
 			createdt	,  
-			movelike
+			movelike	,
+			username	,
+			social
 		)
 		VALUES
 		(	  
@@ -22,7 +24,9 @@
 			#{phone}		, 
 			'Y'				, 
 			now()			, 
-			0
+			0				,
+			#{username}		,
+			#{social}
 		);
 	</insert>
 	
@@ -35,7 +39,9 @@
 				use 		,
 				createDt 	,
 				moveLike 	,
-				my_self
+				username	,
+				my_self		,
+				social
 		FROM "Wedaily"."members"
 		<where>
 			AND 1=1
@@ -78,17 +84,17 @@
 			</where>
 	</update>
 	
+	<!-- 영화찜을 할시에 result가 'plus' 면은 증가 그외에는 감소를 하게 된다. -->
 	<update id = "likeplmi" parameterType="HashMap">
 		update "Wedaily".members 
 			SET
 		movelike = 
-			CASE WHEN #{result} = 'plus' THEN movelike +1
-				ELSE
-			movelike -1
+			CASE WHEN #{result} = 'plus' THEN movelike+1
+				 ELSE movelike-1
 			END
 			<where>
 				<if test = "likeid != '' and likeid != null">
-				 	userid = #{likeid}	
+				 	nickname = #{likeid}	
 				</if>
 			</where>												
 	</update>
@@ -162,11 +168,14 @@
 			now()
 		);
 	</insert>
-	<!-- 게시판 등록시 특정 회원 board_count  증가 -->
-	<update id="memberBoardCount" parameterType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO">
+	<!-- 게시판 등록,삭제 시 board_count 증가,감소 시키는 쿼리  -->
+	<update id="memberBoardCount" parameterType="HashMap">
 		update "Wedaily"."members"
 		<set>
-			board_count = board_count+1
+			board_count = CASE WHEN #{result} = 'plus' 
+							   THEN board_count+1
+							   ELSE board_count-1
+						  END
 		</set>
 		<where>
 			nickname = #{board_user}
@@ -259,5 +268,65 @@
 			likeid = #{likeid}
 		</where>
 		 ORDER by move_num ASC	   
+	</select>
+	
+	<!-- 카카오 소셜 로그인 회원 우뮤 조회 -->
+	<select id="kakao_memberCheck" parameterType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO" resultType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO">
+		select  userid 		,
+				userpw		,
+				nickname 	,
+				phone 		,
+				use 		,
+				createDt 	,
+				moveLike 	,
+				username	,
+				my_self		,
+				social
+		from "Wedaily"."members"
+		<where>
+			<if test = "social != '' and social != null">
+				'카카오' = #{social}	
+			</if>
+			<if test = "userid != '' and userid != null">
+				AND	userid = #{userid}	
+			</if>
+			<if test="username != '' and username != null">
+				AND username = #{username}
+			</if>
+		</where>
+	</select>
+	
+	<!-- ID 중복체크, 비밀번호 찾기 -->
+	<select id="idOverlapping" parameterType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO" resultType="int">
+		select 
+			count(*) 
+		from "Wedaily"."members"
+		<where>
+		AND 1=1
+			<if test="userid != null and userid != ''">
+				AND	userid = #{userid}
+			</if>
+			<if test="username != null and username != ''">
+				AND username = #{username}
+			</if>
+			<if test="phone != null and phone != ''">
+				AND phone = #{phone} 
+			</if>
+		</where>
+	</select>
+	
+	<!-- 회원정보 ID찾기 -->
+	<select id="find_id" parameterType="collabo.wato.springboot.web.WeDaily.vo.WeDailyVO" resultType="String">
+		select 
+			userid
+		from "Wedaily"."members"
+		<where>
+			<if test="username != null and username != ''">
+					username = #{username}
+			</if>
+			<if test="phone != '' and phone != null">
+				AND phone = #{phone}
+			</if>
+		</where>
 	</select>
 </mapper>
