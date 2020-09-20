@@ -85,13 +85,16 @@ public class WeDailyServiceImpl implements WeDailyService{
 	@Override
 	@Transactional
 	public void boardInsert(WeDailyVO vo) throws Exception {
+		Map<String,String> map = new HashMap<String, String>();
+		map.put("result","plus");
+		map.put("board_user", vo.getBoard_user());
+		
 		// 게시판 등록
 		mapper.boardInsert(vo);
 		
-		// member "board_count" +1 해주는 mapper
-		mapper.memberBoardCount(vo);
-		
+		mapper.memberBoardCount(map);	
 	}
+	
 	/* Main 게시판 조회 */
 	@Override
 	public List<WeDailyVO> selectBoard(WeDailyVO vo) throws Exception {
@@ -114,7 +117,14 @@ public class WeDailyServiceImpl implements WeDailyService{
 	}
 	/* 게시글 삭제 */
 	@Override
+	@Transactional
 	public void delete_board(WeDailyVO vo) throws Exception {
+		Map<String,String> map = new HashMap<String, String>();
+		map.put("result","minus");
+		map.put("board_user", vo.getBoard_user());
+		
+		mapper.memberBoardCount(map);
+		
 		mapper.delete_board(vo);
 	}
 	@Override
@@ -128,6 +138,26 @@ public class WeDailyServiceImpl implements WeDailyService{
 		
 		return mapper.select_movieLike(vo);
 	}
+	/* 카카오 소셜 로그인 회원 유무 조회 */
+	@Override
+	public List<WeDailyVO> kakao_memberCheck(WeDailyVO vo) throws Exception{
+		
+		return mapper.kakao_memberCheck(vo);
+	}
+	// ID 중복체크
+	@Override
+	public int idOverlapping(WeDailyVO vo)throws Exception {
+		
+		return mapper.idOverlapping(vo);
+		
+	}
+	// ID 차직
+	@Override
+	public String find_id(WeDailyVO vo) throws Exception {
+		
+		return mapper.find_id(vo);
+	}
+	
 	
 	
 	

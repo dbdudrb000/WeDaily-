@@ -45,6 +45,14 @@ public interface WeDailyService {
 	 // 찜한 영화 조회
 	 List<WeDailyVO> select_movieLike(WeDailyVO vo) throws Exception;
 	 
+	 // 카카오 소셜로그인 회원조회
+	 List<WeDailyVO> kakao_memberCheck(WeDailyVO vo) throws Exception;
+	 // ID 중복체크
+	 int idOverlapping(WeDailyVO vo) throws Exception;
+	 
+	 // ID 찾기
+	 String find_id(WeDailyVO vo) throws Exception;
+	
 	 
 	 
 	 
