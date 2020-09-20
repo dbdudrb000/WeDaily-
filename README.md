@@ -17,6 +17,8 @@
     
     ○ Tool : Eclipse
 
+● API : RestAPI,카카오 소셜로그인 API
+
 # 목적
 ● 해당 프로젝트는 API,크롤링을 활용하여 만든 프로젝트이다.
 
@@ -29,6 +31,8 @@
 
 # 프로젝트 주요 기능
 ● 회원가입 및 로그인, 로그아웃 기능
+
+    ○ 회원가입 및 로그인은 카카오ID로 간편하게 이용가능합니다.
 
 ● 휴대폰 문자인증 기능 
 
@@ -49,8 +53,9 @@
 ![mainpage.PNG](./resources/img/readmeimg/mainpage.PNG)
 
 # 로그인,회원가입
-![login.PNG](./resources/img/readmeimg/login.PNG)
-▶ 회원가입할때는 간단한 핸드폰인증을 거쳐야 가입이 가능합니다. 
+![kakao_join_login.PNG](./resources/img/readmeimg/kakao_join_login.PNG)
+▶ 회원가입 경로는 일반회원가입, 카카오ID로 회원가입
+- 카카오로 한번 가입하면은 다음 로그인 시 자동으로 로그인이 됩니다.
 
 # 영화순위
 ![movieRanking.PNG](./resources/img/readmeimg/movieRanking.PNG)
