@@ -14,6 +14,8 @@ public class WeDailyVO {
 	private String my_self = "";
 	private String Satisfaction = "";
 	private String board_count = "";
+	private String social = "";
+	private String username = "";
 	
 	// 찜한 영화리스트 ( 번호 , 제목 , 개봉일 , 찜한 ID, 찜한 날짜 )
 	private int move_num = 0; 
@@ -67,6 +69,18 @@ public class WeDailyVO {
 	
 	
 	
+	public String getSocial() {
+		return social;
+	}
+	public void setSocial(String social) {
+		this.social = social;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	public String getSearch_title_detail() {
 		return search_title_detail;
 	}
@@ -251,7 +265,7 @@ public class WeDailyVO {
 	public void setUserpw(String userpw) {
 		this.userpw = userpw;
 	}
-	public String getNickname() {
+	public String getNickname() {// 1
 		return nickname;
 	}
 	public void setNickname(String nickname) {
@@ -300,12 +314,6 @@ public class WeDailyVO {
 	}
 	public void setMoveOpen(String moveOpen) {
 		this.moveOpen = moveOpen;
-	}
-	public String getnickname() {
-		return nickname;
-	}
-	public void setnickname(String nickname) {
-		this.nickname = nickname;
 	}
 	
 	public String getMovetitle() {
