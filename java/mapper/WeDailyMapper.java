@@ -41,7 +41,7 @@ public interface WeDailyMapper {
 	void boardInsert(WeDailyVO vo) throws Exception;
 	
 	// 게시판 등록시 count 증가
-	void memberBoardCount(WeDailyVO vo) throws Exception;
+	void memberBoardCount(Map<String, String> map) throws Exception;
 	
 	//게시판 조회
 	List<WeDailyVO> selectBoard(WeDailyVO vo) throws Exception;
@@ -58,4 +58,14 @@ public interface WeDailyMapper {
 	List<WeDailyVO> search(WeDailyVO vo) throws Exception;
 	// 찜한 영화 조회
 	List<WeDailyVO> select_movieLike(WeDailyVO vo) throws Exception;
+	
+	/* 카카오 소셜 로그인 회원 유무 조회 */
+	List<WeDailyVO> kakao_memberCheck(WeDailyVO vo) throws Exception;
+	
+	// ID 중복체크 
+	int idOverlapping(WeDailyVO vo) throws Exception;
+	// ID 찾기
+	String find_id(WeDailyVO vo) throws Exception;
+	
+
 }
